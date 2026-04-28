@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Invitation Letter Generator Canada</title>
+
+<style>
+body {
+    font-family: Arial;
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+}
+
+input, button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+button {
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#output {
+    white-space: pre-line;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Invitation Letter Generator (Canada)</h2>
+
+<input id="name" placeholder="Your Full Name">
+<input id="address" placeholder="Your Address">
+<input id="guest" placeholder="Guest Name">
+<input id="purpose" placeholder="Purpose of Visit">
+<input id="start" placeholder="Start Date">
+<input id="end" placeholder="End Date">
+
+<button onclick="generate()">Generate Letter</button>
+
+<div id="output"></div>
+
+<script>
+function generate() {
+
+    const name = document.getElementById("name").value;
+    const address = document.getElementById("address").value;
+    const guest = document.getElementById("guest").value;
+    const purpose = document.getElementById("purpose").value;
+    const start = document.getElementById("start").value;
+    const end = document.getElementById("end").value;
+
+    const letter = 
+`To Whom It May Concern,
+
+I, ${name}, residing at ${address} in Canada, would like to invite ${guest} to visit me in Canada.
+
+The purpose of the visit is ${purpose}, and the intended duration of stay is from ${start} to ${end}.
+
+During their stay, ${guest} will be accommodated at my residence.
+
+I will ensure that all necessary arrangements are in place for their visit.
+
+Please feel free to contact me if you require any further information.
+
+Sincerely,
+${name}`;
+
+    document.getElementById("output").innerText = letter;
+}
+</script>
+
+</body>
+</html>
