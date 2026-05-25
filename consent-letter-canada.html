@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Child Travel Consent Letter Canada – Free Generator | LetterHelper.ca</title>
+<meta name="description" content="Generate a free child travel consent letter for Canada. Required when a child travels with one parent or another adult. Instant PDF download.">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</head>
+<body>
+<div class="navbar">
+  <a href="index.html">Home</a>
+  <a href="invitation-letter-canada.html">Invitation</a>
+  <a href="proof-of-address-canada.html">Proof</a>
+  <a href="employment-letter-canada.html">Employment</a>
+  <a href="consent-letter-canada.html">Consent</a>
+  <a href="landlord-letter-canada.html">Landlord</a>
+  <a href="authorization-letter-canada.html">Authorization</a>
+  <a href="cosigner-letter-canada.html">Co-Signer</a>
+</div>
+
+<div class="hero">
+  <h1>Child Travel Consent Letter Canada</h1>
+  <p>Allow your child to travel with one parent or another adult — safely and legally.</p>
+  <div class="trust-line">Free · No signup · Instant PDF download · CBSA accepted format</div>
+  <div class="use-cases">
+    <span class="chip">✈️ International Travel</span>
+    <span class="chip">🇺🇸 Travel to USA</span>
+    <span class="chip">👨‍👩‍👧 One Parent Travel</span>
+    <span class="chip">🎒 School Trip</span>
+    <span class="chip">👴 With Grandparents</span>
+  </div>
+</div>
+
+<div class="container">
+  <div class="form-grid">
+    <div>
+      <label>Consenting Parent / Guardian Name</label>
+      <input id="parent" placeholder="e.g. Sara Ahmed">
+    </div>
+    <div>
+      <label>Second Parent Name (if applicable)</label>
+      <input id="parent2" placeholder="e.g. Omar Ahmed (leave blank if sole guardian)">
+    </div>
+    <div>
+      <label>Child's Full Name</label>
+      <input id="child" placeholder="e.g. Ali Ahmed">
+    </div>
+    <div>
+      <label>Child's Date of Birth</label>
+      <input id="dob" placeholder="e.g. March 15, 2015">
+    </div>
+    <div>
+      <label>Accompanying Person's Full Name</label>
+      <input id="accompany" placeholder="e.g. Maria Smith">
+    </div>
+    <div>
+      <label>Relationship to Child</label>
+      <input id="relation" placeholder="e.g. aunt, grandparent, teacher, other parent">
+    </div>
+    <div>
+      <label>Destination</label>
+      <input id="destination" placeholder="e.g. United States, Mexico, United Kingdom">
+    </div>
+    <div>
+      <label>Travel Dates</label>
+      <input id="dates" placeholder="e.g. July 1 – July 20, 2026">
+    </div>
+    <div class="form-full">
+      <label>Purpose of Travel</label>
+      <textarea id="purpose" placeholder="Describe the purpose of travel..."></textarea>
+      <div class="quick-fill">
+        <span class="qf-chip" onclick="fillPurpose('family visit and vacation')">👨‍👩‍👧 Family Visit</span>
+        <span class="qf-chip" onclick="fillPurpose('school trip organized by the school')">🎒 School Trip</span>
+        <span class="qf-chip" onclick="fillPurpose('tourism and sightseeing')">🏖️ Tourism</span>
+        <span class="qf-chip" onclick="fillPurpose('visiting grandparents and extended family')">👴 Grandparents</span>
+      </div>
+    </div>
+    <div>
+      <label>Parent Emergency Contact</label>
+      <input id="phone" placeholder="e.g. (416) 555-0123">
+    </div>
+    <div>
+      <label>Parent Email (optional)</label>
+      <input id="email" placeholder="e.g. sara@email.com">
+    </div>
+  </div>
+  <div class="buttons">
+    <button class="primary" onclick="generateLetter()">⚡ Generate Letter</button>
+    <button class="secondary" onclick="copyLetter()">📋 Copy</button>
+    <button class="pdf-btn" onclick="downloadPDF()">⬇ Download PDF</button>
+    <button class="secondary" onclick="window.print()">🖨 Print</button>
+  </div>
+  <div id="output">Your consent letter will appear here after you click Generate.</div>
+</div>
+
+<div class="accepts-section">
+  <div class="accepts-inner">
+    <h3>Where Is This Letter Required?</h3>
+    <div class="accepts-grid">
+      <div class="accept-item"><span class="icon">🛂</span>CBSA Border Officers</div>
+      <div class="accept-item"><span class="icon">✈️</span>Airlines & Airports</div>
+      <div class="accept-item"><span class="icon">🏛️</span>Foreign Immigration</div>
+      <div class="accept-item"><span class="icon">🎒</span>School Trip Organizers</div>
+    </div>
+  </div>
+</div>
+
+<div class="info-grid">
+  <div class="info-card">
+    <h3>What is a Child Travel Consent Letter?</h3>
+    <p>A child travel consent letter is a signed document from a parent or legal guardian giving permission for a minor to travel internationally — with one parent, a relative, or another adult. It helps prevent international child abduction and may be requested by border officers, airlines, or immigration officials.</p>
+  </div>
+  <div class="info-card">
+    <h3>What Should Be Included?</h3>
+    <ul>
+      <li>Consenting parent(s) full name(s)</li>
+      <li>Child's full name and date of birth</li>
+      <li>Accompanying person's name and relationship</li>
+      <li>Destination country or countries</li>
+      <li>Travel dates (departure and return)</li>
+      <li>Purpose of travel</li>
+      <li>Emergency contact information</li>
+      <li>Parent(s) signature(s)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="faq-section">
+  <div class="faq-inner">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <div class="faq-q">Is a consent letter required for a child to cross the US-Canada border?</div>
+      <div class="faq-a">While not legally mandatory, the Canada Border Services Agency (CBSA) and US Customs strongly recommend a consent letter when a child is travelling with only one parent or with someone who is not their parent or guardian. Border officers can deny entry without one.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does the letter need to be notarized?</div>
+      <div class="faq-a">CBSA does not require notarization, but it is strongly recommended for international travel outside North America. A notarized letter is taken more seriously by foreign border officials. For US travel, a signed letter is generally sufficient.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What if one parent is deceased or has sole custody?</div>
+      <div class="faq-a">If one parent is deceased, bring a copy of the death certificate. If you have sole custody, bring a copy of the custody agreement or court order. Include a reference to these documents in the consent letter for clarity.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Should both parents sign the letter?</div>
+      <div class="faq-a">Yes — ideally both parents or guardians should sign. If only one parent is signing, note in the letter why the other parent is not signing (e.g. sole guardian, other parent deceased, other parent is the accompanying adult).</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can this letter be used if the child is travelling alone?</div>
+      <div class="faq-a">This template is designed for travel with an adult companion. If your child is travelling as an unaccompanied minor, contact the airline directly — they have specific unaccompanied minor programs and forms that apply.</div>
+    </div>
+  </div>
+</div>
+
+<div class="disclaimer">This tool provides a general child travel consent letter template for informational purposes only and does not constitute legal advice. Requirements vary by country and situation — consult a legal professional for complex custody or travel situations.</div>
+
+<footer class="footer">
+  <p>© 2026 LetterHelper.ca — Free Canadian Letter Generator</p>
+  <p><a href="index.html">Home</a><a href="#">Privacy Policy</a><a href="#">Disclaimer</a><a href="#">Contact</a></p>
+</footer>
+
+<script>
+function fillPurpose(t){document.getElementById('purpose').value=t;}
+function generateLetter(){
+  const parent=document.getElementById("parent").value.trim()||"[Parent Name]";
+  const parent2=document.getElementById("parent2").value.trim();
+  const child=document.getElementById("child").value.trim()||"[Child Name]";
+  const dob=document.getElementById("dob").value.trim()||"[Date of Birth]";
+  const accompany=document.getElementById("accompany").value.trim()||"[Accompanying Person]";
+  const relation=document.getElementById("relation").value.trim()||"[Relationship]";
+  const destination=document.getElementById("destination").value.trim()||"[Destination]";
+  const dates=document.getElementById("dates").value.trim()||"[Travel Dates]";
+  const purpose=document.getElementById("purpose").value.trim()||"[Purpose]";
+  const phone=document.getElementById("phone").value.trim()||"[Phone]";
+  const email=document.getElementById("email").value.trim();
+  const today=new Date().toLocaleDateString('en-CA',{year:'numeric',month:'long',day:'numeric'});
+  const emailLine=email?` | ${email}`:"";
+  const parent2Block=parent2?`\n\nI, ${parent2}, also consent to this travel arrangement and confirm the above information is accurate.
+
+${parent2}
+_________________________
+Signature (Second Parent/Guardian)`:"";
+
+  const text=`${today}
+
+To Whom It May Concern,
+
+RE: Child Travel Consent Letter for ${child}
+
+I, ${parent}, am the parent/legal guardian of ${child}, date of birth ${dob}.
+
+I hereby give my full consent for ${child} to travel with ${accompany} (${relation}) to ${destination}.
+
+Travel Dates: ${dates}
+
+Purpose of Travel: ${purpose}
+
+I authorize ${accompany} to make any necessary decisions regarding the care and welfare of ${child} during the travel period. In case of emergency, I can be reached at: ${phone}${emailLine}
+
+I confirm that this consent is given voluntarily and that all information provided is true and accurate.
+
+Sincerely,
+
+${parent}
+_________________________
+Signature (Parent/Guardian)${parent2Block}`;
+  const out=document.getElementById("output");
+  out.innerText=text.trim();out.classList.add("has-content");
+}
+function copyLetter(){
+  const t=document.getElementById("output").innerText;
+  if(!t||t.includes("will appear here")){alert("Please generate the letter first.");return;}
+  navigator.clipboard.writeText(t);alert("Letter copied to clipboard.");
+}
+function downloadPDF(){
+  const t=document.getElementById("output").innerText;
+  if(!t||t.includes("will appear here")){alert("Please generate the letter first.");return;}
+  const{jsPDF}=window.jspdf;const doc=new jsPDF();
+  doc.setFont("times","normal");doc.setFontSize(12);
+  doc.text(doc.splitTextToSize(t,180),15,20);
+  doc.save("child-travel-consent-letter-canada.pdf");
+}
+document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>q.parentElement.classList.toggle('open')));
+</script>
+</body>
+</html>

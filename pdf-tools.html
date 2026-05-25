@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>LetterHelper PDF Tools</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:linear-gradient(180deg,#f8f9ff,#eef2ff);
+min-height:100vh;
+color:#1e293b;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:40px;
+}
+
+.topBar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+gap:20px;
+margin-bottom:35px;
+}
+
+.logoArea{
+display:flex;
+align-items:center;
+gap:16px;
+}
+
+.logoCircle{
+width:75px;
+height:75px;
+border-radius:50%;
+background:linear-gradient(135deg,#4f46e5,#7c3aed);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:38px;
+color:white;
+box-shadow:0 12px 30px rgba(79,70,229,.30);
+}
+
+.smallTitle{
+font-size:15px;
+color:#64748b;
+}
+
+.bigTitle{
+font-size:34px;
+font-weight:bold;
+}
+
+.stats{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.statCard{
+background:white;
+padding:18px;
+min-width:130px;
+text-align:center;
+border-radius:18px;
+box-shadow:0 5px 15px rgba(0,0,0,.06);
+}
+
+.number{
+font-size:34px;
+font-weight:bold;
+color:#4f46e5;
+}
+
+.label{
+color:#64748b;
+}
+
+.banner{
+background:linear-gradient(135deg,#4f46e5,#6d28d9,#9333ea);
+padding:35px;
+border-radius:25px;
+color:white;
+position:relative;
+overflow:hidden;
+box-shadow:0 18px 45px rgba(109,40,217,.28);
+margin-bottom:25px;
+}
+
+.banner:before{
+content:"";
+position:absolute;
+width:250px;
+height:250px;
+background:rgba(255,255,255,.08);
+border-radius:50%;
+top:-90px;
+right:-80px;
+}
+
+.banner h2{
+margin:0;
+font-size:38px;
+}
+
+.banner p{
+font-size:20px;
+margin-bottom:0;
+}
+
+.pills{
+display:flex;
+gap:15px;
+margin-top:25px;
+margin-bottom:35px;
+flex-wrap:wrap;
+}
+
+.pill{
+background:white;
+padding:12px 20px;
+border-radius:30px;
+box-shadow:0 4px 12px rgba(0,0,0,.06);
+}
+
+.tool-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:20px;
+cursor:pointer;
+transition:.3s;
+box-shadow:0 8px 20px rgba(0,0,0,.05);
+border:1px solid #e6eaf2;
+}
+
+.card:hover{
+transform:translateY(-7px);
+box-shadow:0 18px 35px rgba(0,0,0,.10);
+border-color:#7c3aed;
+}
+
+.card h3{
+margin-top:0;
+font-size:30px;
+}
+
+.card p{
+font-size:18px;
+color:#64748b;
+}
+
+.coming{
+opacity:.55;
+cursor:not-allowed;
+}
+
+.tool-box{
+display:none;
+background:white;
+padding:35px;
+margin-top:30px;
+border-radius:25px;
+box-shadow:0 10px 30px rgba(0,0,0,.06);
+}
+
+input{
+width:100%;
+padding:14px;
+border-radius:10px;
+border:1px solid #ddd;
+margin-top:12px;
+box-sizing:border-box;
+font-size:16px;
+}
+
+button{
+background:#4f46e5;
+color:white;
+border:none;
+padding:13px 18px;
+border-radius:12px;
+margin-top:15px;
+margin-right:8px;
+cursor:pointer;
+font-size:15px;
+}
+
+button:hover{
+background:#3730a3;
+}
+
+.fileRow{
+padding:14px;
+background:#f8fafc;
+margin-top:10px;
+border-radius:12px;
+border:1px solid #e5e7eb;
+}
+
+.statusText{
+color:#475569;
+font-weight:bold;
+}
+
+@media(max-width:800px){
+.container{
+padding:22px;
+}
+
+.bigTitle{
+font-size:26px;
+}
+
+.banner h2{
+font-size:30px;
+}
+
+.card h3{
+font-size:24px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="topBar">
+<div class="logoArea">
+<div class="logoCircle">✨</div>
+<div>
+<div class="smallTitle">Dream Team Toolbox 🚀</div>
+<div class="bigTitle">LetterHelper PDF Tools</div>
+</div>
+</div>
+
+<div class="stats">
+<div class="statCard">
+<div class="number">6</div>
+<div class="label">Tools Ready</div>
+</div>
+
+<div class="statCard">
+<div class="number">∞</div>
+<div class="label">Uploads</div>
+</div>
+
+<div class="statCard">
+<div class="number">100%</div>
+<div class="label">Local</div>
+</div>
+</div>
+</div>
+
+<div class="banner">
+<h2>Dream Team Toolbox 🚀</h2>
+<p>Fast • Friendly • Free • No Upload Limits</p>
+</div>
+
+<div class="pills">
+<div class="pill">⚡ Instant Processing</div>
+<div class="pill">🔒 Files stay on your device</div>
+<div class="pill">🇨🇦 Built for LetterHelper</div>
+</div>
+
+<h2>⭐ Most Used Tools</h2>
+
+<div class="tool-grid">
+
+<div class="card" onclick="toggleTool('mergeBox')">
+<h3>📑 Merge PDFs</h3>
+<p>Put documents together in the order you choose.</p>
+</div>
+
+<div class="card" onclick="toggleTool('splitBox')">
+<h3>✂️ Split PDF</h3>
+<p>Extract pages or save each page separately.</p>
+</div>
+
+<div class="card" onclick="toggleTool('imageBox')">
+<h3>🖼 Image → PDF</h3>
+<p>Turn screenshots, photos, and scans into PDF.</p>
+</div>
+
+<div class="card" onclick="toggleTool('deleteBox')">
+<h3>🗑 Delete Pages</h3>
+<p>Remove pages you no longer need.</p>
+</div>
+
+<div class="card coming">
+<h3>🔄 Rotate PDF</h3>
+<p>Coming soon.</p>
+</div>
+
+<div class="card coming">
+<h3>📉 Compress PDF</h3>
+<p>Coming soon.</p>
+</div>
+
+</div>
+
+<div id="mergeBox" class="tool-box">
+<h2>📑 Merge PDFs</h2>
+<p>Select PDF files, then move them up or down before merging.</p>
+<input type="file" id="pdfFiles" multiple accept=".pdf,application/pdf">
+<div id="mergeList"></div>
+<button onclick="mergePDFs()">Merge PDFs</button>
+<p id="mergeStatus" class="statusText"></p>
+</div>
+
+<div id="splitBox" class="tool-box">
+<h2>✂️ Split PDF</h2>
+<p>Extract selected pages or split every page into a separate PDF.</p>
+<input type="file" id="splitFile" accept=".pdf,application/pdf">
+<input id="pageNumbers" placeholder="Example: 1,3,5 or 2-4">
+<button onclick="splitPDF()">Extract Selected Pages</button>
+<button onclick="splitEveryPage()">Split Every Page</button>
+<p id="splitStatus" class="statusText"></p>
+</div>
+
+<div id="imageBox" class="tool-box">
+<h2>🖼 Image → PDF</h2>
+<p>Upload JPG, PNG, or WEBP images and turn them into a PDF.</p>
+<input type="file" id="images" multiple accept="image/jpeg,image/png,image/webp">
+<button onclick="convertToPDF()">Convert to PDF</button>
+<p id="status" class="statusText"></p>
+</div>
+
+<div id="deleteBox" class="tool-box">
+<h2>🗑 Delete PDF Pages</h2>
+<p>Enter pages you want removed, like 2,4 or 3-5.</p>
+<input type="file" id="deleteFile" accept=".pdf,application/pdf">
+<input id="deletePages" placeholder="Pages to remove: 2,4 or 3-5">
+<button onclick="deletePDFPages()">Delete Pages</button>
+<p id="deleteStatus" class="statusText"></p>
+</div>
+
+</div>
+
+<script>
+let orderedMergeFiles = [];
+
+function toggleTool(id){
+  const boxes = ["mergeBox","splitBox","imageBox","deleteBox"];
+
+  boxes.forEach(box => {
+    document.getElementById(box).style.display = "none";
+  });
+
+  document.getElementById(id).style.display = "block";
+  document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+
+document.getElementById("pdfFiles").addEventListener("change", function(){
+  orderedMergeFiles = Array.from(this.files);
+  showMergeList();
+});
+
+function showMergeList(){
+  const list = document.getElementById("mergeList");
+  list.innerHTML = "";
+
+  orderedMergeFiles.forEach((file,index)=>{
+    const row = document.createElement("div");
+    row.className = "fileRow";
+
+    row.innerHTML = `
+      <b>${index + 1}. ${file.name}</b><br>
+      <button onclick="moveUp(${index})">↑ Up</button>
+      <button onclick="moveDown(${index})">↓ Down</button>
+      <button onclick="removeFile(${index})">Remove</button>
+    `;
+
+    list.appendChild(row);
+  });
+}
+
+function moveUp(index){
+  if(index === 0) return;
+
+  [orderedMergeFiles[index], orderedMergeFiles[index-1]] =
+  [orderedMergeFiles[index-1], orderedMergeFiles[index]];
+
+  showMergeList();
+}
+
+function moveDown(index){
+  if(index === orderedMergeFiles.length - 1) return;
+
+  [orderedMergeFiles[index], orderedMergeFiles[index+1]] =
+  [orderedMergeFiles[index+1], orderedMergeFiles[index]];
+
+  showMergeList();
+}
+
+function removeFile(index){
+  orderedMergeFiles.splice(index,1);
+  showMergeList();
+}
+
+async function mergePDFs(){
+  const status = document.getElementById("mergeStatus");
+
+  if(orderedMergeFiles.length < 2){
+    status.textContent = "Select at least 2 PDFs.";
+    return;
+  }
+
+  status.textContent = "Merging...";
+
+  try{
+    const mergedPdf = await PDFLib.PDFDocument.create();
+
+    for(const file of orderedMergeFiles){
+      if(!file.name.toLowerCase().endsWith(".pdf")){
+        status.textContent = "Please select PDF files only.";
+        return;
+      }
+
+      const bytes = await file.arrayBuffer();
+
+      const pdf = await PDFLib.PDFDocument.load(bytes,{
+        ignoreEncryption:true
+      });
+
+      const pages = await mergedPdf.copyPages(
+        pdf,
+        pdf.getPageIndices()
+      );
+
+      pages.forEach(page => mergedPdf.addPage(page));
+    }
+
+    const mergedBytes = await mergedPdf.save();
+    const firstName = orderedMergeFiles[0].name.replace(/\.[^/.]+$/, "");
+
+    downloadPDF(mergedBytes, firstName + "-merged.pdf");
+    status.textContent = "Done. Your merged PDF has downloaded.";
+
+  }catch(error){
+    status.textContent = "Merge failed. One PDF may be locked, encrypted, or damaged.";
+    console.error(error);
+  }
+}
+
+async function convertToPDF(){
+  const status = document.getElementById("status");
+  const files = document.getElementById("images").files;
+
+  if(files.length === 0){
+    status.textContent = "Please choose image(s).";
+    return;
+  }
+
+  status.textContent = "Creating PDF...";
+
+  try{
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF("p","mm","a4");
+
+    for(let i=0;i<files.length;i++){
+      const file = files[i];
+
+      if(!file.type.startsWith("image/")){
+        status.textContent = "Please choose image files only.";
+        return;
+      }
+
+      const imageData = await readFileAsDataURL(file);
+      const img = await loadImage(imageData);
+
+      const pageWidth = 210;
+      const pageHeight = 297;
+      const margin = 10;
+
+      const maxWidth = pageWidth - margin * 2;
+      const maxHeight = pageHeight - margin * 2;
+
+      const ratio = Math.min(
+        maxWidth / img.width,
+        maxHeight / img.height
+      );
+
+      const imgWidth = img.width * ratio;
+      const imgHeight = img.height * ratio;
+
+      const x = (pageWidth - imgWidth) / 2;
+      const y = (pageHeight - imgHeight) / 2;
+
+      if(i > 0) pdf.addPage();
+
+      let format = "JPEG";
+      if(file.type.includes("png")) format = "PNG";
+      if(file.type.includes("webp")) format = "WEBP";
+
+      pdf.addImage(imageData, format, x, y, imgWidth, imgHeight);
+    }
+
+    const firstName = files[0].name.replace(/\.[^/.]+$/, "");
+    const finalName = files.length === 1 ? firstName + ".pdf" : firstName + "-merged.pdf";
+
+    pdf.save(finalName);
+    status.textContent = "Done. Your PDF has downloaded.";
+
+  }catch(error){
+    status.textContent = "Image to PDF failed.";
+    console.error(error);
+  }
+}
+
+function readFileAsDataURL(file){
+  return new Promise((resolve,reject)=>{
+    const reader = new FileReader();
+
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = () => reject();
+
+    reader.readAsDataURL(file);
+  });
+}
+
+function loadImage(src){
+  return new Promise((resolve,reject)=>{
+    const img = new Image();
+
+    img.onload = () => resolve(img);
+    img.onerror = () => reject();
+
+    img.src = src;
+  });
+}
+
+async function splitPDF(){
+  const status = document.getElementById("splitStatus");
+  const file = document.getElementById("splitFile").files[0];
+  const pageInput = document.getElementById("pageNumbers").value.trim();
+
+  if(!file){
+    status.textContent = "Choose PDF.";
+    return;
+  }
+
+  if(!pageInput){
+    status.textContent = "Enter pages like 1,3,5 or 2-4.";
+    return;
+  }
+
+  try{
+    status.textContent = "Extracting...";
+
+    const bytes = await file.arrayBuffer();
+
+    const originalPdf = await PDFLib.PDFDocument.load(bytes,{
+      ignoreEncryption:true
+    });
+
+    const totalPages = originalPdf.getPageCount();
+    const pages = parsePageNumbers(pageInput,totalPages);
+
+    if(pages.length === 0){
+      status.textContent = "No valid pages selected.";
+      return;
+    }
+
+    const newPdf = await PDFLib.PDFDocument.create();
+
+    const copiedPages = await newPdf.copyPages(
+      originalPdf,
+      pages
+    );
+
+    copiedPages.forEach(page => newPdf.addPage(page));
+
+    const newBytes = await newPdf.save();
+    const firstName = file.name.replace(/\.[^/.]+$/, "");
+
+    downloadPDF(newBytes, firstName + "-extract.pdf");
+    status.textContent = "Done. Your extracted PDF has downloaded.";
+
+  }catch(error){
+    status.textContent = "Extract failed. This PDF may be locked or damaged.";
+    console.error(error);
+  }
+}
+
+async function splitEveryPage(){
+  const status = document.getElementById("splitStatus");
+  const file = document.getElementById("splitFile").files[0];
+
+  if(!file){
+    status.textContent = "Choose PDF.";
+    return;
+  }
+
+  try{
+    status.textContent = "Splitting...";
+
+    const bytes = await file.arrayBuffer();
+
+    const originalPdf = await PDFLib.PDFDocument.load(bytes,{
+      ignoreEncryption:true
+    });
+
+    const totalPages = originalPdf.getPageCount();
+    const firstName = file.name.replace(/\.[^/.]+$/, "");
+
+    for(let i=0;i<totalPages;i++){
+      const newPdf = await PDFLib.PDFDocument.create();
+
+      const [page] = await newPdf.copyPages(
+        originalPdf,
+        [i]
+      );
+
+      newPdf.addPage(page);
+
+      const newBytes = await newPdf.save();
+
+      downloadPDF(
+        newBytes,
+        firstName + "-page-" + (i+1) + ".pdf"
+      );
+    }
+
+    status.textContent = "Done. Each page downloaded separately.";
+
+  }catch(error){
+    status.textContent = "Split failed. This PDF may be locked or damaged.";
+    console.error(error);
+  }
+}
+
+async function deletePDFPages(){
+  const status = document.getElementById("deleteStatus");
+  const file = document.getElementById("deleteFile").files[0];
+  const pageInput = document.getElementById("deletePages").value.trim();
+
+  if(!file){
+    status.textContent = "Choose PDF.";
+    return;
+  }
+
+  if(!pageInput){
+    status.textContent = "Enter pages to delete.";
+    return;
+  }
+
+  try{
+    status.textContent = "Deleting pages...";
+
+    const bytes = await file.arrayBuffer();
+
+    const originalPdf = await PDFLib.PDFDocument.load(bytes,{
+      ignoreEncryption:true
+    });
+
+    const totalPages = originalPdf.getPageCount();
+    const pagesToRemove = parsePageNumbers(pageInput,totalPages);
+
+    if(pagesToRemove.length === 0){
+      status.textContent = "No valid pages selected.";
+      return;
+    }
+
+    const keepPages = [];
+
+    for(let i=0;i<totalPages;i++){
+      if(!pagesToRemove.includes(i)){
+        keepPages.push(i);
+      }
+    }
+
+    if(keepPages.length === 0){
+      status.textContent = "You cannot delete every page.";
+      return;
+    }
+
+    const newPdf = await PDFLib.PDFDocument.create();
+
+    const copiedPages = await newPdf.copyPages(
+      originalPdf,
+      keepPages
+    );
+
+    copiedPages.forEach(page => newPdf.addPage(page));
+
+    const newBytes = await newPdf.save();
+    const firstName = file.name.replace(/\.[^/.]+$/, "");
+
+    downloadPDF(newBytes, firstName + "-pages-removed.pdf");
+    status.textContent = "Done. Pages removed PDF has downloaded.";
+
+  }catch(error){
+    status.textContent = "Delete failed. This PDF may be locked or damaged.";
+    console.error(error);
+  }
+}
+
+function parsePageNumbers(input,totalPages){
+  const pages = new Set();
+  const parts = input.split(",");
+
+  for(const part of parts){
+    const clean = part.trim();
+
+    if(clean.includes("-")){
+      const [start,end] = clean.split("-").map(Number);
+
+      if(!isNaN(start) && !isNaN(end)){
+        const low = Math.min(start,end);
+        const high = Math.max(start,end);
+
+        for(let i=low;i<=high;i++){
+          if(i >= 1 && i <= totalPages){
+            pages.add(i-1);
+          }
+        }
+      }
+
+    }else{
+      const page = Number(clean);
+
+      if(!isNaN(page) && page >= 1 && page <= totalPages){
+        pages.add(page-1);
+      }
+    }
+  }
+
+  return Array.from(pages).sort((a,b)=>a-b);
+}
+
+function downloadPDF(bytes,filename){
+  const blob = new Blob([bytes],{
+    type:"application/pdf"
+  });
+
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+
+  URL.revokeObjectURL(url);
+}
+</script>
+
+</body>
+</html>

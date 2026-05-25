@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proof of Address Letter Canada – Free Generator | LetterHelper.ca</title>
+<meta name="description" content="Generate a free proof of address letter for Canada. Accepted by banks, schools, and government offices. No signup. Instant PDF download.">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</head>
+<body>
+<div class="navbar">
+  <a href="index.html">Home</a>
+  <a href="invitation-letter-canada.html">Invitation</a>
+  <a href="proof-of-address-canada.html">Proof</a>
+  <a href="employment-letter-canada.html">Employment</a>
+  <a href="consent-letter-canada.html">Consent</a>
+  <a href="landlord-letter-canada.html">Landlord</a>
+  <a href="authorization-letter-canada.html">Authorization</a>
+  <a href="cosigner-letter-canada.html">Co-Signer</a>
+</div>
+
+<div class="hero">
+  <h1>Proof of Address Letter Canada</h1>
+  <p>Confirm your Canadian address for banks, schools, or government offices.</p>
+  <div class="trust-line">Free · No signup · Instant PDF download · Canadian format</div>
+  <div class="use-cases">
+    <span class="chip">🏦 Banking & Credit</span>
+    <span class="chip">🎓 School Registration</span>
+    <span class="chip">🏛️ Government Forms</span>
+    <span class="chip">✈️ Immigration</span>
+    <span class="chip">🏥 Healthcare</span>
+  </div>
+</div>
+
+<div class="container">
+  <div class="form-grid">
+    <div>
+      <label>Your Full Name (Confirming Party)</label>
+      <input id="name" placeholder="e.g. John Smith">
+    </div>
+    <div>
+      <label>Your Relationship to Resident</label>
+      <input id="relation" placeholder="e.g. landlord, parent, spouse, self">
+    </div>
+    <div class="form-full">
+      <label>Full Address</label>
+      <input id="address" placeholder="e.g. 123 Main Street, Toronto, ON M1A 1A1">
+    </div>
+    <div>
+      <label>Resident's Full Name</label>
+      <input id="resident" placeholder="e.g. Ahmed Ali">
+    </div>
+    <div>
+      <label>Residing Since</label>
+      <input id="since" placeholder="e.g. January 2024">
+    </div>
+    <div class="form-full">
+      <label>Purpose of Letter</label>
+      <textarea id="purpose" placeholder="Describe the purpose..."></textarea>
+      <div class="quick-fill">
+        <span class="qf-chip" onclick="fillPurpose('bank account opening and credit application')">🏦 Banking</span>
+        <span class="qf-chip" onclick="fillPurpose('school enrollment and registration')">🎓 School</span>
+        <span class="qf-chip" onclick="fillPurpose('government identity verification')">🏛️ Government</span>
+        <span class="qf-chip" onclick="fillPurpose('immigration and visa application purposes')">✈️ Immigration</span>
+      </div>
+    </div>
+    <div>
+      <label>Your Phone (optional)</label>
+      <input id="phone" placeholder="e.g. (416) 555-0123">
+    </div>
+    <div>
+      <label>Your Email (optional)</label>
+      <input id="email" placeholder="e.g. john@email.com">
+    </div>
+  </div>
+  <div class="buttons">
+    <button class="primary" onclick="generateLetter()">⚡ Generate Letter</button>
+    <button class="secondary" onclick="copyLetter()">📋 Copy</button>
+    <button class="pdf-btn" onclick="downloadPDF()">⬇ Download PDF</button>
+    <button class="secondary" onclick="window.print()">🖨 Print</button>
+  </div>
+  <div id="output">Your proof of address letter will appear here after you click Generate.</div>
+</div>
+
+<div class="accepts-section">
+  <div class="accepts-inner">
+    <h3>Where Is This Letter Accepted?</h3>
+    <div class="accepts-grid">
+      <div class="accept-item"><span class="icon">🏦</span>Banks & Credit Unions</div>
+      <div class="accept-item"><span class="icon">🎓</span>Schools & Colleges</div>
+      <div class="accept-item"><span class="icon">🏛️</span>Service Canada & CRA</div>
+      <div class="accept-item"><span class="icon">✈️</span>IRCC Applications</div>
+    </div>
+  </div>
+</div>
+
+<div class="info-grid">
+  <div class="info-card">
+    <h3>What is a Proof of Address Letter?</h3>
+    <p>A proof of address letter is a signed document confirming that a person lives at a specific Canadian address. It is commonly requested by banks, schools, government agencies, and immigration authorities when official address verification is required.</p>
+  </div>
+  <div class="info-card">
+    <h3>What Should Be Included?</h3>
+    <ul>
+      <li>Full name of the person confirming the address</li>
+      <li>Their relationship to the resident</li>
+      <li>Full Canadian address including postal code</li>
+      <li>Resident's full name</li>
+      <li>How long the resident has lived there</li>
+      <li>Purpose of the letter</li>
+      <li>Signature and contact information</li>
+    </ul>
+  </div>
+</div>
+
+<div class="faq-section">
+  <div class="faq-inner">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <div class="faq-q">Can I write a proof of address letter for myself?</div>
+      <div class="faq-a">Yes — if you own or rent your home and need to confirm your own address, you can write a self-declaration letter. However, many banks and government agencies prefer a letter from a landlord or third party. Always check what the requesting institution requires.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is this letter accepted by Canadian banks?</div>
+      <div class="faq-a">Most Canadian banks accept a signed proof of address letter when opening an account, especially for newcomers who may not yet have utility bills or government mail. Bring a photo ID along with the letter for best results.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What if I don't have bills in my name yet?</div>
+      <div class="faq-a">This is common for newcomers to Canada. A proof of address letter from your landlord, family member, or host is often the accepted solution when you don't yet have utility bills, bank statements, or government correspondence at your address.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does this letter need to be notarized?</div>
+      <div class="faq-a">In most cases, no. A signed letter is sufficient for banks, schools, and most government offices. Notarization may be required for certain legal or immigration proceedings — confirm with the requesting institution.</div>
+    </div>
+  </div>
+</div>
+
+<div class="disclaimer">This tool provides a general proof of address letter template for informational purposes only and does not constitute legal advice.</div>
+
+<footer class="footer">
+  <p>© 2026 LetterHelper.ca — Free Canadian Letter Generator</p>
+  <p><a href="index.html">Home</a><a href="#">Privacy Policy</a><a href="#">Disclaimer</a><a href="#">Contact</a></p>
+</footer>
+
+<script>
+function fillPurpose(t){document.getElementById('purpose').value=t;}
+function generateLetter(){
+  const name=document.getElementById("name").value.trim()||"[Your Name]";
+  const relation=document.getElementById("relation").value.trim()||"resident";
+  const address=document.getElementById("address").value.trim()||"[Address]";
+  const resident=document.getElementById("resident").value.trim()||"[Resident Name]";
+  const since=document.getElementById("since").value.trim()||"[Date]";
+  const purpose=document.getElementById("purpose").value.trim()||"[Purpose]";
+  const phone=document.getElementById("phone").value.trim();
+  const email=document.getElementById("email").value.trim();
+  const today=new Date().toLocaleDateString('en-CA',{year:'numeric',month:'long',day:'numeric'});
+  const contactLine=[phone,email].filter(Boolean).join(" | ");
+  const contactBlock=contactLine?`\nContact: ${contactLine}`:"";
+  const text=`${today}
+
+To Whom It May Concern,
+
+RE: Proof of Address for ${resident}
+
+I, ${name}, ${relation}, hereby confirm that ${resident} currently resides at the following address:
+
+${address}
+
+To the best of my knowledge, ${resident} has continuously resided at this address since ${since}.
+
+This letter is issued for the purpose of ${purpose}.
+
+I confirm that the information provided above is true and accurate to the best of my knowledge.
+
+Sincerely,
+
+${name}
+${address}${contactBlock}
+
+_________________________
+Signature`;
+  const out=document.getElementById("output");
+  out.innerText=text.trim();out.classList.add("has-content");
+}
+function copyLetter(){
+  const t=document.getElementById("output").innerText;
+  if(!t||t.includes("will appear here")){alert("Please generate the letter first.");return;}
+  navigator.clipboard.writeText(t);alert("Letter copied to clipboard.");
+}
+function downloadPDF(){
+  const t=document.getElementById("output").innerText;
+  if(!t||t.includes("will appear here")){alert("Please generate the letter first.");return;}
+  const{jsPDF}=window.jspdf;const doc=new jsPDF();
+  doc.setFont("times","normal");doc.setFontSize(12);
+  doc.text(doc.splitTextToSize(t,180),15,20);
+  doc.save("proof-of-address-canada.pdf");
+}
+document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>q.parentElement.classList.toggle('open')));
+</script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employment Letter Canada – Free Generator | LetterHelper.ca</title>
+<meta name="description" content="Generate a free professional employment verification letter for Canada. Accepted by banks, landlords, and immigration. No signup. Instant PDF download.">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<div class="navbar">
+  <a href="index.html">Home</a>
+  <a href="invitation-letter-canada.html">Invitation</a>
+  <a href="proof-of-address-canada.html">Proof</a>
+  <a href="employment-letter-canada.html">Employment</a>
+  <a href="consent-letter-canada.html">Consent</a>
+  <a href="landlord-letter-canada.html">Landlord</a>
+  <a href="authorization-letter-canada.html">Authorization</a>
+  <a href="cosigner-letter-canada.html">Co-Signer</a>
+</div>
+
+<div class="hero">
+  <h1>Employment Letter Canada</h1>
+  <p>Generate a professional employment verification letter in under a minute.</p>
+  <div class="trust-line">Free · No signup · Instant PDF download · Canadian format</div>
+  <div class="use-cases">
+    <span class="chip">🏦 Bank & Mortgage</span>
+    <span class="chip">🏠 Rental Application</span>
+    <span class="chip">✈️ Visa & Immigration</span>
+    <span class="chip">🎓 School Enrollment</span>
+    <span class="chip">📄 Loan Application</span>
+  </div>
+</div>
+
+<div class="container">
+  <div class="form-grid">
+    <div>
+      <label>Employer Name</label>
+      <input id="employer" placeholder="e.g. ABC Company Ltd.">
+    </div>
+    <div>
+      <label>Employee Name</label>
+      <input id="employee" placeholder="e.g. Maria Smith">
+    </div>
+    <div>
+      <label>Job Title</label>
+      <input id="job" placeholder="e.g. Customer Service Representative">
+    </div>
+    <div>
+      <label>Department (optional)</label>
+      <input id="dept" placeholder="e.g. Operations">
+    </div>
+    <div>
+      <label>Start Date</label>
+      <input id="start" placeholder="e.g. January 2022">
+    </div>
+    <div>
+      <label>End Date or "Present"</label>
+      <input id="end" placeholder="e.g. Present">
+    </div>
+    <div>
+      <label>Employment Type</label>
+      <input id="emptype" placeholder="e.g. Full-time, Part-time, Contract">
+    </div>
+    <div>
+      <label>Annual Salary (optional)</label>
+      <input id="salary" placeholder="e.g. $58,000 per year">
+    </div>
+    <div class="form-full">
+      <label>Authorized Signatory Name & Title (optional)</label>
+      <input id="signatory" placeholder="e.g. Jane Doe, Human Resources Manager">
+    </div>
+  </div>
+
+  <div class="buttons">
+    <button class="primary" onclick="generateLetter()">⚡ Generate Letter</button>
+    <button class="secondary" onclick="copyLetter()">📋 Copy</button>
+    <button class="pdf-btn" onclick="downloadPDF()">⬇ Download PDF</button>
+    <button class="secondary" onclick="window.print()">🖨 Print</button>
+  </div>
+  <div id="output">Your employment letter will appear here after you click Generate.</div>
+</div>
+
+<div class="accepts-section">
+  <div class="accepts-inner">
+    <h3>Who Accepts This Letter?</h3>
+    <div class="accepts-grid">
+      <div class="accept-item"><span class="icon">🏦</span>Banks & Credit Unions</div>
+      <div class="accept-item"><span class="icon">🏠</span>Landlords & Property Managers</div>
+      <div class="accept-item"><span class="icon">✈️</span>IRCC / Visa Officers</div>
+      <div class="accept-item"><span class="icon">🎓</span>Schools & Colleges</div>
+    </div>
+  </div>
+</div>
+
+<div class="info-grid">
+  <div class="info-card">
+    <h3>What is an Employment Letter?</h3>
+    <p>An employment letter confirms a person's employment status, position, and work history. It is commonly required for rental applications, banks, immigration, loans, and other official purposes in Canada.</p>
+  </div>
+  <div class="info-card">
+    <h3>What Should Be Included?</h3>
+    <ul>
+      <li>Employer's full legal name</li>
+      <li>Employee's full name</li>
+      <li>Job title and department</li>
+      <li>Employment start date</li>
+      <li>Employment type (full-time, part-time)</li>
+      <li>Salary or hourly rate (if required)</li>
+      <li>Authorized signature and date</li>
+    </ul>
+  </div>
+</div>
+
+<div class="faq-section">
+  <div class="faq-inner">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <div class="faq-q">Does this letter need to be on company letterhead?</div>
+      <div class="faq-a">Ideally yes — most banks and landlords expect the letter to be printed on company letterhead with a signature. After downloading or copying your letter, paste it into a Word document with your company's letterhead before printing.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is this letter accepted for a Canadian visa or IRCC application?</div>
+      <div class="faq-a">Yes, this letter follows the standard format expected by IRCC for employment verification. It is commonly used as a supporting document for visitor visas, study permits, work permits, and PR applications.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can a self-employed person use this letter?</div>
+      <div class="faq-a">This template is designed for employer-issued letters. If you are self-employed, you may use it as a self-declaration letter, but banks and government agencies often require additional proof such as business registration or Notice of Assessment from the CRA.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does the letter need to be notarized?</div>
+      <div class="faq-a">In most cases, no — a signed employment letter on company letterhead is sufficient for banks, landlords, and visa applications. Notarization is only required in rare legal or formal proceedings.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Should I include salary in the letter?</div>
+      <div class="faq-a">It depends on the purpose. Banks and mortgage lenders almost always require salary. Landlords may request it. For immigration purposes, salary is optional unless specifically requested by the visa officer.</div>
+    </div>
+  </div>
+</div>
+
+<div class="disclaimer">This tool provides a general employment letter template for informational purposes only and does not constitute legal or immigration advice.</div>
+
+<footer class="footer">
+  <p>© 2026 LetterHelper.ca — Free Canadian Letter Generator</p>
+  <p><a href="index.html">Home</a><a href="#">Privacy Policy</a><a href="#">Disclaimer</a><a href="#">Contact</a></p>
+</footer>
+
+<script>
+function generateLetter(){
+  const employer=document.getElementById("employer").value.trim()||"[Employer Name]";
+  const employee=document.getElementById("employee").value.trim()||"[Employee Name]";
+  const job=document.getElementById("job").value.trim()||"[Job Title]";
+  const dept=document.getElementById("dept").value.trim();
+  const start=document.getElementById("start").value.trim()||"[Start Date]";
+  const end=document.getElementById("end").value.trim()||"Present";
+  const emptype=document.getElementById("emptype").value.trim()||"full-time";
+  const salary=document.getElementById("salary").value.trim();
+  const signatory=document.getElementById("signatory").value.trim();
+  const today=new Date().toLocaleDateString('en-CA',{year:'numeric',month:'long',day:'numeric'});
+  const deptLine=dept?", "+dept+" Department":"";
+  const salaryLine=salary?"\n\nThe employee's current compensation is "+salary+".":"";
+  const sigLine=signatory?signatory:"Authorized Representative\n"+employer;
+  const text=today+"\n\nTo Whom It May Concern,\n\nRE: Employment Verification – "+employee+"\n\nThis letter is to confirm that "+employee+" is currently employed with "+employer+deptLine+" in the position of "+job+" on a "+emptype+" basis.\n\n"+employee+" has been with our organization since "+start+" and remains employed as of "+end+"."+salaryLine+"\n\nThis letter has been issued upon the request of "+employee+" for official purposes. Should you require any additional information, please do not hesitate to contact us.\n\nSincerely,\n\n\n"+sigLine+"\n\n_________________________\nAuthorized Signature";
+  const out=document.getElementById("output");
+  out.innerText=text;
+  out.classList.add("has-content");
+}
+function copyLetter(){
+  const t=document.getElementById("output").innerText;
+  if(!t||t.includes("will appear here")){alert("Please generate the letter first.");return;}
+  navigator.clipboard.writeText(t);alert("Letter copied to clipboard.");
+}
+function downloadPDF(){
+  const t=document.getElementById("output").innerText;
+  if(!t||t.includes("will appear here")){alert("Please generate the letter first.");return;}
+  const{jsPDF}=window.jspdf;const doc=new jsPDF();
+  doc.setFont("times","normal");doc.setFontSize(12);
+  doc.text(doc.splitTextToSize(t,180),15,20);
+  doc.save("employment-letter-canada.pdf");
+}
+document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>q.parentElement.classList.toggle('open')));
+</script>
+
+</body>
+</html>

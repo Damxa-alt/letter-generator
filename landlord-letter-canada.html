@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Landlord Letter Canada – Free Generator | LetterHelper.ca</title>
+<meta name="description" content="Generate a free landlord reference or rental verification letter for Canada. Accepted by banks, schools, immigration, and government offices. Instant PDF download.">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</head>
+<body>
+<div class="navbar">
+  <a href="index.html">Home</a>
+  <a href="invitation-letter-canada.html">Invitation</a>
+  <a href="proof-of-address-canada.html">Proof</a>
+  <a href="employment-letter-canada.html">Employment</a>
+  <a href="consent-letter-canada.html">Consent</a>
+  <a href="landlord-letter-canada.html">Landlord</a>
+  <a href="authorization-letter-canada.html">Authorization</a>
+  <a href="cosigner-letter-canada.html">Co-Signer</a>
+</div>
+
+<div class="hero">
+  <h1>Landlord Letter Canada</h1>
+  <p>Generate a landlord reference, rental verification, or proof of tenancy letter.</p>
+  <div class="trust-line">Free · No signup · Instant PDF download · Canadian format</div>
+  <div class="use-cases">
+    <span class="chip">🏦 Mortgage & Banking</span>
+    <span class="chip">🎓 School Enrollment</span>
+    <span class="chip">✈️ Visa Application</span>
+    <span class="chip">🏛️ Government Office</span>
+    <span class="chip">🏠 New Rental Reference</span>
+  </div>
+</div>
+
+<div class="container">
+  <div class="form-grid">
+    <div>
+      <label>Landlord Full Name</label>
+      <input id="landlord" placeholder="e.g. John Smith">
+    </div>
+    <div>
+      <label>Landlord Phone (optional)</label>
+      <input id="phone" placeholder="e.g. (416) 555-0123">
+    </div>
+    <div>
+      <label>Tenant Full Name</label>
+      <input id="tenant" placeholder="e.g. Ahmed Ali">
+    </div>
+    <div>
+      <label>Monthly Rent (optional)</label>
+      <input id="rent" placeholder="e.g. $1,800/month">
+    </div>
+    <div class="form-full">
+      <label>Rental Address</label>
+      <input id="address" placeholder="e.g. 123 Main Street, Unit 4B, Toronto, ON M1A 1A1">
+    </div>
+    <div>
+      <label>Tenant Since</label>
+      <input id="since" placeholder="e.g. January 2024">
+    </div>
+    <div>
+      <label>Lease End Date or "Month-to-Month"</label>
+      <input id="leaseend" placeholder="e.g. December 2026 or Month-to-Month">
+    </div>
+    <div class="form-full">
+      <label>Purpose of Letter</label>
+      <textarea id="purpose" placeholder="Describe the purpose..."></textarea>
+      <div class="quick-fill">
+        <span class="qf-chip" onclick="fillPurpose('proof of residence and address verification')">🏠 Proof of Residence</span>
+        <span class="qf-chip" onclick="fillPurpose('mortgage and bank application')">🏦 Banking</span>
+        <span class="qf-chip" onclick="fillPurpose('school enrollment and registration')">🎓 School</span>
+        <span class="qf-chip" onclick="fillPurpose('visa and immigration application')">✈️ Immigration</span>
+        <span class="qf-chip" onclick="fillPurpose('rental reference for a new property')">🏠 Rental Reference</span>
+      </div>
+    </div>
+    <div class="form-full">
+      <label>Tenant Standing (optional — e.g. good standing note)</label>
+      <input id="standing" placeholder="e.g. always paid on time, responsible tenant (leave blank to omit)">
+    </div>
+  </div>
+  <div class="buttons">
+    <button class="primary" onclick="generateLetter()">⚡ Generate Letter</button>
+    <button class="secondary" onclick="copyLetter()">📋 Copy</button>
+    <button class="pdf-btn" onclick="downloadPDF()">⬇ Download PDF</button>
+    <button class="secondary" onclick="window.print()">🖨 Print</button>
+  </div>
+  <div id="output">Your landlord letter will appear here after you click Generate.</div>
+</div>
+
+<div class="accepts-section">
+  <div class="accepts-inner">
+    <h3>Where Is This Letter Accepted?</h3>
+    <div class="accepts-grid">
+      <div class="accept-item"><span class="icon">🏦</span>Banks & Mortgage Lenders</div>
+      <div class="accept-item"><span class="icon">🎓</span>Schools & Colleges</div>
+      <div class="accept-item"><span class="icon">✈️</span>IRCC & Embassies</div>
+      <div class="accept-item"><span class="icon">🏛️</span>Government Offices</div>
+    </div>
+  </div>
+</div>
+
+<div class="info-grid">
+  <div class="info-card">
+    <h3>What is a Landlord Letter?</h3>
+    <p>A landlord letter is a written statement from a property owner or property manager confirming that a person rents or lives at a specific address in Canada. It serves as official proof of tenancy and is commonly required by banks, schools, visa offices, and government agencies.</p>
+  </div>
+  <div class="info-card">
+    <h3>What Should Be Included?</h3>
+    <ul>
+      <li>Landlord's full name and contact information</li>
+      <li>Tenant's full name</li>
+      <li>Full rental address including unit and postal code</li>
+      <li>Date tenancy began</li>
+      <li>Monthly rent amount (if required)</li>
+      <li>Lease end date or month-to-month status</li>
+      <li>Purpose of the letter</li>
+      <li>Landlord's signature</li>
+    </ul>
+  </div>
+</div>
+
+<div class="faq-section">
+  <div class="faq-inner">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <div class="faq-q">Can a tenant write their own landlord letter?</div>
+      <div class="faq-a">No — a landlord letter must come from the property owner or property manager, not the tenant. If you are a tenant who needs this letter, ask your landlord to fill out and sign it. You can use this tool to generate the draft for them to review and sign.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is the landlord letter accepted by Canadian banks for a mortgage?</div>
+      <div class="faq-a">Yes. Canadian banks and mortgage lenders often request proof of rental history as part of mortgage applications, especially for newcomers. A signed landlord letter on company or personal letterhead is generally accepted.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does the letter need to be notarized?</div>
+      <div class="faq-a">Notarization is generally not required for landlord letters in Canada. A signed letter is sufficient for most purposes including banking, school registration, and immigration applications.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What if my landlord is a property management company?</div>
+      <div class="faq-a">If your landlord is a property management company, the letter should be signed by an authorized representative of the company (e.g. property manager). Include the company name and their title in the signature block.</div>
+    </div>
+  </div>
+</div>
+
+<div class="disclaimer">This tool provides a general landlord letter template for informational purposes only and does not constitute legal advice. Tenancy laws vary by province — consult a legal professional for complex matters.</div>
+
+<footer class="footer">
+  <p>© 2026 LetterHelper.ca — Free Canadian Letter Generator</p>
+  <p><a href="index.html">Home</a><a href="#">Privacy Policy</a><a href="#">Disclaimer</a><a href="#">Contact</a></p>
+</footer>
+
+<script>
+function fillPurpose(t){document.getElementById('purpose').value=t;}
+function generateLetter(){
+  const landlord=document.getElementById("landlord").value.trim()||"[Landlord Name]";
+  const phone=document.getElementById("phone").value.trim();
+  const tenant=document.getElementById("tenant").value.trim()||"[Tenant Name]";
+  const rent=document.getElementById("rent").value.trim();
+  const address=document.getElementById("address").value.trim()||"[Rental Address]";
+  const since=document.getElementById("since").value.trim()||"[Date]";
+  const leaseend=document.getElementById("leaseend").value.trim()||"month-to-month";
+  const purpose=document.getElementById("purpose").value.trim()||"[Purpose]";
+  const standing=document.getElementById("standing").value.trim();
+  const today=new Date().toLocaleDateString('en-CA',{year:'numeric',month:'long',day:'numeric'});
+  const rentLine=rent?`\n\nThe monthly rent for this property is ${rent}.`:"";
+  const standingLine=standing?`\n\n${tenant} has been a ${standing} and I have no hesitation in providing this reference.`:"";
+  const phoneLine=phone?`\nPhone: ${phone}`:"";
+  const text=`${today}
+
+To Whom It May Concern,
+
+RE: Tenancy Confirmation for ${tenant}
+
+I, ${landlord}, confirm that ${tenant} is currently renting the following property:
+
+${address}
+
+${tenant} has been a tenant at this address since ${since}. The current lease is ${leaseend}.${rentLine}
+
+This letter is issued for the purpose of ${purpose}.${standingLine}
+
+If you require any further information, please do not hesitate to contact me.
+
+Sincerely,
+
+${landlord}${phoneLine}
+
+_________________________
+Signature (Landlord / Property Manager)`;
+  const out=document.getElementById("output");
+  out.innerText=text.trim();out.classList.add("has-content");
+}
+function copyLetter(){
+  const t=document.getElementById("output").innerText;
+  if(!t||t.includes("will appear here")){alert("Please generate the letter first.");return;}
+  navigator.clipboard.writeText(t);alert("Letter copied to clipboard.");
+}
+function downloadPDF(){
+  const t=document.getElementById("output").innerText;
+  if(!t||t.includes("will appear here")){alert("Please generate the letter first.");return;}
+  const{jsPDF}=window.jspdf;const doc=new jsPDF();
+  doc.setFont("times","normal");doc.setFontSize(12);
+  doc.text(doc.splitTextToSize(t,180),15,20);
+  doc.save("landlord-letter-canada.pdf");
+}
+document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>q.parentElement.classList.toggle('open')));
+</script>
+</body>
+</html>

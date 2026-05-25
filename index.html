@@ -2,84 +2,481 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Invitation Letter Generator Canada</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Letter Generator Canada | Official Canadian Letter Templates</title>
+<meta name="description" content="Generate free professional letters for Canada — invitation, employment, proof of address, consent, landlord & authorization letters. No signup. Instant PDF download.">
+<link rel="stylesheet" href="css/style.css">
 <style>
-body {
-    font-family: Arial;
-    max-width: 700px;
-    margin: auto;
-    padding: 20px;
-}
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&display=swap');
 
-input, button {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-}
+  :root {
+    --dark: #111827;
+    --accent: #2563eb;
+    --accent-light: #eff6ff;
+    --gray: #6b7280;
+    --border: #e5e7eb;
+  }
 
-button {
-    background: black;
+  body {
+    font-family: 'DM Sans', Arial, sans-serif;
+    background: linear-gradient(135deg, #eef2f7, #f8fafc);
+    margin: 0;
+    color: #111827;
+  }
+
+  /* ── NAVBAR ── */
+  .navbar {
+    background: #111827;
+    padding: 12px 20px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .navbar a {
     color: white;
-    border: none;
-    cursor: pointer;
-}
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 14px;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+  }
+  .navbar a:hover { opacity: 1; }
 
-#output {
-    white-space: pre-line;
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-top: 20px;
-}
+  /* ── HERO ── */
+  .hero {
+    background: #111827;
+    color: white;
+    text-align: center;
+    padding: 60px 20px 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(37,99,235,0.18) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(37,99,235,0.25);
+    color: #93c5fd;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+    border: 1px solid rgba(147,197,253,0.3);
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 42px;
+    margin: 0 0 16px;
+    line-height: 1.2;
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero p {
+    font-size: 17px;
+    color: #d1d5db;
+    margin: 0 0 24px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .trust-pills {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .trust-pill {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #d1d5db;
+    font-size: 13px;
+    padding: 5px 14px;
+    border-radius: 20px;
+  }
+
+  /* ── LETTER CARDS ── */
+  .cards-wrapper {
+    max-width: 900px;
+    margin: -55px auto 30px;
+    padding: 0 16px;
+  }
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .card {
+    background: white;
+    border-radius: 12px;
+    padding: 22px 20px;
+    text-decoration: none;
+    color: inherit;
+    border: 1.5px solid transparent;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 20px rgba(37,99,235,0.12);
+    transform: translateY(-2px);
+  }
+  .card-icon {
+    font-size: 26px;
+    margin-bottom: 2px;
+  }
+  .card-title {
+    font-weight: 700;
+    font-size: 15px;
+    color: #111827;
+  }
+  .card-desc {
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.5;
+  }
+  .card-tag {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 10px;
+    margin-top: 4px;
+    align-self: flex-start;
+  }
+
+  /* ── PDF TOOLS BANNER ── */
+  .pdf-banner {
+    max-width: 900px;
+    margin: 0 auto 30px;
+    padding: 0 16px;
+  }
+  .pdf-banner-inner {
+    background: #111827;
+    border-radius: 12px;
+    padding: 22px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .pdf-banner-text h3 {
+    color: white;
+    margin: 0 0 4px;
+    font-size: 17px;
+  }
+  .pdf-banner-text p {
+    color: #9ca3af;
+    margin: 0;
+    font-size: 13px;
+  }
+  .pdf-banner-link {
+    background: white;
+    color: #111827;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    white-space: nowrap;
+    transition: background 0.2s;
+  }
+  .pdf-banner-link:hover { background: #f3f4f6; }
+
+  /* ── HOW IT WORKS ── */
+  .how-section {
+    max-width: 900px;
+    margin: 0 auto 30px;
+    padding: 0 16px;
+  }
+  .how-inner {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+  }
+  .how-inner h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 24px;
+    margin: 0 0 24px;
+    text-align: center;
+  }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    text-align: center;
+  }
+  .step-num {
+    width: 36px;
+    height: 36px;
+    background: #111827;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 15px;
+    margin: 0 auto 10px;
+  }
+  .step h4 { margin: 0 0 6px; font-size: 15px; }
+  .step p { margin: 0; font-size: 13px; color: #6b7280; line-height: 1.5; }
+
+  /* ── FAQ ── */
+  .faq-section {
+    max-width: 900px;
+    margin: 0 auto 30px;
+    padding: 0 16px;
+  }
+  .faq-inner {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+  }
+  .faq-inner h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 24px;
+    margin: 0 0 20px;
+    text-align: center;
+  }
+  .faq-item {
+    border-bottom: 1px solid #f3f4f6;
+    padding: 14px 0;
+  }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-q {
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+  .faq-q::after {
+    content: '+';
+    font-size: 20px;
+    color: #9ca3af;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+  .faq-item.open .faq-q::after {
+    transform: rotate(45deg);
+  }
+  .faq-a {
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.6;
+    margin-top: 8px;
+    display: none;
+  }
+  .faq-item.open .faq-a { display: block; }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    padding: 25px;
+    color: #9ca3af;
+    font-size: 13px;
+    border-top: 1px solid #e5e7eb;
+    background: white;
+    margin-top: 10px;
+  }
+  .footer a { color: #6b7280; text-decoration: none; margin: 0 8px; }
+  .footer a:hover { color: #111827; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 700px) {
+    .hero { padding: 40px 16px 90px; }
+    .hero h1 { font-size: 30px; }
+    .cards-grid { grid-template-columns: 1fr 1fr; }
+    .steps { grid-template-columns: 1fr; gap: 16px; }
+    .pdf-banner-inner { flex-direction: column; text-align: center; }
+    .navbar a { display: inline-block; margin: 4px 6px; font-size: 13px; }
+  }
+  @media (max-width: 480px) {
+    .cards-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
-
 <body>
 
-<h2>Invitation Letter Generator (Canada)</h2>
+<div class="navbar">
+  <a href="index.html">Home</a>
+  <a href="invitation-letter-canada.html">Invitation</a>
+  <a href="proof-of-address-canada.html">Proof</a>
+  <a href="employment-letter-canada.html">Employment</a>
+  <a href="consent-letter-canada.html">Consent</a>
+  <a href="landlord-letter-canada.html">Landlord</a>
+  <a href="authorization-letter-canada.html">Authorization</a>
+  <a href="cosigner-letter-canada.html">Co-Signer</a>
+</div>
 
-<input id="name" placeholder="Your Full Name">
-<input id="address" placeholder="Your Address">
-<input id="guest" placeholder="Guest Name">
-<input id="purpose" placeholder="Purpose of Visit">
-<input id="start" placeholder="Start Date">
-<input id="end" placeholder="End Date">
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">🍁 Made for Canada</div>
+  <h1>Free Professional Letter Generator</h1>
+  <p>Generate, customize, and download official Canadian letters in seconds. No signup required.</p>
+  <div class="trust-pills">
+    <span class="trust-pill">✓ 100% Free</span>
+    <span class="trust-pill">✓ No Account Needed</span>
+    <span class="trust-pill">✓ Instant PDF Download</span>
+    <span class="trust-pill">✓ Canadian Formats</span>
+  </div>
+</div>
 
-<button onclick="generate()">Generate Letter</button>
+<!-- LETTER CARDS -->
+<div class="cards-wrapper">
+  <div class="cards-grid">
 
-<div id="output"></div>
+    <a class="card" href="invitation-letter-canada.html">
+      <div class="card-icon">✉️</div>
+      <div class="card-title">Invitation Letter</div>
+      <div class="card-desc">Invite a visitor to Canada for tourism, family, or events. Accepted by IRCC.</div>
+      <span class="card-tag">Immigration</span>
+    </a>
+
+    <a class="card" href="proof-of-address-canada.html">
+      <div class="card-icon">🏠</div>
+      <div class="card-title">Proof of Address</div>
+      <div class="card-desc">Confirm your Canadian address for banks, government, or official applications.</div>
+      <span class="card-tag">Banking & Gov</span>
+    </a>
+
+    <a class="card" href="employment-letter-canada.html">
+      <div class="card-icon">💼</div>
+      <div class="card-title">Employment Letter</div>
+      <div class="card-desc">Verify employment status, title, and salary. Required for mortgages, visas & rentals.</div>
+      <span class="card-tag">Work & Finance</span>
+    </a>
+
+    <a class="card" href="consent-letter-canada.html">
+      <div class="card-icon">✍️</div>
+      <div class="card-title">Consent Letter</div>
+      <div class="card-desc">Authorize a minor to travel within or outside Canada with one or no parents.</div>
+      <span class="card-tag">Family & Travel</span>
+    </a>
+
+    <a class="card" href="landlord-letter-canada.html">
+      <div class="card-icon">🔑</div>
+      <div class="card-title">Landlord Letter</div>
+      <div class="card-desc">Reference letter from a landlord confirming tenancy and good standing.</div>
+      <span class="card-tag">Housing</span>
+    </a>
+
+    <a class="card" href="authorization-letter-canada.html">
+      <div class="card-icon">📋</div>
+      <div class="card-title">Authorization Letter</div>
+      <div class="card-desc">Grant someone authority to act on your behalf for legal or personal matters.</div>
+      <span class="card-tag">Legal</span>
+    </a>
+
+  </div>
+</div>
+
+<!-- PDF TOOLS BANNER -->
+<div class="pdf-banner">
+  <div class="pdf-banner-inner">
+    <div class="pdf-banner-text">
+      <h3>🛠️ Need to edit your PDF? Try our free PDF Tools</h3>
+      <p>Merge, split, delete pages, convert to image — all free, all in your browser.</p>
+    </div>
+    <a class="pdf-banner-link" href="pdf-tools.html">Open PDF Tools →</a>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="how-section">
+  <div class="how-inner">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h4>Choose a Letter</h4>
+        <p>Pick the letter type you need from the options above.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h4>Fill in Your Details</h4>
+        <p>Enter your information — takes less than 60 seconds.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h4>Download or Print</h4>
+        <p>Copy, print, or download your letter as a PDF instantly.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section">
+  <div class="faq-inner">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">Are these letters accepted by IRCC and Canadian government?</div>
+      <div class="faq-a">Our letters follow standard Canadian formats commonly accepted by IRCC, banks, landlords, and employers. However, requirements vary by institution. We always recommend verifying with the requesting party before submitting.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Do I need to create an account?</div>
+      <div class="faq-a">No. All tools on LetterHelper.ca are completely free with no signup required. Your data stays in your browser and is never stored on our servers.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Can I edit the letter after generating it?</div>
+      <div class="faq-a">Yes. After generating your letter, you can copy the text and paste it into any word processor (Word, Google Docs) to make further edits before printing or saving.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Is the invitation letter valid for a Canadian visitor visa application?</div>
+      <div class="faq-a">An invitation letter is a supporting document for a visitor visa (TRV) application. It is not a guarantee of entry. The visa officer makes the final decision. Our template follows the standard format expected by IRCC.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Do I need to get the letter notarized?</div>
+      <div class="faq-a">Most letters generated here do not require notarization for everyday use (banking, rentals, employment verification). For legal or immigration proceedings, consult a notary or immigration consultant.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>© 2026 LetterHelper.ca — Free Canadian Letter Generator</p>
+  <p>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Disclaimer</a>
+    <a href="#">Contact</a>
+  </p>
+  <p style="margin-top:8px; font-size:12px;">These templates are for informational purposes only and do not constitute legal advice.</p>
+</div>
 
 <script>
-function generate() {
-
-    const name = document.getElementById("name").value;
-    const address = document.getElementById("address").value;
-    const guest = document.getElementById("guest").value;
-    const purpose = document.getElementById("purpose").value;
-    const start = document.getElementById("start").value;
-    const end = document.getElementById("end").value;
-
-    const letter = 
-`To Whom It May Concern,
-
-I, ${name}, residing at ${address} in Canada, would like to invite ${guest} to visit me in Canada.
-
-The purpose of the visit is ${purpose}, and the intended duration of stay is from ${start} to ${end}.
-
-During their stay, ${guest} will be accommodated at my residence.
-
-I will ensure that all necessary arrangements are in place for their visit.
-
-Please feel free to contact me if you require any further information.
-
-Sincerely,
-${name}`;
-
-    document.getElementById("output").innerText = letter;
-}
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      item.classList.toggle('open');
+    });
+  });
 </script>
 
-</body> 
-    
-    
+</body>
 </html>

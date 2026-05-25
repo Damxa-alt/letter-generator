@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Co-Signer & Guarantor Letter Canada – Free Generator | LetterHelper.ca</title>
+<meta name="description" content="Generate a free co-signer or guarantor letter for Canada. Used for rental applications, student loans, and leases. No signup. Instant PDF download.">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</head>
+<body>
+<div class="navbar">
+  <a href="index.html">Home</a>
+  <a href="invitation-letter-canada.html">Invitation</a>
+  <a href="proof-of-address-canada.html">Proof</a>
+  <a href="employment-letter-canada.html">Employment</a>
+  <a href="consent-letter-canada.html">Consent</a>
+  <a href="landlord-letter-canada.html">Landlord</a>
+  <a href="authorization-letter-canada.html">Authorization</a>
+  <a href="cosigner-letter-canada.html">Co-Signer</a>
+</div>
+
+<div class="hero">
+  <h1>Co-Signer & Guarantor Letter Canada</h1>
+  <p>Formally agree to co-sign or guarantee a lease, loan, or rental application.</p>
+  <div class="trust-line">Free · No signup · Instant PDF download · Canadian format</div>
+  <div class="use-cases">
+    <span class="chip">🏠 Rental Application</span>
+    <span class="chip">🎓 Student Housing</span>
+    <span class="chip">💳 Loan Co-Sign</span>
+    <span class="chip">🧑‍🎓 Student Loan</span>
+    <span class="chip">🆕 Newcomers to Canada</span>
+  </div>
+</div>
+
+<div class="container">
+  <label>Letter Type</label>
+  <div class="type-toggle">
+    <button class="type-btn active" id="btn-cosigner" onclick="setType('cosigner')">Co-Signer Letter</button>
+    <button class="type-btn" id="btn-guarantor" onclick="setType('guarantor')">Guarantor Letter</button>
+  </div>
+
+  <div class="warning-box">
+    <strong>⚠️ Important Before You Sign</strong>
+    As a co-signer or guarantor, you are legally responsible for the obligation if the primary applicant defaults. This includes unpaid rent, missed loan payments, or damages. Only sign if you fully understand and accept this responsibility.
+  </div>
+
+  <div class="form-grid">
+    <div>
+      <label>Co-Signer / Guarantor Full Name</label>
+      <input id="cosigner" placeholder="e.g. John Smith">
+    </div>
+    <div>
+      <label>Your Relationship to Applicant</label>
+      <input id="relation" placeholder="e.g. parent, sibling, employer, friend">
+    </div>
+    <div>
+      <label>Your Address</label>
+      <input id="cosignerAddress" placeholder="e.g. 456 Oak Ave, Toronto, ON M2B 2B2">
+    </div>
+    <div>
+      <label>Your Phone</label>
+      <input id="phone" placeholder="e.g. (416) 555-0199">
+    </div>
+    <div>
+      <label>Your Employment / Income (optional)</label>
+      <input id="income" placeholder="e.g. employed full-time at XYZ Corp, earning $70,000/year">
+    </div>
+    <div>
+      <label>Your Email (optional)</label>
+      <input id="email" placeholder="e.g. john@email.com">
+    </div>
+    <div>
+      <label>Primary Applicant Full Name</label>
+      <input id="applicant" placeholder="e.g. Ahmed Ali">
+    </div>
+    <div>
+      <label>Applicant's Date of Birth (optional)</label>
+      <input id="appDob" placeholder="e.g. March 10, 2000">
+    </div>
+    <div class="form-full">
+      <label>Property / Loan / Obligation Being Guaranteed</label>
+      <textarea id="obligation" placeholder="Describe what you are co-signing or guaranteeing..."></textarea>
+      <div class="quick-fill">
+        <span class="qf-chip" onclick="fillObligation('the lease agreement for the rental unit at [address], with a monthly rent of [amount]')">🏠 Rental Lease</span>
+        <span class="qf-chip" onclick="fillObligation('the student loan agreement in the amount of [amount] for academic studies at [institution]')">🎓 Student Loan</span>
+        <span class="qf-chip" onclick="fillObligation('the personal loan agreement in the amount of [amount]')">💳 Personal Loan</span>
+        <span class="qf-chip" onclick="fillObligation('the rental application for student housing at [institution/address]')">🏢 Student Housing</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <button class="primary" onclick="generateLetter()">⚡ Generate Letter</button>
+    <button class="secondary" onclick="copyLetter()">📋 Copy</button>
+    <button class="pdf-btn" onclick="downloadPDF()">⬇ Download PDF</button>
+    <button class="secondary" onclick="window.print()">🖨 Print</button>
+  </div>
+  <div id="output">Your co-signer / guarantor letter will appear here after you click Generate.</div>
+</div>
+
+<div class="accepts-section">
+  <div class="accepts-inner">
+    <h3>Where Is This Letter Used?</h3>
+    <div class="accepts-grid">
+      <div class="accept-item"><span class="icon">🏠</span>Landlords & Property Managers</div>
+      <div class="accept-item"><span class="icon">🎓</span>Universities & Colleges</div>
+      <div class="accept-item"><span class="icon">🏦</span>Banks & Lenders</div>
+      <div class="accept-item"><span class="icon">🆕</span>Newcomer Applications</div>
+    </div>
+  </div>
+</div>
+
+<div class="info-grid">
+  <div class="info-card">
+    <h3>Co-Signer vs. Guarantor — What's the Difference?</h3>
+    <p>A <strong>co-signer</strong> shares equal responsibility for the obligation from the start. If the primary applicant misses a payment, the co-signer is immediately liable.<br><br>A <strong>guarantor</strong> is a backup — they only become responsible if the primary applicant defaults and all other options are exhausted. Guarantors are common in rental and loan agreements in Canada.</p>
+  </div>
+  <div class="info-card">
+    <h3>Who Typically Needs This Letter?</h3>
+    <ul>
+      <li>Students renting their first apartment</li>
+      <li>Newcomers to Canada without credit history</li>
+      <li>Young adults applying for their first loan</li>
+      <li>International students needing housing</li>
+      <li>Anyone with limited credit applying for a lease</li>
+    </ul>
+  </div>
+</div>
+
+<div class="faq-section">
+  <div class="faq-inner">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <div class="faq-q">What are the risks of being a co-signer or guarantor in Canada?</div>
+      <div class="faq-a">As a co-signer or guarantor, you are legally liable if the primary person defaults. This means unpaid rent, missed loan payments, or damages could become your financial responsibility. It can also affect your credit score. Never co-sign for someone unless you trust them completely and can afford to cover the obligation yourself.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can a co-signer or guarantor be removed from a lease?</div>
+      <div class="faq-a">Removing a co-signer or guarantor from a lease or loan typically requires the lender or landlord's agreement and often involves the primary applicant requalifying on their own. This varies by province and by the terms of the original agreement.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does a guarantor need to live in Canada?</div>
+      <div class="faq-a">Most Canadian landlords and lenders require the guarantor to be a Canadian resident or citizen. International guarantors are generally not accepted because enforcing the agreement across borders is difficult.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do landlords in Canada require a guarantor?</div>
+      <div class="faq-a">Not always — but many landlords request a guarantor when a tenant has no Canadian credit history, limited income, or is a student. It is especially common for newcomers and first-time renters in cities like Toronto, Vancouver, and Ottawa.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does this letter need to be notarized?</div>
+      <div class="faq-a">Some landlords and lenders in Canada may request a notarized guarantor letter, especially for high-value leases or loans. A signed letter is usually sufficient for standard rental applications, but always confirm with the requesting party.</div>
+    </div>
+  </div>
+</div>
+
+<div class="disclaimer">This tool provides a general co-signer and guarantor letter template for informational purposes only and does not constitute legal or financial advice. Co-signing or guaranteeing an obligation is a serious legal commitment. Consult a legal professional before signing.</div>
+
+<footer class="footer">
+  <p>© 2026 LetterHelper.ca — Free Canadian Letter Generator</p>
+  <p><a href="index.html">Home</a><a href="#">Privacy Policy</a><a href="#">Disclaimer</a><a href="#">Contact</a></p>
+</footer>
+
+<script>
+let letterType='cosigner';
+function setType(t){
+  letterType=t;
+  document.getElementById('btn-cosigner').classList.toggle('active',t==='cosigner');
+  document.getElementById('btn-guarantor').classList.toggle('active',t==='guarantor');
+}
+function fillObligation(t){document.getElementById('obligation').value=t;}
+function generateLetter(){
+  const cosigner=document.getElementById("cosigner").value.trim()||"[Co-Signer Name]";
+  const relation=document.getElementById("relation").value.trim()||"[Relationship]";
+  const cosignerAddress=document.getElementById("cosignerAddress").value.trim()||"[Address]";
+  const phone=document.getElementById("phone").value.trim()||"[Phone]";
+  const income=document.getElementById("income").value.trim();
+  const email=document.getElementById("email").value.trim();
+  const applicant=document.getElementById("applicant").value.trim()||"[Applicant Name]";
+  const appDob=document.getElementById("appDob").value.trim();
+  const obligation=document.getElementById("obligation").value.trim()||"[Obligation Description]";
+  const today=new Date().toLocaleDateString('en-CA',{year:'numeric',month:'long',day:'numeric'});
+  const emailLine=email?` | ${email}`:"";
+  const incomeLine=income?`\n\nI am ${income}.`:"";
+  const dobLine=appDob?` (DOB: ${appDob})`:"";
+  const isGuarantor=letterType==='guarantor';
+  const role=isGuarantor?'Guarantor':'Co-Signer';
+  const roleDesc=isGuarantor
+    ?`As guarantor, I understand that I will be responsible for fulfilling the above obligation only in the event that ${applicant} fails to do so.`
+    :`As co-signer, I understand that I share equal responsibility for the above obligation alongside ${applicant} and may be held liable at any time.`;
+
+  const text=`${today}
+
+To Whom It May Concern,
+
+RE: ${role} Letter for ${applicant}
+
+I, ${cosigner}, ${relation} of ${applicant}${dobLine}, hereby agree to act as ${role.toLowerCase()} for the following obligation:
+
+${obligation}
+
+${roleDesc}${incomeLine}
+
+I confirm that I have read and understood the terms of this agreement and that I am willingly accepting this responsibility. I am prepared to fulfil the financial obligations outlined above should it become necessary.
+
+My contact information is provided below for verification purposes.
+
+Sincerely,
+
+${cosigner}
+${cosignerAddress}
+Phone: ${phone}${emailLine}
+
+_________________________
+Signature (${role})`;
+  const out=document.getElementById("output");
+  out.innerText=text.trim();out.classList.add("has-content");
+}
+function copyLetter(){
+  const t=document.getElementById("output").innerText;
+  if(!t||t.includes("will appear here")){alert("Please generate the letter first.");return;}
+  navigator.clipboard.writeText(t);alert("Letter copied to clipboard.");
+}
+function downloadPDF(){
+  const t=document.getElementById("output").innerText;
+  if(!t||t.includes("will appear here")){alert("Please generate the letter first.");return;}
+  const{jsPDF}=window.jspdf;const doc=new jsPDF();
+  doc.setFont("times","normal");doc.setFontSize(12);
+  doc.text(doc.splitTextToSize(t,180),15,20);
+  doc.save("cosigner-guarantor-letter-canada.pdf");
+}
+document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>q.parentElement.classList.toggle('open')));
+</script>
+</body>
+</html>

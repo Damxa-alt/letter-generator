@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Authorization Letter Canada – Free Generator | LetterHelper.ca</title>
+<meta name="description" content="Generate a free authorization letter for Canada. Allow someone to act on your behalf for documents, vehicles, medical, banking & more. No signup. Instant PDF download.">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<div class="navbar">
+  <a href="index.html">Home</a>
+  <a href="invitation-letter-canada.html">Invitation</a>
+  <a href="proof-of-address-canada.html">Proof</a>
+  <a href="employment-letter-canada.html">Employment</a>
+  <a href="consent-letter-canada.html">Consent</a>
+  <a href="landlord-letter-canada.html">Landlord</a>
+  <a href="authorization-letter-canada.html">Authorization</a>
+  <a href="cosigner-letter-canada.html">Co-Signer</a>
+</div>
+
+<div class="hero">
+  <h1>Authorization Letter Canada</h1>
+  <p>Allow someone to act on your behalf — generated in under a minute.</p>
+  <div class="trust-line">Free · No signup · Instant PDF download · Canadian format</div>
+  <div class="use-cases">
+    <span class="chip">📦 Pick Up Documents</span>
+    <span class="chip">🚗 Vehicle Matters</span>
+    <span class="chip">🏦 Banking</span>
+    <span class="chip">🏥 Medical</span>
+    <span class="chip">🏛️ Government Office</span>
+    <span class="chip">📬 Canada Post</span>
+  </div>
+</div>
+
+<div class="container">
+  <div class="form-grid">
+    <div>
+      <label>Your Full Name</label>
+      <input id="name" placeholder="e.g. Sara Ahmed">
+    </div>
+    <div>
+      <label>Your ID or Date of Birth (optional)</label>
+      <input id="myid" placeholder="e.g. DOB: Jan 1, 1990">
+    </div>
+    <div>
+      <label>Authorized Person's Full Name</label>
+      <input id="person" placeholder="e.g. Maria Smith">
+    </div>
+    <div>
+      <label>Their Relationship to You (optional)</label>
+      <input id="relation" placeholder="e.g. spouse, sibling, friend">
+    </div>
+    <div class="form-full">
+      <label>Purpose of Authorization</label>
+      <textarea id="purpose" placeholder="Describe what this person is authorized to do..."></textarea>
+      <div class="quick-fill">
+        <span class="qf-chip" onclick="fillPurpose('pick up my documents and mail from Canada Post')">📬 Canada Post</span>
+        <span class="qf-chip" onclick="fillPurpose('collect my vehicle registration and licence plates from the ServiceOntario office')">🚗 Vehicle Reg</span>
+        <span class="qf-chip" onclick="fillPurpose('submit and collect documents on my behalf at the government office')">🏛️ Gov Office</span>
+        <span class="qf-chip" onclick="fillPurpose('conduct banking transactions on my behalf including deposits and withdrawals')">🏦 Banking</span>
+        <span class="qf-chip" onclick="fillPurpose('make medical decisions and communicate with healthcare providers on my behalf')">🏥 Medical</span>
+      </div>
+    </div>
+    <div>
+      <label>Start Date</label>
+      <input id="start" placeholder="e.g. June 1, 2026">
+    </div>
+    <div>
+      <label>End Date</label>
+      <input id="end" placeholder="e.g. June 30, 2026">
+    </div>
+    <div class="form-full">
+      <label>Your Contact Number (optional)</label>
+      <input id="phone" placeholder="e.g. (416) 555-0123">
+    </div>
+  </div>
+
+  <div class="buttons">
+    <button class="primary" onclick="generateLetter()">⚡ Generate Letter</button>
+    <button class="secondary" onclick="copyLetter()">📋 Copy</button>
+    <button class="pdf-btn" onclick="downloadPDF()">⬇ Download PDF</button>
+    <button class="secondary" onclick="window.print()">🖨 Print</button>
+  </div>
+  <div id="output">Your authorization letter will appear here after you click Generate.</div>
+</div>
+
+<div class="accepts-section">
+  <div class="accepts-inner">
+    <h3>Where Is This Letter Accepted?</h3>
+    <div class="accepts-grid">
+      <div class="accept-item"><span class="icon">🏛️</span>Service Canada & ServiceOntario</div>
+      <div class="accept-item"><span class="icon">🏦</span>Banks & Credit Unions</div>
+      <div class="accept-item"><span class="icon">📬</span>Canada Post Offices</div>
+      <div class="accept-item"><span class="icon">🏥</span>Hospitals & Clinics</div>
+    </div>
+  </div>
+</div>
+
+<div class="info-grid">
+  <div class="info-card">
+    <h3>What is an Authorization Letter?</h3>
+    <p>An authorization letter is a signed document that grants another person permission to act on your behalf for a specific purpose and time period. It is commonly used when you cannot be physically present to complete a task or transaction yourself.</p>
+  </div>
+  <div class="info-card">
+    <h3>What Should Be Included?</h3>
+    <ul>
+      <li>Your full legal name</li>
+      <li>The authorized person's full name</li>
+      <li>Their relationship to you (if relevant)</li>
+      <li>A clear description of what they are authorized to do</li>
+      <li>The start and end date of authorization</li>
+      <li>Your signature and contact information</li>
+    </ul>
+  </div>
+</div>
+
+<div class="faq-section">
+  <div class="faq-inner">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <div class="faq-q">Does an authorization letter need to be notarized in Canada?</div>
+      <div class="faq-a">In most everyday situations — picking up documents, Canada Post, government offices — notarization is not required. A signed letter is sufficient. However, for financial, legal, or real estate matters, some institutions may require notarization. Always confirm with the receiving party beforehand.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can I use this letter at Canada Post to pick up a package?</div>
+      <div class="faq-a">Yes. Canada Post accepts a signed authorization letter along with a valid photo ID from the authorized person. Make sure the letter clearly states the purpose and includes your name and contact information.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is this letter valid for banking purposes in Canada?</div>
+      <div class="faq-a">An authorization letter can support banking requests, but most major Canadian banks have their own power of attorney or authorized signing forms. Use this letter as a starting point and confirm with your bank what additional documentation they require.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How long is an authorization letter valid?</div>
+      <div class="faq-a">The letter is valid for the date range you specify. There is no legal maximum in Canada, but it is best practice to limit the authorization to the shortest time necessary for the task.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can I authorize more than one person?</div>
+      <div class="faq-a">This generator creates a letter for one authorized person. If you need to authorize multiple people, you can generate separate letters for each individual.</div>
+    </div>
+  </div>
+</div>
+
+<div class="disclaimer">This tool provides a general authorization letter template for informational purposes only and does not constitute legal advice.</div>
+
+<footer class="footer">
+  <p>© 2026 LetterHelper.ca — Free Canadian Letter Generator</p>
+  <p><a href="index.html">Home</a><a href="#">Privacy Policy</a><a href="#">Disclaimer</a><a href="#">Contact</a></p>
+</footer>
+
+<script>
+function fillPurpose(t){document.getElementById('purpose').value=t;}
+function generateLetter(){
+  const name=document.getElementById("name").value.trim()||"[Your Name]";
+  const myid=document.getElementById("myid").value.trim();
+  const person=document.getElementById("person").value.trim()||"[Authorized Person]";
+  const relation=document.getElementById("relation").value.trim();
+  const purpose=document.getElementById("purpose").value.trim()||"[Purpose of Authorization]";
+  const start=document.getElementById("start").value.trim()||"[Start Date]";
+  const end=document.getElementById("end").value.trim()||"[End Date]";
+  const phone=document.getElementById("phone").value.trim();
+  const today=new Date().toLocaleDateString('en-CA',{year:'numeric',month:'long',day:'numeric'});
+  const idLine=myid?"\n(ID / DOB: "+myid+")":"";
+  const relationLine=relation?", my "+relation+",":"";
+  const phoneLine=phone?"\nContact: "+phone:"";
+  const text=today+"\n\nTo Whom It May Concern,\n\nI, "+name+","+idLine+" hereby authorize "+person+relationLine+" to act on my behalf for the following purpose:\n\n"+purpose+"\n\nThis authorization is valid from "+start+" to "+end+".\n\nI confirm that this authorization is given voluntarily, that the information provided is accurate, and that "+person+" has my full permission to carry out the above-mentioned task(s) during the specified period.\n\nPlease extend the same cooperation to "+person+" as you would to me directly.\n\nSincerely,\n\n\n"+name+phoneLine+"\n\n_________________________\nSignature";
+  const out=document.getElementById("output");
+  out.innerText=text.trim();out.classList.add("has-content");
+}
+function copyLetter(){
+  const t=document.getElementById("output").innerText;
+  if(!t||t.includes("will appear here")){alert("Please generate the letter first.");return;}
+  navigator.clipboard.writeText(t);alert("Letter copied to clipboard.");
+}
+function downloadPDF(){
+  const t=document.getElementById("output").innerText;
+  if(!t||t.includes("will appear here")){alert("Please generate the letter first.");return;}
+  const{jsPDF}=window.jspdf;const doc=new jsPDF();
+  doc.setFont("times","normal");doc.setFontSize(12);
+  doc.text(doc.splitTextToSize(t,180),15,20);
+  doc.save("authorization-letter-canada.pdf");
+}
+document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>q.parentElement.classList.toggle('open')));
+</script>
+</body>
+</html>
