@@ -164,11 +164,6 @@ font-size:18px;
 color:#64748b;
 }
 
-.coming{
-opacity:.55;
-cursor:not-allowed;
-}
-
 .tool-box{
 display:none;
 background:white;
@@ -178,7 +173,9 @@ border-radius:25px;
 box-shadow:0 10px 30px rgba(0,0,0,.06);
 }
 
-input{
+input[type="file"],
+input[type="text"],
+input[type="number"]{
 width:100%;
 padding:14px;
 border-radius:10px;
@@ -215,6 +212,47 @@ border:1px solid #e5e7eb;
 .statusText{
 color:#475569;
 font-weight:bold;
+}
+
+/* Rotate specific */
+.rotate-options{
+display:flex;
+gap:12px;
+margin-top:15px;
+flex-wrap:wrap;
+}
+
+.rotate-btn{
+background:#f1f5f9;
+color:#1e293b;
+border:2px solid #e2e8f0;
+padding:12px 20px;
+border-radius:12px;
+cursor:pointer;
+font-size:15px;
+transition:.2s;
+}
+
+.rotate-btn:hover,
+.rotate-btn.selected{
+background:#4f46e5;
+color:white;
+border-color:#4f46e5;
+}
+
+/* Compress specific */
+.compress-info{
+background:#f8fafc;
+border-radius:12px;
+padding:16px;
+margin-top:15px;
+border:1px solid #e5e7eb;
+font-size:15px;
+color:#475569;
+}
+
+.compress-info b{
+color:#1e293b;
 }
 
 @media(max-width:800px){
@@ -303,18 +341,19 @@ font-size:24px;
 <p>Remove pages you no longer need.</p>
 </div>
 
-<div class="card coming">
+<div class="card" onclick="toggleTool('rotateBox')">
 <h3>🔄 Rotate PDF</h3>
-<p>Coming soon.</p>
+<p>Rotate pages 90°, 180°, or 270° in any direction.</p>
 </div>
 
-<div class="card coming">
+<div class="card" onclick="toggleTool('compressBox')">
 <h3>📉 Compress PDF</h3>
-<p>Coming soon.</p>
+<p>Reduce your PDF file size instantly.</p>
 </div>
 
 </div>
 
+<!-- Merge -->
 <div id="mergeBox" class="tool-box">
 <h2>📑 Merge PDFs</h2>
 <p>Select PDF files, then move them up or down before merging.</p>
@@ -324,16 +363,18 @@ font-size:24px;
 <p id="mergeStatus" class="statusText"></p>
 </div>
 
+<!-- Split -->
 <div id="splitBox" class="tool-box">
 <h2>✂️ Split PDF</h2>
 <p>Extract selected pages or split every page into a separate PDF.</p>
 <input type="file" id="splitFile" accept=".pdf,application/pdf">
-<input id="pageNumbers" placeholder="Example: 1,3,5 or 2-4">
+<input type="text" id="pageNumbers" placeholder="Example: 1,3,5 or 2-4">
 <button onclick="splitPDF()">Extract Selected Pages</button>
 <button onclick="splitEveryPage()">Split Every Page</button>
 <p id="splitStatus" class="statusText"></p>
 </div>
 
+<!-- Image to PDF -->
 <div id="imageBox" class="tool-box">
 <h2>🖼 Image → PDF</h2>
 <p>Upload JPG, PNG, or WEBP images and turn them into a PDF.</p>
@@ -342,31 +383,61 @@ font-size:24px;
 <p id="status" class="statusText"></p>
 </div>
 
+<!-- Delete Pages -->
 <div id="deleteBox" class="tool-box">
 <h2>🗑 Delete PDF Pages</h2>
 <p>Enter pages you want removed, like 2,4 or 3-5.</p>
 <input type="file" id="deleteFile" accept=".pdf,application/pdf">
-<input id="deletePages" placeholder="Pages to remove: 2,4 or 3-5">
+<input type="text" id="deletePages" placeholder="Pages to remove: 2,4 or 3-5">
 <button onclick="deletePDFPages()">Delete Pages</button>
 <p id="deleteStatus" class="statusText"></p>
+</div>
+
+<!-- Rotate -->
+<div id="rotateBox" class="tool-box">
+<h2>🔄 Rotate PDF</h2>
+<p>Choose which pages to rotate and the rotation angle. Leave pages blank to rotate all pages.</p>
+<input type="file" id="rotateFile" accept=".pdf,application/pdf">
+<input type="text" id="rotatePages" placeholder="Pages to rotate: 1,3 or 2-4 (leave blank = all pages)">
+<div class="rotate-options">
+  <button class="rotate-btn selected" onclick="selectRotation(this, 90)">↻ 90° Right</button>
+  <button class="rotate-btn" onclick="selectRotation(this, 180)">🔃 180°</button>
+  <button class="rotate-btn" onclick="selectRotation(this, 270)">↺ 90° Left</button>
+</div>
+<button onclick="rotatePDF()" style="margin-top:20px;">Rotate PDF</button>
+<p id="rotateStatus" class="statusText"></p>
+</div>
+
+<!-- Compress -->
+<div id="compressBox" class="tool-box">
+<h2>📉 Compress PDF</h2>
+<p>Re-saves your PDF with optimized settings to reduce file size. Works best on PDFs with redundant data.</p>
+<input type="file" id="compressFile" accept=".pdf,application/pdf">
+<div class="compress-info" id="compressInfo" style="display:none;">
+  <b>Original size:</b> <span id="originalSize">—</span><br>
+  <b>Compressed size:</b> <span id="compressedSize">—</span><br>
+  <b>Reduction:</b> <span id="reduction">—</span>
+</div>
+<button onclick="compressPDF()">Compress PDF</button>
+<p id="compressStatus" class="statusText"></p>
 </div>
 
 </div>
 
 <script>
 let orderedMergeFiles = [];
+let selectedRotation = 90;
 
 function toggleTool(id){
-  const boxes = ["mergeBox","splitBox","imageBox","deleteBox"];
-
+  const boxes = ["mergeBox","splitBox","imageBox","deleteBox","rotateBox","compressBox"];
   boxes.forEach(box => {
     document.getElementById(box).style.display = "none";
   });
-
   document.getElementById(id).style.display = "block";
   document.getElementById(id).scrollIntoView({behavior:"smooth"});
 }
 
+// ── MERGE ──────────────────────────────────────────────
 document.getElementById("pdfFiles").addEventListener("change", function(){
   orderedMergeFiles = Array.from(this.files);
   showMergeList();
@@ -375,37 +446,30 @@ document.getElementById("pdfFiles").addEventListener("change", function(){
 function showMergeList(){
   const list = document.getElementById("mergeList");
   list.innerHTML = "";
-
   orderedMergeFiles.forEach((file,index)=>{
     const row = document.createElement("div");
     row.className = "fileRow";
-
     row.innerHTML = `
       <b>${index + 1}. ${file.name}</b><br>
       <button onclick="moveUp(${index})">↑ Up</button>
       <button onclick="moveDown(${index})">↓ Down</button>
       <button onclick="removeFile(${index})">Remove</button>
     `;
-
     list.appendChild(row);
   });
 }
 
 function moveUp(index){
   if(index === 0) return;
-
   [orderedMergeFiles[index], orderedMergeFiles[index-1]] =
   [orderedMergeFiles[index-1], orderedMergeFiles[index]];
-
   showMergeList();
 }
 
 function moveDown(index){
   if(index === orderedMergeFiles.length - 1) return;
-
   [orderedMergeFiles[index], orderedMergeFiles[index+1]] =
   [orderedMergeFiles[index+1], orderedMergeFiles[index]];
-
   showMergeList();
 }
 
@@ -416,108 +480,65 @@ function removeFile(index){
 
 async function mergePDFs(){
   const status = document.getElementById("mergeStatus");
-
   if(orderedMergeFiles.length < 2){
     status.textContent = "Select at least 2 PDFs.";
     return;
   }
-
   status.textContent = "Merging...";
-
   try{
     const mergedPdf = await PDFLib.PDFDocument.create();
-
     for(const file of orderedMergeFiles){
       if(!file.name.toLowerCase().endsWith(".pdf")){
         status.textContent = "Please select PDF files only.";
         return;
       }
-
       const bytes = await file.arrayBuffer();
-
-      const pdf = await PDFLib.PDFDocument.load(bytes,{
-        ignoreEncryption:true
-      });
-
-      const pages = await mergedPdf.copyPages(
-        pdf,
-        pdf.getPageIndices()
-      );
-
+      const pdf = await PDFLib.PDFDocument.load(bytes,{ignoreEncryption:true});
+      const pages = await mergedPdf.copyPages(pdf, pdf.getPageIndices());
       pages.forEach(page => mergedPdf.addPage(page));
     }
-
     const mergedBytes = await mergedPdf.save();
     const firstName = orderedMergeFiles[0].name.replace(/\.[^/.]+$/, "");
-
     downloadPDF(mergedBytes, firstName + "-merged.pdf");
     status.textContent = "Done. Your merged PDF has downloaded.";
-
   }catch(error){
     status.textContent = "Merge failed. One PDF may be locked, encrypted, or damaged.";
     console.error(error);
   }
 }
 
+// ── IMAGE TO PDF ───────────────────────────────────────
 async function convertToPDF(){
   const status = document.getElementById("status");
   const files = document.getElementById("images").files;
-
-  if(files.length === 0){
-    status.textContent = "Please choose image(s).";
-    return;
-  }
-
+  if(files.length === 0){ status.textContent = "Please choose image(s)."; return; }
   status.textContent = "Creating PDF...";
-
   try{
     const { jsPDF } = window.jspdf;
     const pdf = new jsPDF("p","mm","a4");
-
     for(let i=0;i<files.length;i++){
       const file = files[i];
-
-      if(!file.type.startsWith("image/")){
-        status.textContent = "Please choose image files only.";
-        return;
-      }
-
+      if(!file.type.startsWith("image/")){ status.textContent = "Please choose image files only."; return; }
       const imageData = await readFileAsDataURL(file);
       const img = await loadImage(imageData);
-
-      const pageWidth = 210;
-      const pageHeight = 297;
-      const margin = 10;
-
+      const pageWidth = 210, pageHeight = 297, margin = 10;
       const maxWidth = pageWidth - margin * 2;
       const maxHeight = pageHeight - margin * 2;
-
-      const ratio = Math.min(
-        maxWidth / img.width,
-        maxHeight / img.height
-      );
-
+      const ratio = Math.min(maxWidth / img.width, maxHeight / img.height);
       const imgWidth = img.width * ratio;
       const imgHeight = img.height * ratio;
-
       const x = (pageWidth - imgWidth) / 2;
       const y = (pageHeight - imgHeight) / 2;
-
       if(i > 0) pdf.addPage();
-
       let format = "JPEG";
       if(file.type.includes("png")) format = "PNG";
       if(file.type.includes("webp")) format = "WEBP";
-
       pdf.addImage(imageData, format, x, y, imgWidth, imgHeight);
     }
-
     const firstName = files[0].name.replace(/\.[^/.]+$/, "");
     const finalName = files.length === 1 ? firstName + ".pdf" : firstName + "-merged.pdf";
-
     pdf.save(finalName);
     status.textContent = "Done. Your PDF has downloaded.";
-
   }catch(error){
     status.textContent = "Image to PDF failed.";
     console.error(error);
@@ -527,10 +548,8 @@ async function convertToPDF(){
 function readFileAsDataURL(file){
   return new Promise((resolve,reject)=>{
     const reader = new FileReader();
-
     reader.onload = () => resolve(reader.result);
     reader.onerror = () => reject();
-
     reader.readAsDataURL(file);
   });
 }
@@ -538,61 +557,33 @@ function readFileAsDataURL(file){
 function loadImage(src){
   return new Promise((resolve,reject)=>{
     const img = new Image();
-
     img.onload = () => resolve(img);
     img.onerror = () => reject();
-
     img.src = src;
   });
 }
 
+// ── SPLIT ──────────────────────────────────────────────
 async function splitPDF(){
   const status = document.getElementById("splitStatus");
   const file = document.getElementById("splitFile").files[0];
   const pageInput = document.getElementById("pageNumbers").value.trim();
-
-  if(!file){
-    status.textContent = "Choose PDF.";
-    return;
-  }
-
-  if(!pageInput){
-    status.textContent = "Enter pages like 1,3,5 or 2-4.";
-    return;
-  }
-
+  if(!file){ status.textContent = "Choose PDF."; return; }
+  if(!pageInput){ status.textContent = "Enter pages like 1,3,5 or 2-4."; return; }
   try{
     status.textContent = "Extracting...";
-
     const bytes = await file.arrayBuffer();
-
-    const originalPdf = await PDFLib.PDFDocument.load(bytes,{
-      ignoreEncryption:true
-    });
-
+    const originalPdf = await PDFLib.PDFDocument.load(bytes,{ignoreEncryption:true});
     const totalPages = originalPdf.getPageCount();
     const pages = parsePageNumbers(pageInput,totalPages);
-
-    if(pages.length === 0){
-      status.textContent = "No valid pages selected.";
-      return;
-    }
-
+    if(pages.length === 0){ status.textContent = "No valid pages selected."; return; }
     const newPdf = await PDFLib.PDFDocument.create();
-
-    const copiedPages = await newPdf.copyPages(
-      originalPdf,
-      pages
-    );
-
+    const copiedPages = await newPdf.copyPages(originalPdf, pages);
     copiedPages.forEach(page => newPdf.addPage(page));
-
     const newBytes = await newPdf.save();
     const firstName = file.name.replace(/\.[^/.]+$/, "");
-
     downloadPDF(newBytes, firstName + "-extract.pdf");
     status.textContent = "Done. Your extracted PDF has downloaded.";
-
   }catch(error){
     status.textContent = "Extract failed. This PDF may be locked or damaged.";
     console.error(error);
@@ -602,164 +593,192 @@ async function splitPDF(){
 async function splitEveryPage(){
   const status = document.getElementById("splitStatus");
   const file = document.getElementById("splitFile").files[0];
-
-  if(!file){
-    status.textContent = "Choose PDF.";
-    return;
-  }
-
+  if(!file){ status.textContent = "Choose PDF."; return; }
   try{
     status.textContent = "Splitting...";
-
     const bytes = await file.arrayBuffer();
-
-    const originalPdf = await PDFLib.PDFDocument.load(bytes,{
-      ignoreEncryption:true
-    });
-
+    const originalPdf = await PDFLib.PDFDocument.load(bytes,{ignoreEncryption:true});
     const totalPages = originalPdf.getPageCount();
     const firstName = file.name.replace(/\.[^/.]+$/, "");
-
     for(let i=0;i<totalPages;i++){
       const newPdf = await PDFLib.PDFDocument.create();
-
-      const [page] = await newPdf.copyPages(
-        originalPdf,
-        [i]
-      );
-
+      const [page] = await newPdf.copyPages(originalPdf,[i]);
       newPdf.addPage(page);
-
       const newBytes = await newPdf.save();
-
-      downloadPDF(
-        newBytes,
-        firstName + "-page-" + (i+1) + ".pdf"
-      );
+      downloadPDF(newBytes, firstName + "-page-" + (i+1) + ".pdf");
     }
-
     status.textContent = "Done. Each page downloaded separately.";
-
   }catch(error){
     status.textContent = "Split failed. This PDF may be locked or damaged.";
     console.error(error);
   }
 }
 
+// ── DELETE PAGES ───────────────────────────────────────
 async function deletePDFPages(){
   const status = document.getElementById("deleteStatus");
   const file = document.getElementById("deleteFile").files[0];
   const pageInput = document.getElementById("deletePages").value.trim();
-
-  if(!file){
-    status.textContent = "Choose PDF.";
-    return;
-  }
-
-  if(!pageInput){
-    status.textContent = "Enter pages to delete.";
-    return;
-  }
-
+  if(!file){ status.textContent = "Choose PDF."; return; }
+  if(!pageInput){ status.textContent = "Enter pages to delete."; return; }
   try{
     status.textContent = "Deleting pages...";
-
     const bytes = await file.arrayBuffer();
-
-    const originalPdf = await PDFLib.PDFDocument.load(bytes,{
-      ignoreEncryption:true
-    });
-
+    const originalPdf = await PDFLib.PDFDocument.load(bytes,{ignoreEncryption:true});
     const totalPages = originalPdf.getPageCount();
     const pagesToRemove = parsePageNumbers(pageInput,totalPages);
-
-    if(pagesToRemove.length === 0){
-      status.textContent = "No valid pages selected.";
-      return;
-    }
-
+    if(pagesToRemove.length === 0){ status.textContent = "No valid pages selected."; return; }
     const keepPages = [];
-
     for(let i=0;i<totalPages;i++){
-      if(!pagesToRemove.includes(i)){
-        keepPages.push(i);
-      }
+      if(!pagesToRemove.includes(i)) keepPages.push(i);
     }
-
-    if(keepPages.length === 0){
-      status.textContent = "You cannot delete every page.";
-      return;
-    }
-
+    if(keepPages.length === 0){ status.textContent = "You cannot delete every page."; return; }
     const newPdf = await PDFLib.PDFDocument.create();
-
-    const copiedPages = await newPdf.copyPages(
-      originalPdf,
-      keepPages
-    );
-
+    const copiedPages = await newPdf.copyPages(originalPdf, keepPages);
     copiedPages.forEach(page => newPdf.addPage(page));
-
     const newBytes = await newPdf.save();
     const firstName = file.name.replace(/\.[^/.]+$/, "");
-
     downloadPDF(newBytes, firstName + "-pages-removed.pdf");
     status.textContent = "Done. Pages removed PDF has downloaded.";
-
   }catch(error){
     status.textContent = "Delete failed. This PDF may be locked or damaged.";
     console.error(error);
   }
 }
 
+// ── ROTATE ─────────────────────────────────────────────
+function selectRotation(btn, degrees){
+  document.querySelectorAll(".rotate-btn").forEach(b => b.classList.remove("selected"));
+  btn.classList.add("selected");
+  selectedRotation = degrees;
+}
+
+async function rotatePDF(){
+  const status = document.getElementById("rotateStatus");
+  const file = document.getElementById("rotateFile").files[0];
+  const pageInput = document.getElementById("rotatePages").value.trim();
+
+  if(!file){ status.textContent = "Choose a PDF file."; return; }
+
+  try{
+    status.textContent = "Rotating...";
+    const bytes = await file.arrayBuffer();
+    const pdf = await PDFLib.PDFDocument.load(bytes,{ignoreEncryption:true});
+    const totalPages = pdf.getPageCount();
+
+    let pagesToRotate;
+    if(pageInput === ""){
+      // rotate all pages
+      pagesToRotate = Array.from({length: totalPages}, (_, i) => i);
+    } else {
+      pagesToRotate = parsePageNumbers(pageInput, totalPages);
+      if(pagesToRotate.length === 0){ status.textContent = "No valid pages selected."; return; }
+    }
+
+    pagesToRotate.forEach(pageIndex => {
+      const page = pdf.getPage(pageIndex);
+      const currentRotation = page.getRotation().angle;
+      const newRotation = (currentRotation + selectedRotation) % 360;
+      page.setRotation(PDFLib.degrees(newRotation));
+    });
+
+    const newBytes = await pdf.save();
+    const firstName = file.name.replace(/\.[^/.]+$/, "");
+    downloadPDF(newBytes, firstName + "-rotated.pdf");
+
+    const pageDesc = pageInput === "" ? "all pages" : `${pagesToRotate.length} page(s)`;
+    status.textContent = `Done. Rotated ${pageDesc} by ${selectedRotation}°. PDF has downloaded.`;
+
+  }catch(error){
+    status.textContent = "Rotate failed. This PDF may be locked or damaged.";
+    console.error(error);
+  }
+}
+
+// ── COMPRESS ───────────────────────────────────────────
+async function compressPDF(){
+  const status = document.getElementById("compressStatus");
+  const file = document.getElementById("compressFile").files[0];
+
+  if(!file){ status.textContent = "Choose a PDF file."; return; }
+
+  try{
+    status.textContent = "Compressing...";
+    document.getElementById("compressInfo").style.display = "none";
+
+    const originalBytes = await file.arrayBuffer();
+    const originalSize = originalBytes.byteLength;
+
+    // Load and re-save with compression options
+    const pdf = await PDFLib.PDFDocument.load(originalBytes, {ignoreEncryption: true});
+
+    // Re-save with object streams (compresses cross-reference table and metadata)
+    const compressedBytes = await pdf.save({
+      useObjectStreams: true,
+      addDefaultPage: false,
+      objectsPerTick: 50
+    });
+
+    const compressedSize = compressedBytes.byteLength;
+    const reduction = ((originalSize - compressedSize) / originalSize * 100).toFixed(1);
+
+    // Show size info
+    document.getElementById("originalSize").textContent = formatBytes(originalSize);
+    document.getElementById("compressedSize").textContent = formatBytes(compressedSize);
+    document.getElementById("reduction").textContent = reduction > 0
+      ? `${reduction}% smaller ✅`
+      : "Already optimized — minimal change";
+    document.getElementById("compressInfo").style.display = "block";
+
+    const firstName = file.name.replace(/\.[^/.]+$/, "");
+    downloadPDF(compressedBytes, firstName + "-compressed.pdf");
+
+    status.textContent = "Done. Your compressed PDF has downloaded.";
+
+  }catch(error){
+    status.textContent = "Compress failed. This PDF may be locked or damaged.";
+    console.error(error);
+  }
+}
+
+function formatBytes(bytes){
+  if(bytes < 1024) return bytes + " B";
+  if(bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
+  return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+}
+
+// ── HELPERS ────────────────────────────────────────────
 function parsePageNumbers(input,totalPages){
   const pages = new Set();
   const parts = input.split(",");
-
   for(const part of parts){
     const clean = part.trim();
-
     if(clean.includes("-")){
       const [start,end] = clean.split("-").map(Number);
-
       if(!isNaN(start) && !isNaN(end)){
         const low = Math.min(start,end);
         const high = Math.max(start,end);
-
         for(let i=low;i<=high;i++){
-          if(i >= 1 && i <= totalPages){
-            pages.add(i-1);
-          }
+          if(i >= 1 && i <= totalPages) pages.add(i-1);
         }
       }
-
     }else{
       const page = Number(clean);
-
-      if(!isNaN(page) && page >= 1 && page <= totalPages){
-        pages.add(page-1);
-      }
+      if(!isNaN(page) && page >= 1 && page <= totalPages) pages.add(page-1);
     }
   }
-
   return Array.from(pages).sort((a,b)=>a-b);
 }
 
 function downloadPDF(bytes,filename){
-  const blob = new Blob([bytes],{
-    type:"application/pdf"
-  });
-
+  const blob = new Blob([bytes],{type:"application/pdf"});
   const url = URL.createObjectURL(blob);
-
   const a = document.createElement("a");
   a.href = url;
   a.download = filename;
-
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
-
   URL.revokeObjectURL(url);
 }
 </script>
