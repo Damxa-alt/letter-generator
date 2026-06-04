@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NGF0TJ0BNY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NGF0TJ0BNY');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tenant Notice Letter Canada – Free Generator | LetterHelper.ca</title>
+<meta name="description" content="Generate a free tenant notice letter for Canada. Notice to vacate, end of lease, or rent increase notice. No signup. Instant PDF download. Canadian format.">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<div class="navbar">
+  <a href="index.html">Home</a>
+  <a href="invitation-letter-canada.html">Invitation</a>
+  <a href="proof-of-address-canada.html">Proof</a>
+  <a href="employment-letter-canada.html">Employment</a>
+  <a href="consent-letter-canada.html">Consent</a>
+  <a href="landlord-letter-canada.html">Landlord</a>
+  <a href="authorization-letter-canada.html">Authorization</a>
+  <a href="cosigner-letter-canada.html">Co-Signer</a>
+  <a href="temporary-accommodation-letter-canada.html">Temp. Stay</a>
+</div>
+
+<div class="hero">
+  <h1>Tenant Notice Letter Canada</h1>
+  <p>Generate a professional tenant notice letter in under a minute. For tenants and landlords across Canada.</p>
+  <div class="trust-line">Free · No signup · Instant PDF download · Canadian format</div>
+  <div class="use-cases">
+    <span class="chip">🏠 Notice to Vacate</span>
+    <span class="chip">📋 End of Lease</span>
+    <span class="chip">💰 Rent Increase Notice</span>
+    <span class="chip">🔧 Maintenance Request</span>
+    <span class="chip">❌ Lease Termination</span>
+  </div>
+</div>
+
+<div class="container">
+  <div class="form-grid">
+    <div>
+      <label>Notice Type</label>
+      <select id="noticeType" style="width:100%;padding:14px;border-radius:10px;border:1px solid #ddd;margin-top:12px;box-sizing:border-box;font-size:16px;">
+        <option value="vacate">Notice to Vacate (Tenant to Landlord)</option>
+        <option value="endlease">End of Lease Notice (Landlord to Tenant)</option>
+        <option value="rentincrease">Rent Increase Notice (Landlord to Tenant)</option>
+        <option value="maintenance">Maintenance Request (Tenant to Landlord)</option>
+      </select>
+    </div>
+    <div>
+      <label>Sender's Full Name</label>
+      <input id="senderName" placeholder="e.g. Maria Garcia">
+    </div>
+    <div>
+      <label>Sender's Address</label>
+      <input id="senderAddress" placeholder="e.g. 123 Maple St, Unit 4, Toronto, ON M4B 1B3">
+    </div>
+    <div>
+      <label>Recipient's Full Name</label>
+      <input id="recipientName" placeholder="e.g. John Smith">
+    </div>
+    <div>
+      <label>Rental Property Address</label>
+      <input id="propertyAddress" placeholder="e.g. 456 Oak Avenue, Toronto, ON M5A 2B4">
+    </div>
+    <div>
+      <label>Notice Date / Effective Date</label>
+      <input id="noticeDate" placeholder="e.g. July 1, 2026">
+    </div>
+    <div>
+      <label>New Rent Amount (for rent increase only)</label>
+      <input id="newRent" placeholder="e.g. $1,800 per month">
+    </div>
+    <div class="form-full">
+      <label>Additional Details (optional)</label>
+      <input id="additionalDetails" placeholder="e.g. reason for leaving, specific maintenance issue, special circumstances">
+    </div>
+  </div>
+
+  <div class="buttons">
+    <button class="primary" onclick="generateLetter()">⚡ Generate Letter</button>
+    <button class="secondary" onclick="copyLetter()">📋 Copy</button>
+    <button class="pdf-btn" onclick="downloadPDF()">⬇ Download PDF</button>
+    <button class="secondary" onclick="window.print()">🖨 Print</button>
+  </div>
+  <div id="output">Your tenant notice letter will appear here after you click Generate.</div>
+</div>
+
+<div class="accepts-section">
+  <div class="accepts-inner">
+    <h3>When Is This Letter Used?</h3>
+    <div class="accepts-grid">
+      <div class="accept-item"><span class="icon">🏠</span>Tenants Giving Notice to Leave</div>
+      <div class="accept-item"><span class="icon">📋</span>Landlords Ending a Lease</div>
+      <div class="accept-item"><span class="icon">💰</span>Rent Increase Notifications</div>
+      <div class="accept-item"><span class="icon">🔧</span>Maintenance & Repair Requests</div>
+    </div>
+  </div>
+</div>
+
+<div class="info-grid">
+  <div class="info-card">
+    <h3>What is a Tenant Notice Letter?</h3>
+    <p>A tenant notice letter is a formal written communication between a tenant and landlord regarding changes to a rental arrangement. In Canada, proper written notice is required by law for situations such as vacating a unit, ending a lease, or increasing rent. Each province has specific notice periods and requirements under their residential tenancy legislation.</p>
+  </div>
+  <div class="info-card">
+    <h3>What Should Be Included?</h3>
+    <ul>
+      <li>Sender's full name and address</li>
+      <li>Recipient's full name</li>
+      <li>Rental property address</li>
+      <li>Type of notice being given</li>
+      <li>Effective date of the notice</li>
+      <li>Any relevant details (new rent, reason, maintenance issue)</li>
+      <li>Sender's signature and date</li>
+    </ul>
+  </div>
+</div>
+
+<div class="faq-section">
+  <div class="faq-inner">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <div class="faq-q">How much notice does a tenant need to give in Canada?</div>
+      <div class="faq-a">Notice periods vary by province. In Ontario, tenants must provide 60 days written notice to end a month-to-month tenancy. In British Columbia, one month's notice is required. Always check your province's Residential Tenancy Act for the specific notice period that applies to your situation.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How much notice must a landlord give before a rent increase in Canada?</div>
+      <div class="faq-a">In most Canadian provinces, landlords must provide at least 90 days written notice before a rent increase takes effect. In Ontario, rent increases are also subject to the annual rent increase guideline set by the provincial government. Always check your province's tenancy laws for specific requirements.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can a landlord evict a tenant without written notice in Canada?</div>
+      <div class="faq-a">No. Canadian tenancy laws require landlords to provide proper written notice before ending a tenancy. The notice period and acceptable reasons for eviction vary by province. Landlords must follow the formal process outlined in their province's Residential Tenancy Act — verbal notice is not sufficient.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does a tenant notice letter need to be delivered in a specific way?</div>
+      <div class="faq-a">Most provinces require written notice to be delivered in person, by mail, or by email if both parties have agreed to electronic communication. It is always best to keep a copy of the notice and proof of delivery — such as a delivery confirmation or a signed acknowledgment from the recipient.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What happens if a tenant does not give proper notice?</div>
+      <div class="faq-a">If a tenant fails to provide the required notice period, they may be responsible for paying rent for the notice period even after vacating the unit. The landlord may also be entitled to deduct unpaid rent from the tenant's security deposit. Always provide proper written notice to avoid financial penalties.</div>
+    </div>
+  </div>
+</div>
+
+<div class="disclaimer">This tool provides a general tenant notice letter template for informational purposes only and does not constitute legal advice. Tenancy laws vary by province — always check your local Residential Tenancy Act.</div>
+
+<footer class="footer">
+  <p>© 2026 LetterHelper.ca — Free Canadian Letter Generator</p>
+  <p><a href="index.html">Home</a><a href="#">Privacy Policy</a><a href="#">Disclaimer</a><a href="#">Contact</a></p>
+</footer>
+
+<script>
+function generateLetter(){
+  const noticeType = document.getElementById("noticeType").value;
+  const senderName = document.getElementById("senderName").value.trim() || "[Sender Name]";
+  const senderAddress = document.getElementById("senderAddress").value.trim() || "[Sender Address]";
+  const recipientName = document.getElementById("recipientName").value.trim() || "[Recipient Name]";
+  const propertyAddress = document.getElementById("propertyAddress").value.trim() || "[Property Address]";
+  const noticeDate = document.getElementById("noticeDate").value.trim() || "[Effective Date]";
+  const newRent = document.getElementById("newRent").value.trim();
+  const additionalDetails = document.getElementById("additionalDetails").value.trim();
+
+  const today = new Date().toLocaleDateString('en-CA', {year:'numeric', month:'long', day:'numeric'});
+  const additionalLine = additionalDetails ? "\n\n" + additionalDetails : "";
+
+  let subject = "";
+  let body = "";
+
+  if(noticeType === "vacate"){
+    subject = "Notice to Vacate – " + propertyAddress;
+    body = "I am writing to formally notify you that I will be vacating the rental unit located at " + propertyAddress + ", effective " + noticeDate + ".\n\nI have enjoyed my time as a tenant and appreciate your cooperation throughout my tenancy. I will ensure the property is left in good condition upon my departure." + additionalLine + "\n\nPlease advise me of any move-out inspection procedures and the process for the return of my security deposit.";
+  } else if(noticeType === "endlease"){
+    subject = "Notice of Lease Termination – " + propertyAddress;
+    body = "I am writing to formally notify you that your tenancy at " + propertyAddress + " will be terminated effective " + noticeDate + ".\n\nYou are required to vacate the premises and return all keys by the effective date noted above." + additionalLine + "\n\nPlease contact me to arrange a move-out inspection prior to your departure.";
+  } else if(noticeType === "rentincrease"){
+    subject = "Notice of Rent Increase – " + propertyAddress;
+    const rentLine = newRent ? " The new monthly rent will be " + newRent + ", effective " + noticeDate + "." : " The new rent amount will be effective " + noticeDate + ".";
+    body = "I am writing to formally notify you of a rent increase for the rental unit located at " + propertyAddress + "." + rentLine + additionalLine + "\n\nThis notice is being provided in accordance with applicable provincial tenancy legislation. Please do not hesitate to contact me if you have any questions.";
+  } else {
+    subject = "Maintenance Request – " + propertyAddress;
+    body = "I am writing to formally request maintenance and repairs at the rental unit located at " + propertyAddress + "." + additionalLine + "\n\nI kindly request that the necessary repairs be completed as soon as possible. Please contact me to arrange a suitable time for the work to be carried out.";
+  }
+
+  const text = today + "\n\n" +
+    senderName + "\n" +
+    senderAddress + "\n\n" +
+    recipientName + "\n\n" +
+    "RE: " + subject + "\n\n" +
+    "Dear " + recipientName + ",\n\n" +
+    body + "\n\n" +
+    "Thank you for your attention to this matter.\n\n" +
+    "Sincerely,\n\n\n" +
+    senderName + "\n" +
+    "_________________________\nSignature\n\n" +
+    "Date: " + today;
+
+  const out = document.getElementById("output");
+  out.innerText = text;
+  out.classList.add("has-content");
+}
+
+function copyLetter(){
+  const t = document.getElementById("output").innerText;
+  if(!t || t.includes("will appear here")){ alert("Please generate the letter first."); return; }
+  navigator.clipboard.writeText(t);
+  alert("Letter copied to clipboard.");
+}
+
+function downloadPDF(){
+  const t = document.getElementById("output").innerText;
+  if(!t || t.includes("will appear here")){ alert("Please generate the letter first."); return; }
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  doc.setFont("times", "normal");
+  doc.setFontSize(12);
+  doc.text(doc.splitTextToSize(t, 180), 15, 20);
+  doc.save("tenant-notice-letter-canada.pdf");
+}
+
+document.querySelectorAll('.faq-q').forEach(q => q.addEventListener('click', () => q.parentElement.classList.toggle('open')));
+</script>
+
+</body>
+</html>
