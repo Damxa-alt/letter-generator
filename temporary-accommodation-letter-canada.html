@@ -1,16 +1,217 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NGF0TJ0BNY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NGF0TJ0BNY');
+</script>
 <meta charset="UTF-8">
-<meta http-equiv="refresh" content="0; url=/">
-<title>Redirecting...</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Temporary Accommodation Letter Canada – Free Generator | LetterHelper.ca</title>
+<meta name="description" content="Generate a free temporary accommodation letter for Canada. Used for immigration, IRCC, visa applications, and government purposes. No signup. Instant PDF download.">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
-
 <body>
-<p>Redirecting to LetterHelper...</p>
+
+<div class="navbar">
+  <a href="index.html">Home</a>
+  <a href="invitation-letter-canada.html">Invitation</a>
+  <a href="proof-of-address-canada.html">Proof</a>
+  <a href="employment-letter-canada.html">Employment</a>
+  <a href="consent-letter-canada.html">Consent</a>
+  <a href="landlord-letter-canada.html">Landlord</a>
+  <a href="authorization-letter-canada.html">Authorization</a>
+  <a href="cosigner-letter-canada.html">Co-Signer</a>
+</div>
+
+<div class="hero">
+  <h1>Temporary Accommodation Letter Canada</h1>
+  <p>Generate a free temporary accommodation letter confirming where a visitor or new arrival is staying in Canada.</p>
+  <div class="trust-line">Free · No signup · Instant PDF download · Canadian format</div>
+  <div class="use-cases">
+    <span class="chip">✈️ Visitor Visa / IRCC</span>
+    <span class="chip">🏠 Temporary Stay Confirmation</span>
+    <span class="chip">🎓 Study Permit</span>
+    <span class="chip">📄 Immigration Support</span>
+    <span class="chip">🏛️ Government Applications</span>
+  </div>
+</div>
+
+<div class="container">
+  <div class="form-grid">
+    <div>
+      <label>Host's Full Name</label>
+      <input id="hostName" placeholder="e.g. John Smith">
+    </div>
+    <div>
+      <label>Host's Address</label>
+      <input id="hostAddress" placeholder="e.g. 123 Maple Street, Toronto, ON M4B 1B3">
+    </div>
+    <div>
+      <label>Host's Phone Number (optional)</label>
+      <input id="hostPhone" placeholder="e.g. (416) 555-0123">
+    </div>
+    <div>
+      <label>Host's Email (optional)</label>
+      <input id="hostEmail" placeholder="e.g. john.smith@email.com">
+    </div>
+    <div>
+      <label>Guest's Full Name</label>
+      <input id="guestName" placeholder="e.g. Maria Garcia">
+    </div>
+    <div>
+      <label>Relationship to Guest</label>
+      <input id="relationship" placeholder="e.g. Friend, Brother, Cousin, Colleague">
+    </div>
+    <div>
+      <label>Accommodation Start Date</label>
+      <input id="startDate" placeholder="e.g. July 15, 2026">
+    </div>
+    <div>
+      <label>Accommodation End Date</label>
+      <input id="endDate" placeholder="e.g. August 15, 2026">
+    </div>
+    <div class="form-full">
+      <label>Purpose of Stay (optional)</label>
+      <input id="purpose" placeholder="e.g. tourism, visiting family, attending a conference">
+    </div>
+  </div>
+
+  <div class="buttons">
+    <button class="primary" onclick="generateLetter()">⚡ Generate Letter</button>
+    <button class="secondary" onclick="copyLetter()">📋 Copy</button>
+    <button class="pdf-btn" onclick="downloadPDF()">⬇ Download PDF</button>
+    <button class="secondary" onclick="window.print()">🖨 Print</button>
+  </div>
+  <div id="output">Your temporary accommodation letter will appear here after you click Generate.</div>
+</div>
+
+<div class="accepts-section">
+  <div class="accepts-inner">
+    <h3>Who Accepts This Letter?</h3>
+    <div class="accepts-grid">
+      <div class="accept-item"><span class="icon">✈️</span>IRCC / Visa Officers</div>
+      <div class="accept-item"><span class="icon">🏛️</span>Government Agencies</div>
+      <div class="accept-item"><span class="icon">🎓</span>Schools & Colleges</div>
+      <div class="accept-item"><span class="icon">🏠</span>Landlords & Housing Programs</div>
+    </div>
+  </div>
+</div>
+
+<div class="info-grid">
+  <div class="info-card">
+    <h3>What is a Temporary Accommodation Letter?</h3>
+    <p>A temporary accommodation letter is a written confirmation from a host stating that a visitor or new arrival will be staying at their address for a specified period. It is commonly required for Canadian visa applications, IRCC submissions, study permits, and other official purposes where proof of address during a temporary stay is needed.</p>
+  </div>
+  <div class="info-card">
+    <h3>What Should Be Included?</h3>
+    <ul>
+      <li>Host's full name and address</li>
+      <li>Guest's full name</li>
+      <li>Relationship between host and guest</li>
+      <li>Dates of the temporary stay</li>
+      <li>Purpose of the visit</li>
+      <li>Host's contact information</li>
+      <li>Host's signature and date</li>
+    </ul>
+  </div>
+</div>
+
+<div class="faq-section">
+  <div class="faq-inner">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <div class="faq-q">When do I need a temporary accommodation letter?</div>
+      <div class="faq-a">You typically need this letter when applying for a Canadian visitor visa, study permit, or work permit and you will be staying with a friend or family member rather than a hotel. IRCC may request it as proof of where you will be living during your stay in Canada.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does the host need to be a Canadian citizen or permanent resident?</div>
+      <div class="faq-a">Not necessarily. The host simply needs to have a confirmed address in Canada where the guest will be temporarily staying. However, for immigration purposes, a host who is a Canadian citizen or permanent resident adds credibility to the letter.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does this letter need to be notarized?</div>
+      <div class="faq-a">In most cases, notarization is not required. A signed letter with the host's contact information is generally sufficient for IRCC and visa applications. However, some specific programs or situations may require notarization — check the requirements of the specific application you are submitting.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can this letter be used for a refugee or humanitarian application?</div>
+      <div class="faq-a">This template is designed for general temporary accommodation purposes. For refugee or humanitarian applications, it is strongly recommended to seek legal advice or contact a certified immigration consultant for proper documentation.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Should the letter be on official letterhead?</div>
+      <div class="faq-a">Since this is a personal letter from a host (not a company), official letterhead is not required. However, the letter should be clearly written, signed, and include the host's full contact details to be considered credible by immigration officers.</div>
+    </div>
+  </div>
+</div>
+
+<div class="disclaimer">This tool provides a general temporary accommodation letter template for informational purposes only and does not constitute legal or immigration advice.</div>
+
+<footer class="footer">
+  <p>© 2026 LetterHelper.ca — Free Canadian Letter Generator</p>
+  <p><a href="index.html">Home</a><a href="#">Privacy Policy</a><a href="#">Disclaimer</a><a href="#">Contact</a></p>
+</footer>
 
 <script>
-window.location.href="/";
+function generateLetter(){
+  const hostName = document.getElementById("hostName").value.trim() || "[Host Name]";
+  const hostAddress = document.getElementById("hostAddress").value.trim() || "[Host Address]";
+  const hostPhone = document.getElementById("hostPhone").value.trim();
+  const hostEmail = document.getElementById("hostEmail").value.trim();
+  const guestName = document.getElementById("guestName").value.trim() || "[Guest Name]";
+  const relationship = document.getElementById("relationship").value.trim() || "friend";
+  const startDate = document.getElementById("startDate").value.trim() || "[Start Date]";
+  const endDate = document.getElementById("endDate").value.trim() || "[End Date]";
+  const purpose = document.getElementById("purpose").value.trim() || "visiting Canada";
+
+  const today = new Date().toLocaleDateString('en-CA', {year:'numeric', month:'long', day:'numeric'});
+
+  let contactLine = "";
+  if(hostPhone && hostEmail) contactLine = "\n\nShould you have any questions, please feel free to contact me at " + hostPhone + " or " + hostEmail + ".";
+  else if(hostPhone) contactLine = "\n\nShould you have any questions, please feel free to contact me at " + hostPhone + ".";
+  else if(hostEmail) contactLine = "\n\nShould you have any questions, please feel free to contact me at " + hostEmail + ".";
+
+  const text = today + "\n\n" +
+    hostName + "\n" +
+    hostAddress + "\n\n" +
+    "To Whom It May Concern,\n\n" +
+    "RE: Temporary Accommodation Confirmation – " + guestName + "\n\n" +
+    "I, " + hostName + ", residing at " + hostAddress + ", hereby confirm that " + guestName + ", my " + relationship + ", will be temporarily accommodated at my address from " + startDate + " to " + endDate + ".\n\n" +
+    "The purpose of " + guestName + "'s visit is " + purpose + ". During this period, " + guestName + " will have full access to the accommodation and all necessary amenities at no cost.\n\n" +
+    "I take full responsibility for hosting " + guestName + " during their stay and confirm that all information provided in this letter is true and accurate to the best of my knowledge." +
+    contactLine + "\n\n" +
+    "Sincerely,\n\n\n" +
+    hostName + "\n" +
+    "_________________________\nHost Signature\n\n" +
+    "Date: " + today;
+
+  const out = document.getElementById("output");
+  out.innerText = text;
+  out.classList.add("has-content");
+}
+
+function copyLetter(){
+  const t = document.getElementById("output").innerText;
+  if(!t || t.includes("will appear here")){ alert("Please generate the letter first."); return; }
+  navigator.clipboard.writeText(t);
+  alert("Letter copied to clipboard.");
+}
+
+function downloadPDF(){
+  const t = document.getElementById("output").innerText;
+  if(!t || t.includes("will appear here")){ alert("Please generate the letter first."); return; }
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  doc.setFont("times", "normal");
+  doc.setFontSize(12);
+  doc.text(doc.splitTextToSize(t, 180), 15, 20);
+  doc.save("temporary-accommodation-letter-canada.pdf");
+}
+
+document.querySelectorAll('.faq-q').forEach(q => q.addEventListener('click', () => q.parentElement.classList.toggle('open')));
 </script>
 
 </body>
