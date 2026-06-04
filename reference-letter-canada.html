@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NGF0TJ0BNY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NGF0TJ0BNY');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reference Letter Canada – Free Generator | LetterHelper.ca</title>
+<meta name="description" content="Generate a free professional reference letter for Canada. Personal, professional, or academic references. No signup. Instant PDF download. Canadian format.">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<div class="navbar">
+  <a href="index.html">Home</a>
+  <a href="invitation-letter-canada.html">Invitation</a>
+  <a href="proof-of-address-canada.html">Proof</a>
+  <a href="employment-letter-canada.html">Employment</a>
+  <a href="consent-letter-canada.html">Consent</a>
+  <a href="landlord-letter-canada.html">Landlord</a>
+  <a href="authorization-letter-canada.html">Authorization</a>
+  <a href="cosigner-letter-canada.html">Co-Signer</a>
+  <a href="temporary-accommodation-letter-canada.html">Temp. Stay</a>
+</div>
+
+<div class="hero">
+  <h1>Reference Letter Canada</h1>
+  <p>Generate a professional reference letter in under a minute. Personal, academic, or professional.</p>
+  <div class="trust-line">Free · No signup · Instant PDF download · Canadian format</div>
+  <div class="use-cases">
+    <span class="chip">💼 Job Application</span>
+    <span class="chip">🎓 School & College</span>
+    <span class="chip">🏠 Rental Application</span>
+    <span class="chip">✈️ Immigration & Visa</span>
+    <span class="chip">🏛️ Government Programs</span>
+  </div>
+</div>
+
+<div class="container">
+  <div class="form-grid">
+    <div>
+      <label>Reference Type</label>
+      <select id="refType" onchange="updatePlaceholders()" style="width:100%;padding:14px;border-radius:10px;border:1px solid #ddd;margin-top:12px;box-sizing:border-box;font-size:16px;">
+        <option value="professional">Professional Reference</option>
+        <option value="personal">Personal Reference</option>
+        <option value="academic">Academic Reference</option>
+      </select>
+    </div>
+    <div>
+      <label>Referee's Full Name (person writing the letter)</label>
+      <input id="refereeName" placeholder="e.g. John Smith">
+    </div>
+    <div>
+      <label>Referee's Title / Position</label>
+      <input id="refereeTitle" placeholder="e.g. Senior Manager, Professor, Family Friend">
+    </div>
+    <div>
+      <label>Referee's Organization (optional)</label>
+      <input id="refereeOrg" placeholder="e.g. ABC Company, University of Toronto">
+    </div>
+    <div>
+      <label>Applicant's Full Name</label>
+      <input id="applicantName" placeholder="e.g. Maria Garcia">
+    </div>
+    <div>
+      <label>How Long Have You Known Them?</label>
+      <input id="duration" placeholder="e.g. 3 years, 5 years">
+    </div>
+    <div>
+      <label>Their Key Strength #1</label>
+      <input id="strength1" placeholder="e.g. strong work ethic, excellent communication">
+    </div>
+    <div>
+      <label>Their Key Strength #2</label>
+      <input id="strength2" placeholder="e.g. reliable, highly organized">
+    </div>
+    <div class="form-full">
+      <label>Purpose of the Letter (optional)</label>
+      <input id="purpose" placeholder="e.g. job application, rental application, university admission">
+    </div>
+    <div class="form-full">
+      <label>Referee's Contact Info (optional)</label>
+      <input id="refereeContact" placeholder="e.g. john.smith@email.com | (416) 555-0123">
+    </div>
+  </div>
+
+  <div class="buttons">
+    <button class="primary" onclick="generateLetter()">⚡ Generate Letter</button>
+    <button class="secondary" onclick="copyLetter()">📋 Copy</button>
+    <button class="pdf-btn" onclick="downloadPDF()">⬇ Download PDF</button>
+    <button class="secondary" onclick="window.print()">🖨 Print</button>
+  </div>
+  <div id="output">Your reference letter will appear here after you click Generate.</div>
+</div>
+
+<div class="accepts-section">
+  <div class="accepts-inner">
+    <h3>Who Accepts This Letter?</h3>
+    <div class="accepts-grid">
+      <div class="accept-item"><span class="icon">💼</span>Employers & Recruiters</div>
+      <div class="accept-item"><span class="icon">🎓</span>Universities & Colleges</div>
+      <div class="accept-item"><span class="icon">🏠</span>Landlords & Property Managers</div>
+      <div class="accept-item"><span class="icon">✈️</span>IRCC / Visa Officers</div>
+    </div>
+  </div>
+</div>
+
+<div class="info-grid">
+  <div class="info-card">
+    <h3>What is a Reference Letter?</h3>
+    <p>A reference letter is a written endorsement from someone who knows you personally or professionally. It confirms your character, skills, and reliability. In Canada, reference letters are commonly required for job applications, university admissions, rental applications, and immigration purposes.</p>
+  </div>
+  <div class="info-card">
+    <h3>What Should Be Included?</h3>
+    <ul>
+      <li>Referee's full name and title</li>
+      <li>How long and in what capacity they know the applicant</li>
+      <li>Specific strengths and qualities</li>
+      <li>Purpose the letter is written for</li>
+      <li>Strong endorsement statement</li>
+      <li>Referee's contact information</li>
+      <li>Signature and date</li>
+    </ul>
+  </div>
+</div>
+
+<div class="faq-section">
+  <div class="faq-inner">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <div class="faq-q">What is the difference between a reference letter and a recommendation letter?</div>
+      <div class="faq-a">In Canada, the terms are often used interchangeably. A reference letter is typically broader and confirms character or work history, while a recommendation letter is more specific and advocates strongly for a particular opportunity such as a job or school admission. Both follow a similar format.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can a friend or family member write a personal reference letter?</div>
+      <div class="faq-a">Yes. Personal reference letters are commonly written by friends, neighbors, community members, or anyone who knows the applicant well. They are often used for rental applications, immigration, and character references in legal matters.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does a reference letter need to be on official letterhead?</div>
+      <div class="faq-a">For professional and academic references, it is strongly recommended to use company or institution letterhead. For personal references, plain paper with the referee's contact information is generally acceptable.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is a reference letter required for Canadian immigration?</div>
+      <div class="faq-a">Reference letters are commonly requested for certain immigration streams, including Express Entry, where former employers may be asked to provide employment reference letters confirming job duties and duration. Always check the specific IRCC requirements for your application.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How recent should a reference letter be?</div>
+      <div class="faq-a">Most employers, schools, and immigration officers prefer reference letters dated within the last 6 to 12 months. For immigration purposes, some programs require letters dated within a specific timeframe, so always check the program requirements.</div>
+    </div>
+  </div>
+</div>
+
+<div class="disclaimer">This tool provides a general reference letter template for informational purposes only and does not constitute legal or immigration advice.</div>
+
+<footer class="footer">
+  <p>© 2026 LetterHelper.ca — Free Canadian Letter Generator</p>
+  <p><a href="index.html">Home</a><a href="#">Privacy Policy</a><a href="#">Disclaimer</a><a href="#">Contact</a></p>
+</footer>
+
+<script>
+function generateLetter(){
+  const refType = document.getElementById("refType").value;
+  const refereeName = document.getElementById("refereeName").value.trim() || "[Referee Name]";
+  const refereeTitle = document.getElementById("refereeTitle").value.trim() || "[Title]";
+  const refereeOrg = document.getElementById("refereeOrg").value.trim();
+  const applicantName = document.getElementById("applicantName").value.trim() || "[Applicant Name]";
+  const duration = document.getElementById("duration").value.trim() || "[X years]";
+  const strength1 = document.getElementById("strength1").value.trim() || "strong work ethic";
+  const strength2 = document.getElementById("strength2").value.trim() || "excellent reliability";
+  const purpose = document.getElementById("purpose").value.trim() || "various opportunities";
+  const refereeContact = document.getElementById("refereeContact").value.trim();
+
+  const today = new Date().toLocaleDateString('en-CA', {year:'numeric', month:'long', day:'numeric'});
+
+  const orgLine = refereeOrg ? "\n" + refereeOrg : "";
+  const contactLine = refereeContact ? "\n" + refereeContact : "";
+
+  let relationship = "";
+  let context = "";
+  let closing = "";
+
+  if(refType === "professional"){
+    relationship = "I have had the pleasure of working with " + applicantName + " for " + duration;
+    context = "During this time, " + applicantName + " consistently demonstrated " + strength1 + " and " + strength2 + ". Their contributions to our team were invaluable, and they always approached their responsibilities with professionalism and dedication.";
+    closing = "I wholeheartedly recommend " + applicantName + " for " + purpose + ". They would be an exceptional asset to any organization or program.";
+  } else if(refType === "personal"){
+    relationship = "I have known " + applicantName + " personally for " + duration;
+    context = "Throughout our time knowing each other, " + applicantName + " has consistently shown " + strength1 + " and " + strength2 + ". They are a person of strong character, integrity, and genuine kindness.";
+    closing = "I am confident that " + applicantName + " will make a positive impression and I fully support their " + purpose + ".";
+  } else {
+    relationship = "I have had the privilege of knowing " + applicantName + " in an academic capacity for " + duration;
+    context = "During this period, " + applicantName + " demonstrated exceptional " + strength1 + " and " + strength2 + ". They consistently showed intellectual curiosity and a strong commitment to their studies.";
+    closing = "I strongly recommend " + applicantName + " for " + purpose + ". I am confident they will excel in any academic or professional setting.";
+  }
+
+  const text = today + "\n\n" +
+    refereeName + "\n" +
+    refereeTitle +
+    orgLine +
+    contactLine + "\n\n" +
+    "To Whom It May Concern,\n\n" +
+    "RE: Reference Letter for " + applicantName + "\n\n" +
+    relationship + ". I am pleased to provide this reference letter on their behalf.\n\n" +
+    context + "\n\n" +
+    closing + "\n\n" +
+    "Please feel free to contact me if you require any further information.\n\n" +
+    "Sincerely,\n\n\n" +
+    refereeName + "\n" +
+    refereeTitle +
+    orgLine + "\n" +
+    "_________________________\nSignature\n\n" +
+    "Date: " + today;
+
+  const out = document.getElementById("output");
+  out.innerText = text;
+  out.classList.add("has-content");
+}
+
+function copyLetter(){
+  const t = document.getElementById("output").innerText;
+  if(!t || t.includes("will appear here")){ alert("Please generate the letter first."); return; }
+  navigator.clipboard.writeText(t);
+  alert("Letter copied to clipboard.");
+}
+
+function downloadPDF(){
+  const t = document.getElementById("output").innerText;
+  if(!t || t.includes("will appear here")){ alert("Please generate the letter first."); return; }
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  doc.setFont("times", "normal");
+  doc.setFontSize(12);
+  doc.text(doc.splitTextToSize(t, 180), 15, 20);
+  doc.save("reference-letter-canada.pdf");
+}
+
+document.querySelectorAll('.faq-q').forEach(q => q.addEventListener('click', () => q.parentElement.classList.toggle('open')));
+</script>
+
+</body>
+</html>
