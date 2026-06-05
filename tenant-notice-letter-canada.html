@@ -29,6 +29,11 @@
   <a href="authorization-letter-canada.html">Authorization</a>
   <a href="cosigner-letter-canada.html">Co-Signer</a>
   <a href="temporary-accommodation-letter-canada.html">Temp. Stay</a>
+  <a href="reference-letter-canada.html">Reference</a>
+  <a href="resignation-letter-canada.html">Resignation</a>
+  <a href="character-reference-letter-canada.html">Character Ref.</a>
+  <a href="immigration-support-letter-canada.html">Immigration</a>
+  <a href="tenant-notice-letter-canada.html">Tenant Notice</a>
 </div>
 
 <div class="hero">
@@ -168,13 +173,10 @@ function generateLetter(){
   const noticeDate = document.getElementById("noticeDate").value.trim() || "[Effective Date]";
   const newRent = document.getElementById("newRent").value.trim();
   const additionalDetails = document.getElementById("additionalDetails").value.trim();
-
   const today = new Date().toLocaleDateString('en-CA', {year:'numeric', month:'long', day:'numeric'});
   const additionalLine = additionalDetails ? "\n\n" + additionalDetails : "";
-
   let subject = "";
   let body = "";
-
   if(noticeType === "vacate"){
     subject = "Notice to Vacate – " + propertyAddress;
     body = "I am writing to formally notify you that I will be vacating the rental unit located at " + propertyAddress + ", effective " + noticeDate + ".\n\nI have enjoyed my time as a tenant and appreciate your cooperation throughout my tenancy. I will ensure the property is left in good condition upon my departure." + additionalLine + "\n\nPlease advise me of any move-out inspection procedures and the process for the return of my security deposit.";
@@ -189,32 +191,17 @@ function generateLetter(){
     subject = "Maintenance Request – " + propertyAddress;
     body = "I am writing to formally request maintenance and repairs at the rental unit located at " + propertyAddress + "." + additionalLine + "\n\nI kindly request that the necessary repairs be completed as soon as possible. Please contact me to arrange a suitable time for the work to be carried out.";
   }
-
-  const text = today + "\n\n" +
-    senderName + "\n" +
-    senderAddress + "\n\n" +
-    recipientName + "\n\n" +
-    "RE: " + subject + "\n\n" +
-    "Dear " + recipientName + ",\n\n" +
-    body + "\n\n" +
-    "Thank you for your attention to this matter.\n\n" +
-    "Sincerely,\n\n\n" +
-    senderName + "\n" +
-    "_________________________\nSignature\n\n" +
-    "Date: " + today;
-
+  const text = today + "\n\n" + senderName + "\n" + senderAddress + "\n\n" + recipientName + "\n\n" + "RE: " + subject + "\n\n" + "Dear " + recipientName + ",\n\n" + body + "\n\n" + "Thank you for your attention to this matter.\n\n" + "Sincerely,\n\n\n" + senderName + "\n" + "_________________________\nSignature\n\n" + "Date: " + today;
   const out = document.getElementById("output");
   out.innerText = text;
   out.classList.add("has-content");
 }
-
 function copyLetter(){
   const t = document.getElementById("output").innerText;
   if(!t || t.includes("will appear here")){ alert("Please generate the letter first."); return; }
   navigator.clipboard.writeText(t);
   alert("Letter copied to clipboard.");
 }
-
 function downloadPDF(){
   const t = document.getElementById("output").innerText;
   if(!t || t.includes("will appear here")){ alert("Please generate the letter first."); return; }
@@ -225,7 +212,6 @@ function downloadPDF(){
   doc.text(doc.splitTextToSize(t, 180), 15, 20);
   doc.save("tenant-notice-letter-canada.pdf");
 }
-
 document.querySelectorAll('.faq-q').forEach(q => q.addEventListener('click', () => q.parentElement.classList.toggle('open')));
 </script>
 
