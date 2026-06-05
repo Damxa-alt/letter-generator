@@ -10,12 +10,12 @@
   gtag('config', 'G-NGF0TJ0BNY');
 </script>
 <meta charset="UTF-8">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.85em%22 font-size=%2275%22>🍁</text><text x=%2250%22 y=%22.92em%22 font-size=%2228%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22>LH</text></svg>">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Landlord Letter Canada – Free Generator | LetterHelper.ca</title>
 <meta name="description" content="Generate a free landlord reference or rental verification letter for Canada. Accepted by banks, schools, immigration, and government offices. Instant PDF download.">
 <link rel="stylesheet" href="css/style.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
 </head>
 <body>
 <div class="navbar">
@@ -26,13 +26,13 @@
   <a href="consent-letter-canada.html">Consent</a>
   <a href="landlord-letter-canada.html">Landlord</a>
   <a href="authorization-letter-canada.html">Authorization</a>
-  <a href="cosigner-letter-canada.html">Co-Signer</a> 
-  <a href="temporary-accommodation-letter-canada.html">Temp. Stay</a> 
+  <a href="cosigner-letter-canada.html">Co-Signer</a>
+  <a href="temporary-accommodation-letter-canada.html">Temp. Stay</a>
   <a href="reference-letter-canada.html">Reference</a>
-<a href="resignation-letter-canada.html">Resignation</a>
-<a href="character-reference-letter-canada.html">Character Ref.</a>
-<a href="immigration-support-letter-canada.html">Immigration</a>
-<a href="tenant-notice-letter-canada.html">Tenant Notice</a>
+  <a href="resignation-letter-canada.html">Resignation</a>
+  <a href="character-reference-letter-canada.html">Character Ref.</a>
+  <a href="immigration-support-letter-canada.html">Immigration</a>
+  <a href="tenant-notice-letter-canada.html">Tenant Notice</a>
 </div>
 
 <div class="hero">
@@ -180,28 +180,7 @@ function generateLetter(){
   const rentLine=rent?`\n\nThe monthly rent for this property is ${rent}.`:"";
   const standingLine=standing?`\n\n${tenant} has been a ${standing} and I have no hesitation in providing this reference.`:"";
   const phoneLine=phone?`\nPhone: ${phone}`:"";
-  const text=`${today}
-
-To Whom It May Concern,
-
-RE: Tenancy Confirmation for ${tenant}
-
-I, ${landlord}, confirm that ${tenant} is currently renting the following property:
-
-${address}
-
-${tenant} has been a tenant at this address since ${since}. The current lease is ${leaseend}.${rentLine}
-
-This letter is issued for the purpose of ${purpose}.${standingLine}
-
-If you require any further information, please do not hesitate to contact me.
-
-Sincerely,
-
-${landlord}${phoneLine}
-
-_________________________
-Signature (Landlord / Property Manager)`;
+  const text=`${today}\n\nTo Whom It May Concern,\n\nRE: Tenancy Confirmation for ${tenant}\n\nI, ${landlord}, confirm that ${tenant} is currently renting the following property:\n\n${address}\n\n${tenant} has been a tenant at this address since ${since}. The current lease is ${leaseend}.${rentLine}\n\nThis letter is issued for the purpose of ${purpose}.${standingLine}\n\nIf you require any further information, please do not hesitate to contact me.\n\nSincerely,\n\n${landlord}${phoneLine}\n\n_________________________\nSignature (Landlord / Property Manager)`;
   const out=document.getElementById("output");
   out.innerText=text.trim();out.classList.add("has-content");
 }
