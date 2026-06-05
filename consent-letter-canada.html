@@ -10,12 +10,12 @@
   gtag('config', 'G-NGF0TJ0BNY');
 </script>
 <meta charset="UTF-8">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.85em%22 font-size=%2275%22>🍁</text><text x=%2250%22 y=%22.92em%22 font-size=%2228%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22>LH</text></svg>">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Child Travel Consent Letter Canada – Free Generator | LetterHelper.ca</title>
 <meta name="description" content="Generate a free child travel consent letter for Canada. Required when a child travels with one parent or another adult. Instant PDF download.">
 <link rel="stylesheet" href="css/style.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
 </head>
 <body>
 <div class="navbar">
@@ -26,14 +26,14 @@
   <a href="consent-letter-canada.html">Consent</a>
   <a href="landlord-letter-canada.html">Landlord</a>
   <a href="authorization-letter-canada.html">Authorization</a>
-  <a href="cosigner-letter-canada.html">Co-Signer</a> 
-  <a href="temporary-accommodation-letter-canada.html">Temp. Stay</a> 
+  <a href="cosigner-letter-canada.html">Co-Signer</a>
+  <a href="temporary-accommodation-letter-canada.html">Temp. Stay</a>
   <a href="reference-letter-canada.html">Reference</a>
-<a href="resignation-letter-canada.html">Resignation</a>
-<a href="character-reference-letter-canada.html">Character Ref.</a>
-<a href="immigration-support-letter-canada.html">Immigration</a>
-<a href="tenant-notice-letter-canada.html">Tenant Notice</a>
- </div>
+  <a href="resignation-letter-canada.html">Resignation</a>
+  <a href="character-reference-letter-canada.html">Character Ref.</a>
+  <a href="immigration-support-letter-canada.html">Immigration</a>
+  <a href="tenant-notice-letter-canada.html">Tenant Notice</a>
+</div>
 
 <div class="hero">
   <h1>Child Travel Consent Letter Canada</h1>
@@ -191,35 +191,8 @@ function generateLetter(){
   const email=document.getElementById("email").value.trim();
   const today=new Date().toLocaleDateString('en-CA',{year:'numeric',month:'long',day:'numeric'});
   const emailLine=email?` | ${email}`:"";
-  const parent2Block=parent2?`\n\nI, ${parent2}, also consent to this travel arrangement and confirm the above information is accurate.
-
-${parent2}
-_________________________
-Signature (Second Parent/Guardian)`:"";
-
-  const text=`${today}
-
-To Whom It May Concern,
-
-RE: Child Travel Consent Letter for ${child}
-
-I, ${parent}, am the parent/legal guardian of ${child}, date of birth ${dob}.
-
-I hereby give my full consent for ${child} to travel with ${accompany} (${relation}) to ${destination}.
-
-Travel Dates: ${dates}
-
-Purpose of Travel: ${purpose}
-
-I authorize ${accompany} to make any necessary decisions regarding the care and welfare of ${child} during the travel period. In case of emergency, I can be reached at: ${phone}${emailLine}
-
-I confirm that this consent is given voluntarily and that all information provided is true and accurate.
-
-Sincerely,
-
-${parent}
-_________________________
-Signature (Parent/Guardian)${parent2Block}`;
+  const parent2Block=parent2?`\n\nI, ${parent2}, also consent to this travel arrangement and confirm the above information is accurate.\n\n${parent2}\n_________________________\nSignature (Second Parent/Guardian)`:"";
+  const text=`${today}\n\nTo Whom It May Concern,\n\nRE: Child Travel Consent Letter for ${child}\n\nI, ${parent}, am the parent/legal guardian of ${child}, date of birth ${dob}.\n\nI hereby give my full consent for ${child} to travel with ${accompany} (${relation}) to ${destination}.\n\nTravel Dates: ${dates}\n\nPurpose of Travel: ${purpose}\n\nI authorize ${accompany} to make any necessary decisions regarding the care and welfare of ${child} during the travel period. In case of emergency, I can be reached at: ${phone}${emailLine}\n\nI confirm that this consent is given voluntarily and that all information provided is true and accurate.\n\nSincerely,\n\n${parent}\n_________________________\nSignature (Parent/Guardian)${parent2Block}`;
   const out=document.getElementById("output");
   out.innerText=text.trim();out.classList.add("has-content");
 }
