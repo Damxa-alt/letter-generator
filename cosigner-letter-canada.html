@@ -10,12 +10,12 @@
   gtag('config', 'G-NGF0TJ0BNY');
 </script>
 <meta charset="UTF-8">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.85em%22 font-size=%2275%22>🍁</text><text x=%2250%22 y=%22.92em%22 font-size=%2228%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22>LH</text></svg>">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Co-Signer & Guarantor Letter Canada – Free Generator | LetterHelper.ca</title>
 <meta name="description" content="Generate a free co-signer or guarantor letter for Canada. Used for rental applications, student loans, and leases. No signup. Instant PDF download.">
 <link rel="stylesheet" href="css/style.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
 </head>
 <body>
 <div class="navbar">
@@ -26,13 +26,13 @@
   <a href="consent-letter-canada.html">Consent</a>
   <a href="landlord-letter-canada.html">Landlord</a>
   <a href="authorization-letter-canada.html">Authorization</a>
-  <a href="cosigner-letter-canada.html">Co-Signer</a> 
-  <a href="temporary-accommodation-letter-canada.html">Temp. Stay</a> 
+  <a href="cosigner-letter-canada.html">Co-Signer</a>
+  <a href="temporary-accommodation-letter-canada.html">Temp. Stay</a>
   <a href="reference-letter-canada.html">Reference</a>
-<a href="resignation-letter-canada.html">Resignation</a>
-<a href="character-reference-letter-canada.html">Character Ref.</a>
-<a href="immigration-support-letter-canada.html">Immigration</a>
-<a href="tenant-notice-letter-canada.html">Tenant Notice</a>
+  <a href="resignation-letter-canada.html">Resignation</a>
+  <a href="character-reference-letter-canada.html">Character Ref.</a>
+  <a href="immigration-support-letter-canada.html">Immigration</a>
+  <a href="tenant-notice-letter-canada.html">Tenant Notice</a>
 </div>
 
 <div class="hero">
@@ -203,31 +203,7 @@ function generateLetter(){
   const roleDesc=isGuarantor
     ?`As guarantor, I understand that I will be responsible for fulfilling the above obligation only in the event that ${applicant} fails to do so.`
     :`As co-signer, I understand that I share equal responsibility for the above obligation alongside ${applicant} and may be held liable at any time.`;
-
-  const text=`${today}
-
-To Whom It May Concern,
-
-RE: ${role} Letter for ${applicant}
-
-I, ${cosigner}, ${relation} of ${applicant}${dobLine}, hereby agree to act as ${role.toLowerCase()} for the following obligation:
-
-${obligation}
-
-${roleDesc}${incomeLine}
-
-I confirm that I have read and understood the terms of this agreement and that I am willingly accepting this responsibility. I am prepared to fulfil the financial obligations outlined above should it become necessary.
-
-My contact information is provided below for verification purposes.
-
-Sincerely,
-
-${cosigner}
-${cosignerAddress}
-Phone: ${phone}${emailLine}
-
-_________________________
-Signature (${role})`;
+  const text=`${today}\n\nTo Whom It May Concern,\n\nRE: ${role} Letter for ${applicant}\n\nI, ${cosigner}, ${relation} of ${applicant}${dobLine}, hereby agree to act as ${role.toLowerCase()} for the following obligation:\n\n${obligation}\n\n${roleDesc}${incomeLine}\n\nI confirm that I have read and understood the terms of this agreement and that I am willingly accepting this responsibility. I am prepared to fulfil the financial obligations outlined above should it become necessary.\n\nMy contact information is provided below for verification purposes.\n\nSincerely,\n\n${cosigner}\n${cosignerAddress}\nPhone: ${phone}${emailLine}\n\n_________________________\nSignature (${role})`;
   const out=document.getElementById("output");
   out.innerText=text.trim();out.classList.add("has-content");
 }
