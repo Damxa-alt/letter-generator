@@ -28,6 +28,12 @@
   <a href="landlord-letter-canada.html">Landlord</a>
   <a href="authorization-letter-canada.html">Authorization</a>
   <a href="cosigner-letter-canada.html">Co-Signer</a>
+  <a href="temporary-accommodation-letter-canada.html">Temp. Stay</a>
+  <a href="reference-letter-canada.html">Reference</a>
+  <a href="resignation-letter-canada.html">Resignation</a>
+  <a href="character-reference-letter-canada.html">Character Ref.</a>
+  <a href="immigration-support-letter-canada.html">Immigration</a>
+  <a href="tenant-notice-letter-canada.html">Tenant Notice</a>
 </div>
 
 <div class="hero">
@@ -167,40 +173,22 @@ function generateLetter(){
   const startDate = document.getElementById("startDate").value.trim() || "[Start Date]";
   const endDate = document.getElementById("endDate").value.trim() || "[End Date]";
   const purpose = document.getElementById("purpose").value.trim() || "visiting Canada";
-
   const today = new Date().toLocaleDateString('en-CA', {year:'numeric', month:'long', day:'numeric'});
-
   let contactLine = "";
   if(hostPhone && hostEmail) contactLine = "\n\nShould you have any questions, please feel free to contact me at " + hostPhone + " or " + hostEmail + ".";
   else if(hostPhone) contactLine = "\n\nShould you have any questions, please feel free to contact me at " + hostPhone + ".";
   else if(hostEmail) contactLine = "\n\nShould you have any questions, please feel free to contact me at " + hostEmail + ".";
-
-  const text = today + "\n\n" +
-    hostName + "\n" +
-    hostAddress + "\n\n" +
-    "To Whom It May Concern,\n\n" +
-    "RE: Temporary Accommodation Confirmation – " + guestName + "\n\n" +
-    "I, " + hostName + ", residing at " + hostAddress + ", hereby confirm that " + guestName + ", my " + relationship + ", will be temporarily accommodated at my address from " + startDate + " to " + endDate + ".\n\n" +
-    "The purpose of " + guestName + "'s visit is " + purpose + ". During this period, " + guestName + " will have full access to the accommodation and all necessary amenities at no cost.\n\n" +
-    "I take full responsibility for hosting " + guestName + " during their stay and confirm that all information provided in this letter is true and accurate to the best of my knowledge." +
-    contactLine + "\n\n" +
-    "Sincerely,\n\n\n" +
-    hostName + "\n" +
-    "_________________________\nHost Signature\n\n" +
-    "Date: " + today;
-
+  const text = today + "\n\n" + hostName + "\n" + hostAddress + "\n\nTo Whom It May Concern,\n\nRE: Temporary Accommodation Confirmation – " + guestName + "\n\nI, " + hostName + ", residing at " + hostAddress + ", hereby confirm that " + guestName + ", my " + relationship + ", will be temporarily accommodated at my address from " + startDate + " to " + endDate + ".\n\nThe purpose of " + guestName + "'s visit is " + purpose + ". During this period, " + guestName + " will have full access to the accommodation and all necessary amenities at no cost.\n\nI take full responsibility for hosting " + guestName + " during their stay and confirm that all information provided in this letter is true and accurate to the best of my knowledge." + contactLine + "\n\nSincerely,\n\n\n" + hostName + "\n_________________________\nHost Signature\n\nDate: " + today;
   const out = document.getElementById("output");
   out.innerText = text;
   out.classList.add("has-content");
 }
-
 function copyLetter(){
   const t = document.getElementById("output").innerText;
   if(!t || t.includes("will appear here")){ alert("Please generate the letter first."); return; }
   navigator.clipboard.writeText(t);
   alert("Letter copied to clipboard.");
 }
-
 function downloadPDF(){
   const t = document.getElementById("output").innerText;
   if(!t || t.includes("will appear here")){ alert("Please generate the letter first."); return; }
@@ -211,9 +199,7 @@ function downloadPDF(){
   doc.text(doc.splitTextToSize(t, 180), 15, 20);
   doc.save("temporary-accommodation-letter-canada.pdf");
 }
-
 document.querySelectorAll('.faq-q').forEach(q => q.addEventListener('click', () => q.parentElement.classList.toggle('open')));
 </script>
-
 </body>
 </html>
