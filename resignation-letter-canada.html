@@ -172,7 +172,7 @@
 
 <footer class="footer">
   <p>© 2026 LetterHelper.ca — Free Canadian Letter Generator</p>
-  <p><a href="index.html">Home</a><a href="privacy-policy.html">Privacy Policy</a><a href="disclaimer.html">Disclaimer</a><a href="mailto:lybansolutions@gmail.com">Contact</a></p>
+  <p><a href="index.html">Home</a><a href="privacy-policy.html">Privacy Policy</a><a href="disclaimer.html">Disclaimer</a><a href="#" onclick="openContact();return false;">Contact</a></p>
 </footer>
 
 <script>
@@ -249,6 +249,64 @@ function downloadPDF(){
 }
 
 document.querySelectorAll('.faq-q').forEach(q => q.addEventListener('click', () => q.parentElement.classList.toggle('open')));
+</script>
+
+
+<!-- Contact Modal -->
+<div id="contactModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:9999;align-items:center;justify-content:center;">
+  <div style="background:white;border-radius:16px;padding:35px;max-width:480px;width:90%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+    <button onclick="closeContact()" style="position:absolute;top:15px;right:15px;background:none;border:none;font-size:24px;cursor:pointer;color:#6b7280;padding:0;">×</button>
+    <h2 style="margin:0 0 8px;font-family:'Playfair Display',Georgia,serif;font-size:24px;">Contact Us</h2>
+    <p style="margin:0 0 20px;color:#6b7280;font-size:14px;">Send us a message and we'll get back to you.</p>
+    <div id="contactSuccess" style="display:none;background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:16px;margin-bottom:16px;color:#166534;font-size:14px;">
+      ✅ Thank you! Your message has been sent. We'll get back to you soon.
+    </div>
+    <form id="contactForm" action="https://formspree.io/f/mkoaoape" method="POST" onsubmit="submitContact(event)">
+      <div style="margin-bottom:14px;">
+        <label style="display:block;font-weight:600;font-size:13px;color:#374151;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:5px;">Your Name</label>
+        <input type="text" name="name" required placeholder="e.g. John Smith" style="width:100%;padding:11px 14px;border-radius:8px;border:1.5px solid #e5e7eb;font-size:15px;box-sizing:border-box;font-family:inherit;">
+      </div>
+      <div style="margin-bottom:14px;">
+        <label style="display:block;font-weight:600;font-size:13px;color:#374151;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:5px;">Your Email</label>
+        <input type="email" name="email" required placeholder="e.g. john@email.com" style="width:100%;padding:11px 14px;border-radius:8px;border:1.5px solid #e5e7eb;font-size:15px;box-sizing:border-box;font-family:inherit;">
+      </div>
+      <div style="margin-bottom:20px;">
+        <label style="display:block;font-weight:600;font-size:13px;color:#374151;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:5px;">Message</label>
+        <textarea name="message" required placeholder="How can we help you?" rows="4" style="width:100%;padding:11px 14px;border-radius:8px;border:1.5px solid #e5e7eb;font-size:15px;box-sizing:border-box;font-family:inherit;resize:vertical;"></textarea>
+      </div>
+      <button type="submit" id="contactSubmit" style="width:100%;padding:14px;background:#111827;color:white;border:none;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;">Send Message</button>
+    </form>
+  </div>
+</div>
+
+<script>
+function openContact(){ document.getElementById('contactModal').style.display='flex'; document.body.style.overflow='hidden'; }
+function closeContact(){ document.getElementById('contactModal').style.display='none'; document.body.style.overflow=''; }
+window.addEventListener('click', function(e){ if(e.target===document.getElementById('contactModal')) closeContact(); });
+async function submitContact(e){
+  e.preventDefault();
+  const btn = document.getElementById('contactSubmit');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  const form = document.getElementById('contactForm');
+  const data = new FormData(form);
+  try {
+    const res = await fetch('https://formspree.io/f/mkoaoape', { method:'POST', body:data, headers:{'Accept':'application/json'} });
+    if(res.ok){
+      form.style.display='none';
+      document.getElementById('contactSuccess').style.display='block';
+      setTimeout(()=>{ closeContact(); form.style.display='block'; document.getElementById('contactSuccess').style.display='none'; form.reset(); btn.textContent='Send Message'; btn.disabled=false; }, 3000);
+    } else {
+      btn.textContent = 'Send Message';
+      btn.disabled = false;
+      alert('Something went wrong. Please try again.');
+    }
+  } catch(err){
+    btn.textContent = 'Send Message';
+    btn.disabled = false;
+    alert('Something went wrong. Please try again.');
+  }
+}
 </script>
 
 </body>
