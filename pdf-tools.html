@@ -14,6 +14,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
 
 <style>
 body{
@@ -304,7 +305,7 @@ font-size:24px;
 
 <div class="stats">
 <div class="statCard">
-<div class="number">6</div>
+<div class="number">7</div>
 <div class="label">Tools Ready</div>
 </div>
 
@@ -363,6 +364,11 @@ font-size:24px;
 <div class="card" onclick="toggleTool('compressBox')">
 <h3>📉 Compress PDF</h3>
 <p>Reduce your PDF file size instantly.</p>
+</div>
+
+<div class="card" onclick="toggleTool('wordBox')">
+<h3>📝 Word → PDF</h3>
+<p>Convert a Word (.docx) document to PDF instantly.</p>
 </div>
 
 </div>
@@ -436,6 +442,15 @@ font-size:24px;
 <p id="compressStatus" class="statusText"></p>
 </div>
 
+<!-- Word to PDF -->
+<div id="wordBox" class="tool-box">
+<h2>📝 Word → PDF</h2>
+<p>Upload a Word (.docx) file and convert it to PDF. Works best with text-based documents.</p>
+<input type="file" id="wordFile" accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+<button onclick="convertWordToPDF()">Convert to PDF</button>
+<p id="wordStatus" class="statusText"></p>
+</div>
+
 </div>
 
 <script>
@@ -443,7 +458,7 @@ let orderedMergeFiles = [];
 let selectedRotation = 90;
 
 function toggleTool(id){
-  const boxes = ["mergeBox","splitBox","imageBox","deleteBox","rotateBox","compressBox"];
+  const boxes = ["mergeBox","splitBox","imageBox","deleteBox","rotateBox","compressBox","wordBox"];
   boxes.forEach(box => {
     document.getElementById(box).style.display = "none";
   });
@@ -759,6 +774,53 @@ function formatBytes(bytes){
   if(bytes < 1024) return bytes + " B";
   if(bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
   return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+}
+
+// ── WORD TO PDF ────────────────────────────────────────
+async function convertWordToPDF(){
+  const status = document.getElementById("wordStatus");
+  const file = document.getElementById("wordFile").files[0];
+
+  if(!file){ status.textContent = "Choose a .docx file."; return; }
+  if(!file.name.toLowerCase().endsWith(".docx")){ status.textContent = "Please choose a .docx file only."; return; }
+
+  try{
+    status.textContent = "Converting...";
+    const arrayBuffer = await file.arrayBuffer();
+    const result = await mammoth.extractRawText({ arrayBuffer });
+    const text = result.value;
+
+    if(!text || text.trim() === ""){
+      status.textContent = "Could not extract text from this document.";
+      return;
+    }
+
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    doc.setFont("times", "normal");
+    doc.setFontSize(12);
+
+    const lines = doc.splitTextToSize(text, 180);
+    const pageHeight = doc.internal.pageSize.height - 20;
+    let y = 20;
+
+    lines.forEach(line => {
+      if(y > pageHeight){
+        doc.addPage();
+        y = 20;
+      }
+      doc.text(line, 15, y);
+      y += 7;
+    });
+
+    const firstName = file.name.replace(/\.[^/.]+$/, "");
+    doc.save(firstName + ".pdf");
+    status.textContent = "Done. Your PDF has downloaded.";
+
+  }catch(error){
+    status.textContent = "Conversion failed. This file may be corrupted or unsupported.";
+    console.error(error);
+  }
 }
 
 // ── HELPERS ────────────────────────────────────────────
