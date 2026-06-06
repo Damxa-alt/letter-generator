@@ -16,6 +16,14 @@
 <meta name="description" content="Generate a free professional reference letter for Canada. Personal, professional, or academic references. No signup. Instant PDF download. Canadian format.">
 <link rel="stylesheet" href="css/style.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+  .hero { background: #111827; color: white; text-align: center; padding: 44px 20px 95px; }
+  .hero h1 { font-family: 'Playfair Display', Georgia, serif; font-size: 36px; margin: 0 0 10px; line-height: 1.2; }
+  .hero p { margin: 0 0 14px; font-size: 16px; color: #d1d5db; }
+  .trust-line { font-size: 13px; color: #9ca3af; }
+  .use-cases { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; justify-content: center; }
+  .chip { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #d1d5db; font-size: 12px; padding: 4px 12px; border-radius: 20px; }
+</style>
 </head>
 <body>
 
@@ -167,7 +175,7 @@
 
 <footer class="footer">
   <p>© 2026 LetterHelper.ca — Free Canadian Letter Generator</p>
-  <p><a href="index.html">Home</a><a href="#">Privacy Policy</a><a href="#">Disclaimer</a><a href="#">Contact</a></p>
+  <p><a href="index.html">Home</a><a href="privacy-policy.html">Privacy Policy</a><a href="disclaimer.html">Disclaimer</a><a href="#">Contact</a></p>
 </footer>
 
 <script>
@@ -182,16 +190,10 @@ function generateLetter(){
   const strength2 = document.getElementById("strength2").value.trim() || "excellent reliability";
   const purpose = document.getElementById("purpose").value.trim() || "various opportunities";
   const refereeContact = document.getElementById("refereeContact").value.trim();
-
   const today = new Date().toLocaleDateString('en-CA', {year:'numeric', month:'long', day:'numeric'});
-
   const orgLine = refereeOrg ? "\n" + refereeOrg : "";
   const contactLine = refereeContact ? "\n" + refereeContact : "";
-
-  let relationship = "";
-  let context = "";
-  let closing = "";
-
+  let relationship = "", context = "", closing = "";
   if(refType === "professional"){
     relationship = "I have had the pleasure of working with " + applicantName + " for " + duration;
     context = "During this time, " + applicantName + " consistently demonstrated " + strength1 + " and " + strength2 + ". Their contributions to our team were invaluable, and they always approached their responsibilities with professionalism and dedication.";
@@ -205,37 +207,17 @@ function generateLetter(){
     context = "During this period, " + applicantName + " demonstrated exceptional " + strength1 + " and " + strength2 + ". They consistently showed intellectual curiosity and a strong commitment to their studies.";
     closing = "I strongly recommend " + applicantName + " for " + purpose + ". I am confident they will excel in any academic or professional setting.";
   }
-
-  const text = today + "\n\n" +
-    refereeName + "\n" +
-    refereeTitle +
-    orgLine +
-    contactLine + "\n\n" +
-    "To Whom It May Concern,\n\n" +
-    "RE: Reference Letter for " + applicantName + "\n\n" +
-    relationship + ". I am pleased to provide this reference letter on their behalf.\n\n" +
-    context + "\n\n" +
-    closing + "\n\n" +
-    "Please feel free to contact me if you require any further information.\n\n" +
-    "Sincerely,\n\n\n" +
-    refereeName + "\n" +
-    refereeTitle +
-    orgLine + "\n" +
-    "_________________________\nSignature\n\n" +
-    "Date: " + today;
-
+  const text = today + "\n\n" + refereeName + "\n" + refereeTitle + orgLine + contactLine + "\n\nTo Whom It May Concern,\n\nRE: Reference Letter for " + applicantName + "\n\n" + relationship + ". I am pleased to provide this reference letter on their behalf.\n\n" + context + "\n\n" + closing + "\n\nPlease feel free to contact me if you require any further information.\n\nSincerely,\n\n\n" + refereeName + "\n" + refereeTitle + orgLine + "\n_________________________\nSignature\n\nDate: " + today;
   const out = document.getElementById("output");
   out.innerText = text;
   out.classList.add("has-content");
 }
-
 function copyLetter(){
   const t = document.getElementById("output").innerText;
   if(!t || t.includes("will appear here")){ alert("Please generate the letter first."); return; }
   navigator.clipboard.writeText(t);
   alert("Letter copied to clipboard.");
 }
-
 function downloadPDF(){
   const t = document.getElementById("output").innerText;
   if(!t || t.includes("will appear here")){ alert("Please generate the letter first."); return; }
@@ -246,9 +228,7 @@ function downloadPDF(){
   doc.text(doc.splitTextToSize(t, 180), 15, 20);
   doc.save("reference-letter-canada.pdf");
 }
-
 document.querySelectorAll('.faq-q').forEach(q => q.addEventListener('click', () => q.parentElement.classList.toggle('open')));
 </script>
-
 </body>
 </html>
