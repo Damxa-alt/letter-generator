@@ -197,11 +197,21 @@ _________________________
 Signature`;
   const out=document.getElementById("output");
   out.innerText=text.trim();out.classList.add("has-content");
+
+  gtag('event', 'generate_letter', {
+    letter_type: 'proof_of_address'
+  });
 }
 function copyLetter(){
   const t=document.getElementById("output").innerText;
   if(!t||t.includes("will appear here")){alert("Please generate the letter first.");return;}
-  navigator.clipboard.writeText(t);alert("Letter copied to clipboard.");
+  navigator.clipboard.writeText(t);
+
+  gtag('event', 'copy_text', {
+    letter_type: 'proof_of_address'
+  });
+
+  alert("Letter copied to clipboard.");
 }
 function downloadPDF(){
   const t=document.getElementById("output").innerText;
@@ -210,6 +220,10 @@ function downloadPDF(){
   doc.setFont("times","normal");doc.setFontSize(12);
   doc.text(doc.splitTextToSize(t,180),15,20);
   doc.save("proof-of-address-canada.pdf");
+
+  gtag('event', 'download_pdf', {
+    letter_type: 'proof_of_address'
+  });
 }
 document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>q.parentElement.classList.toggle('open')));
 </script>
@@ -255,6 +269,11 @@ async function submitContact(e){
   try {
     const res = await fetch('https://formspree.io/f/mkoaoape', { method:'POST', body:data, headers:{'Accept':'application/json'} });
     if(res.ok){
+
+      gtag('event', 'contact_form_submit', {
+        letter_type: 'proof_of_address'
+      });
+
       form.style.display='none';
       document.getElementById('contactSuccess').style.display='block';
       setTimeout(()=>{ closeContact(); form.style.display='block'; document.getElementById('contactSuccess').style.display='none'; form.reset(); btn.textContent='Send Message'; btn.disabled=false; }, 3000);
