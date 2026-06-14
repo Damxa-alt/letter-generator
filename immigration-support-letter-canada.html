@@ -231,12 +231,21 @@ function generateLetter(){
   const out = document.getElementById("output");
   out.innerText = text;
   out.classList.add("has-content");
+
+  gtag('event', 'generate_letter', {
+    letter_type: 'immigration_support'
+  });
 }
 
 function copyLetter(){
   const t = document.getElementById("output").innerText;
   if(!t || t.includes("will appear here")){ alert("Please generate the letter first."); return; }
   navigator.clipboard.writeText(t);
+
+  gtag('event', 'copy_text', {
+    letter_type: 'immigration_support'
+  });
+
   alert("Letter copied to clipboard.");
 }
 
@@ -249,6 +258,10 @@ function downloadPDF(){
   doc.setFontSize(12);
   doc.text(doc.splitTextToSize(t, 180), 15, 20);
   doc.save("immigration-support-letter-canada.pdf");
+
+  gtag('event', 'download_pdf', {
+    letter_type: 'immigration_support'
+  });
 }
 
 document.querySelectorAll('.faq-q').forEach(q => q.addEventListener('click', () => q.parentElement.classList.toggle('open')));
@@ -296,6 +309,11 @@ async function submitContact(e){
   try {
     const res = await fetch('https://formspree.io/f/mkoaoape', { method:'POST', body:data, headers:{'Accept':'application/json'} });
     if(res.ok){
+
+      gtag('event', 'contact_form_submit', {
+        letter_type: 'immigration_support'
+      });
+
       form.style.display='none';
       document.getElementById('contactSuccess').style.display='block';
       setTimeout(()=>{ closeContact(); form.style.display='block'; document.getElementById('contactSuccess').style.display='none'; form.reset(); btn.textContent='Send Message'; btn.disabled=false; }, 3000);
