@@ -195,11 +195,18 @@ function generateLetter(){
   const text=`${today}\n\nTo Whom It May Concern,\n\nRE: Child Travel Consent Letter for ${child}\n\nI, ${parent}, am the parent/legal guardian of ${child}, date of birth ${dob}.\n\nI hereby give my full consent for ${child} to travel with ${accompany} (${relation}) to ${destination}.\n\nTravel Dates: ${dates}\n\nPurpose of Travel: ${purpose}\n\nI authorize ${accompany} to make any necessary decisions regarding the care and welfare of ${child} during the travel period. In case of emergency, I can be reached at: ${phone}${emailLine}\n\nI confirm that this consent is given voluntarily and that all information provided is true and accurate.\n\nSincerely,\n\n${parent}\n_________________________\nSignature (Parent/Guardian)${parent2Block}`;
   const out=document.getElementById("output");
   out.innerText=text.trim();out.classList.add("has-content");
+  gtag('event', 'generate_letter', {
+    letter_type: 'consent'
+  });
 }
 function copyLetter(){
   const t=document.getElementById("output").innerText;
   if(!t||t.includes("will appear here")){alert("Please generate the letter first.");return;}
-  navigator.clipboard.writeText(t);alert("Letter copied to clipboard.");
+  navigator.clipboard.writeText(t);
+  gtag('event', 'copy_text', {
+    letter_type: 'consent'
+  });
+  alert("Letter copied to clipboard.");
 }
 function downloadPDF(){
   const t=document.getElementById("output").innerText;
@@ -208,6 +215,9 @@ function downloadPDF(){
   doc.setFont("times","normal");doc.setFontSize(12);
   doc.text(doc.splitTextToSize(t,180),15,20);
   doc.save("child-travel-consent-letter-canada.pdf");
+  gtag('event', 'download_pdf', {
+    letter_type: 'consent'
+  });
 }
 document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>q.parentElement.classList.toggle('open')));
 </script>
@@ -253,6 +263,9 @@ async function submitContact(e){
   try {
     const res = await fetch('https://formspree.io/f/mkoaoape', { method:'POST', body:data, headers:{'Accept':'application/json'} });
     if(res.ok){
+      gtag('event', 'contact_form_submit', {
+        letter_type: 'consent'
+      });
       form.style.display='none';
       document.getElementById('contactSuccess').style.display='block';
       setTimeout(()=>{ closeContact(); form.style.display='block'; document.getElementById('contactSuccess').style.display='none'; form.reset(); btn.textContent='Send Message'; btn.disabled=false; }, 3000);
