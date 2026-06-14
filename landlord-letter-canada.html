@@ -183,11 +183,21 @@ function generateLetter(){
   const text=`${today}\n\nTo Whom It May Concern,\n\nRE: Tenancy Confirmation for ${tenant}\n\nI, ${landlord}, confirm that ${tenant} is currently renting the following property:\n\n${address}\n\n${tenant} has been a tenant at this address since ${since}. The current lease is ${leaseend}.${rentLine}\n\nThis letter is issued for the purpose of ${purpose}.${standingLine}\n\nIf you require any further information, please do not hesitate to contact me.\n\nSincerely,\n\n${landlord}${phoneLine}\n\n_________________________\nSignature (Landlord / Property Manager)`;
   const out=document.getElementById("output");
   out.innerText=text.trim();out.classList.add("has-content");
+
+  gtag('event', 'generate_letter', {
+    letter_type: 'landlord'
+  });
 }
 function copyLetter(){
   const t=document.getElementById("output").innerText;
   if(!t||t.includes("will appear here")){alert("Please generate the letter first.");return;}
-  navigator.clipboard.writeText(t);alert("Letter copied to clipboard.");
+  navigator.clipboard.writeText(t);
+
+  gtag('event', 'copy_text', {
+    letter_type: 'landlord'
+  });
+
+  alert("Letter copied to clipboard.");
 }
 function downloadPDF(){
   const t=document.getElementById("output").innerText;
@@ -196,6 +206,10 @@ function downloadPDF(){
   doc.setFont("times","normal");doc.setFontSize(12);
   doc.text(doc.splitTextToSize(t,180),15,20);
   doc.save("landlord-letter-canada.pdf");
+
+  gtag('event', 'download_pdf', {
+    letter_type: 'landlord'
+  });
 }
 document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>q.parentElement.classList.toggle('open')));
 </script>
@@ -241,6 +255,11 @@ async function submitContact(e){
   try {
     const res = await fetch('https://formspree.io/f/mkoaoape', { method:'POST', body:data, headers:{'Accept':'application/json'} });
     if(res.ok){
+
+      gtag('event', 'contact_form_submit', {
+        letter_type: 'landlord'
+      });
+
       form.style.display='none';
       document.getElementById('contactSuccess').style.display='block';
       setTimeout(()=>{ closeContact(); form.style.display='block'; document.getElementById('contactSuccess').style.display='none'; form.reset(); btn.textContent='Send Message'; btn.disabled=false; }, 3000);
