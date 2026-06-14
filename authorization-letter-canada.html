@@ -2,21 +2,23 @@
 <html lang="en">
 <head> 
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NGF0TJ0BNY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-NGF0TJ0BNY');
-</script>
-<meta charset="UTF-8">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.85em%22 font-size=%2275%22>🍁</text><text x=%2250%22 y=%22.92em%22 font-size=%2228%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22>LH</text></svg>">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Authorization Letter Canada – Free Generator | LetterHelper.ca</title>
-<meta name="description" content="Generate a free authorization letter for Canada. Allow someone to act on your behalf for documents, vehicles, medical, banking & more. No signup. Instant PDF download.">
-<link rel="stylesheet" href="css/style.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NGF0TJ0BNY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NGF0TJ0BNY');
+  </script>
+
+  <meta charset="UTF-8">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.85em%22 font-size=%2275%22>🍁</text><text x=%2250%22 y=%22.92em%22 font-size=%2228%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22>LH</text></svg>">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Authorization Letter Canada – Free Generator | LetterHelper.ca</title>
+  <meta name="description" content="Generate a free authorization letter for Canada. Allow someone to act on your behalf for documents, vehicles, medical, banking & more. No signup. Instant PDF download.">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
+
 <body>
 
 <div class="navbar">
@@ -99,6 +101,7 @@
     <button class="pdf-btn" onclick="downloadPDF()">⬇ Download PDF</button>
     <button class="secondary" onclick="window.print()">🖨 Print</button>
   </div>
+
   <div id="output">Your authorization letter will appear here after you click Generate.</div>
 </div>
 
@@ -166,38 +169,86 @@
 </footer>
 
 <script>
-function fillPurpose(t){document.getElementById('purpose').value=t;}
+function fillPurpose(t){
+  document.getElementById('purpose').value = t;
+}
+
 function generateLetter(){
-  const name=document.getElementById("name").value.trim()||"[Your Name]";
-  const myid=document.getElementById("myid").value.trim();
-  const person=document.getElementById("person").value.trim()||"[Authorized Person]";
-  const relation=document.getElementById("relation").value.trim();
-  const purpose=document.getElementById("purpose").value.trim()||"[Purpose of Authorization]";
-  const start=document.getElementById("start").value.trim()||"[Start Date]";
-  const end=document.getElementById("end").value.trim()||"[End Date]";
-  const phone=document.getElementById("phone").value.trim();
-  const today=new Date().toLocaleDateString('en-CA',{year:'numeric',month:'long',day:'numeric'});
-  const idLine=myid?"\n(ID / DOB: "+myid+")":"";
-  const relationLine=relation?", my "+relation+",":"";
-  const phoneLine=phone?"\nContact: "+phone:"";
-  const text=today+"\n\nTo Whom It May Concern,\n\nI, "+name+","+idLine+" hereby authorize "+person+relationLine+" to act on my behalf for the following purpose:\n\n"+purpose+"\n\nThis authorization is valid from "+start+" to "+end+".\n\nI confirm that this authorization is given voluntarily, that the information provided is accurate, and that "+person+" has my full permission to carry out the above-mentioned task(s) during the specified period.\n\nPlease extend the same cooperation to "+person+" as you would to me directly.\n\nSincerely,\n\n\n"+name+phoneLine+"\n\n_________________________\nSignature";
-  const out=document.getElementById("output");
-  out.innerText=text.trim();out.classList.add("has-content");
+  const name = document.getElementById("name").value.trim() || "[Your Name]";
+  const myid = document.getElementById("myid").value.trim();
+  const person = document.getElementById("person").value.trim() || "[Authorized Person]";
+  const relation = document.getElementById("relation").value.trim();
+  const purpose = document.getElementById("purpose").value.trim() || "[Purpose of Authorization]";
+  const start = document.getElementById("start").value.trim() || "[Start Date]";
+  const end = document.getElementById("end").value.trim() || "[End Date]";
+  const phone = document.getElementById("phone").value.trim();
+  const today = new Date().toLocaleDateString('en-CA', {year:'numeric', month:'long', day:'numeric'});
+
+  const idLine = myid ? "\n(ID / DOB: " + myid + ")" : "";
+  const relationLine = relation ? ", my " + relation + "," : "";
+  const phoneLine = phone ? "\nContact: " + phone : "";
+
+  const text = today +
+    "\n\nTo Whom It May Concern,\n\n" +
+    "I, " + name + "," + idLine + " hereby authorize " + person + relationLine + " to act on my behalf for the following purpose:\n\n" +
+    purpose + "\n\n" +
+    "This authorization is valid from " + start + " to " + end + ".\n\n" +
+    "I confirm that this authorization is given voluntarily, that the information provided is accurate, and that " + person + " has my full permission to carry out the above-mentioned task(s) during the specified period.\n\n" +
+    "Please extend the same cooperation to " + person + " as you would to me directly.\n\n" +
+    "Sincerely,\n\n\n" +
+    name + phoneLine +
+    "\n\n_________________________\nSignature";
+
+  const out = document.getElementById("output");
+  out.innerText = text.trim();
+  out.classList.add("has-content");
+
+  gtag('event', 'generate_letter', {
+    letter_type: 'authorization'
+  });
 }
+
 function copyLetter(){
-  const t=document.getElementById("output").innerText;
-  if(!t||t.includes("will appear here")){alert("Please generate the letter first.");return;}
-  navigator.clipboard.writeText(t);alert("Letter copied to clipboard.");
+  const t = document.getElementById("output").innerText;
+
+  if(!t || t.includes("will appear here")){
+    alert("Please generate the letter first.");
+    return;
+  }
+
+  navigator.clipboard.writeText(t);
+
+  gtag('event', 'copy_text', {
+    letter_type: 'authorization'
+  });
+
+  alert("Letter copied to clipboard.");
 }
+
 function downloadPDF(){
-  const t=document.getElementById("output").innerText;
-  if(!t||t.includes("will appear here")){alert("Please generate the letter first.");return;}
-  const{jsPDF}=window.jspdf;const doc=new jsPDF();
-  doc.setFont("times","normal");doc.setFontSize(12);
-  doc.text(doc.splitTextToSize(t,180),15,20);
+  const t = document.getElementById("output").innerText;
+
+  if(!t || t.includes("will appear here")){
+    alert("Please generate the letter first.");
+    return;
+  }
+
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+
+  doc.setFont("times", "normal");
+  doc.setFontSize(12);
+  doc.text(doc.splitTextToSize(t, 180), 15, 20);
   doc.save("authorization-letter-canada.pdf");
+
+  gtag('event', 'download_pdf', {
+    letter_type: 'authorization'
+  });
 }
-document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>q.parentElement.classList.toggle('open')));
+
+document.querySelectorAll('.faq-q').forEach(q => 
+  q.addEventListener('click', () => q.parentElement.classList.toggle('open'))
+);
 </script>
 
 <!-- Contact Modal -->
@@ -228,27 +279,62 @@ document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>q.
 </div>
 
 <script>
-function openContact(){ document.getElementById('contactModal').style.display='flex'; document.body.style.overflow='hidden'; }
-function closeContact(){ document.getElementById('contactModal').style.display='none'; document.body.style.overflow=''; }
-window.addEventListener('click', function(e){ if(e.target===document.getElementById('contactModal')) closeContact(); });
+function openContact(){
+  document.getElementById('contactModal').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeContact(){
+  document.getElementById('contactModal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+window.addEventListener('click', function(e){
+  if(e.target === document.getElementById('contactModal')){
+    closeContact();
+  }
+});
+
 async function submitContact(e){
   e.preventDefault();
+
   const btn = document.getElementById('contactSubmit');
   btn.textContent = 'Sending...';
   btn.disabled = true;
+
   const form = document.getElementById('contactForm');
   const data = new FormData(form);
+
   try {
-    const res = await fetch('https://formspree.io/f/mkoaoape', { method:'POST', body:data, headers:{'Accept':'application/json'} });
+    const res = await fetch('https://formspree.io/f/mkoaoape', {
+      method: 'POST',
+      body: data,
+      headers: {'Accept':'application/json'}
+    });
+
     if(res.ok){
-      form.style.display='none';
-      document.getElementById('contactSuccess').style.display='block';
-      setTimeout(()=>{ closeContact(); form.style.display='block'; document.getElementById('contactSuccess').style.display='none'; form.reset(); btn.textContent='Send Message'; btn.disabled=false; }, 3000);
+      gtag('event', 'contact_form_submit', {
+        letter_type: 'authorization'
+      });
+
+      form.style.display = 'none';
+      document.getElementById('contactSuccess').style.display = 'block';
+
+      setTimeout(() => {
+        closeContact();
+        form.style.display = 'block';
+        document.getElementById('contactSuccess').style.display = 'none';
+        form.reset();
+        btn.textContent = 'Send Message';
+        btn.disabled = false;
+      }, 3000);
+
     } else {
       btn.textContent = 'Send Message';
       btn.disabled = false;
       alert('Something went wrong. Please try again.');
     }
+
   } catch(err){
     btn.textContent = 'Send Message';
     btn.disabled = false;
