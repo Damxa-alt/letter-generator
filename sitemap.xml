@@ -1,63 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
     <loc>https://letterhelper.ca/</loc>
     <priority>1.0</priority>
   </url>
-  <url>
-    <loc>https://letterhelper.ca/authorization-letter-canada.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://letterhelper.ca/consent-letter-canada.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://letterhelper.ca/cosigner-letter-canada.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://letterhelper.ca/employment-letter-canada.html</loc>
-    <priority>0.8</priority>
-  </url>
+
   <url>
     <loc>https://letterhelper.ca/invitation-letter-canada.html</loc>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://letterhelper.ca/landlord-letter-canada.html</loc>
-    <priority>0.8</priority>
-  </url>
+
   <url>
     <loc>https://letterhelper.ca/proof-of-address-canada.html</loc>
     <priority>0.8</priority>
   </url>
+
+  <url>
+    <loc>https://letterhelper.ca/employment-letter-canada.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://letterhelper.ca/consent-letter-canada.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://letterhelper.ca/landlord-letter-canada.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://letterhelper.ca/authorization-letter-canada.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://letterhelper.ca/cosigner-letter-canada.html</loc>
+    <priority>0.8</priority>
+  </url>
+
   <url>
     <loc>https://letterhelper.ca/temporary-accommodation-letter-canada.html</loc>
     <priority>0.8</priority>
   </url>
+
   <url>
     <loc>https://letterhelper.ca/reference-letter-canada.html</loc>
     <priority>0.8</priority>
   </url>
+
   <url>
     <loc>https://letterhelper.ca/resignation-letter-canada.html</loc>
     <priority>0.8</priority>
   </url>
+
   <url>
     <loc>https://letterhelper.ca/character-reference-letter-canada.html</loc>
     <priority>0.8</priority>
   </url>
+
   <url>
     <loc>https://letterhelper.ca/immigration-support-letter-canada.html</loc>
     <priority>0.8</priority>
   </url>
+
   <url>
     <loc>https://letterhelper.ca/tenant-notice-letter-canada.html</loc>
     <priority>0.8</priority>
   </url>
+
   <url>
     <loc>https://letterhelper.ca/pdf-tools.html</loc>
     <priority>0.6</priority>
   </url>
+
+  <url>
+    <loc>https://letterhelper.ca/privacy-policy.html</loc>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://letterhelper.ca/disclaimer.html</loc>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>
