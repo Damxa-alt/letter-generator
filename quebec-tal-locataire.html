@@ -13,68 +13,82 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lettre au TAL – Droits du locataire Québec | LetterHelper.ca</title>
   <meta name="description" content="Générez gratuitement une lettre au Tribunal administratif du logement (TAL) du Québec. Réparations, plaintes, droits des locataires. Aucune inscription requise.">
+  <link rel="canonical" href="https://letterhelper.ca/quebec-tal-locataire.html">
+  <link rel="alternate" hreflang="fr-CA" href="https://letterhelper.ca/quebec-tal-locataire.html">
   <link rel="stylesheet" href="css/style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <style>
-    .site-wrapper{display:flex;min-height:100vh;}
-    .sidebar{width:240px;min-width:240px;background:#111827;color:#f9fafb;display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto;z-index:100;}
-    .sidebar-logo{padding:20px 18px 14px;border-bottom:1px solid #1f2937;}
-    .sidebar-logo a{text-decoration:none;display:flex;align-items:center;gap:8px;}
-    .logo-text{font-family:'Playfair Display',Georgia,serif;font-size:17px;font-weight:700;color:#f9fafb;line-height:1.2;}
-    .logo-sub{font-size:10px;color:#9ca3af;letter-spacing:0.08em;text-transform:uppercase;}
-    .sidebar-support{margin:12px 14px;padding:10px 12px;background:#1f2937;border-radius:8px;font-size:11.5px;color:#9ca3af;line-height:1.5;text-align:center;}
-    .sidebar-support a{color:#d1fae5;text-decoration:underline;font-weight:600;}
-    .sidebar-nav{padding:8px 0 20px;flex:1;}
-    .nav-category{padding:12px 18px 4px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#6b7280;}
-    .sidebar-nav a{display:flex;align-items:center;gap:9px;padding:8px 18px;color:#d1d5db;text-decoration:none;font-size:13.5px;transition:background 0.15s,color 0.15s;line-height:1.3;}
-    .sidebar-nav a:hover{background:#1f2937;color:#f9fafb;}
-    .sidebar-nav a.active{background:#1d4ed8;color:#fff;font-weight:600;}
-    .nav-icon{font-size:14px;width:18px;text-align:center;flex-shrink:0;}
-    .main-content{flex:1;min-width:0;}
-    .mobile-topbar{display:none;background:#111827;padding:12px 16px;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
-    .mobile-logo{color:#f9fafb;font-family:'Playfair Display',Georgia,serif;font-size:16px;font-weight:700;text-decoration:none;}
-    .mobile-menu-btn{background:none;border:none;color:#f9fafb;font-size:22px;cursor:pointer;padding:4px 8px;}
-    .mobile-nav-panel{display:none;background:#111827;padding:8px 0 16px;border-bottom:1px solid #1f2937;}
-    .mobile-nav-panel.open{display:block;}
-    @media(max-width:768px){.site-wrapper{flex-direction:column;}.sidebar{display:none;}.mobile-topbar{display:flex;}}
+    .site-wrapper { display: flex; min-height: 100vh; }
+    .sidebar { width: 240px; min-width: 240px; background: #111827; color: #f9fafb; display: flex; flex-direction: column; position: sticky; top: 0; height: 100vh; overflow-y: auto; z-index: 100; }
+    .sidebar-logo { padding: 20px 18px 14px; border-bottom: 1px solid #1f2937; }
+    .sidebar-logo a { text-decoration: none; display: flex; align-items: center; gap: 8px; }
+    .logo-text { font-family: 'Playfair Display', Georgia, serif; font-size: 17px; font-weight: 700; color: #f9fafb; line-height: 1.2; }
+    .logo-sub { font-size: 10px; color: #9ca3af; letter-spacing: 0.08em; text-transform: uppercase; }
+    .sidebar-support { margin: 12px 14px; padding: 10px 12px; background: #1f2937; border-radius: 8px; font-size: 11.5px; color: #9ca3af; line-height: 1.5; text-align: center; }
+    .sidebar-support a { color: #d1fae5; text-decoration: underline; font-weight: 600; }
+    .sidebar-nav { padding: 8px 0 20px; flex: 1; }
+    .nav-category { padding: 12px 18px 4px; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #6b7280; }
+    .sidebar-nav a { display: flex; align-items: center; gap: 9px; padding: 8px 18px; color: #d1d5db; text-decoration: none; font-size: 13.5px; transition: background 0.15s, color 0.15s; line-height: 1.3; }
+    .sidebar-nav a:hover { background: #1f2937; color: #f9fafb; }
+    .sidebar-nav a.active { background: #1d4ed8; color: #fff; font-weight: 600; }
+    .nav-icon { font-size: 14px; width: 18px; text-align: center; flex-shrink: 0; }
+    .main-content { flex: 1; min-width: 0; }
+    .mobile-topbar { display: none; background: #111827; padding: 12px 16px; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 200; }
+    .mobile-logo { color: #f9fafb; font-family: 'Playfair Display', Georgia, serif; font-size: 16px; font-weight: 700; text-decoration: none; }
+    .mobile-menu-btn { background: none; border: none; color: #f9fafb; font-size: 22px; cursor: pointer; padding: 4px 8px; }
+    .mobile-nav-panel { display: none; background: #111827; padding: 8px 0 16px; border-bottom: 1px solid #1f2937; }
+    .mobile-nav-panel.open { display: block; }
+    @media (max-width: 768px) {
+      .site-wrapper { flex-direction: column; }
+      .sidebar { display: none; }
+      .mobile-topbar { display: flex; }
+    }
   </style>
 </head>
 <body>
 
 <div class="mobile-topbar">
   <a href="index.html" class="mobile-logo">🍁 LetterHelper.ca</a>
-  <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+  <button class="mobile-menu-btn" onclick="document.getElementById('mobileNav').classList.toggle('open')">☰</button>
 </div>
+
 <div class="mobile-nav-panel" id="mobileNav">
-  <div style="padding:0 16px;">
+  <div style="padding: 0 16px;">
     <div class="nav-category" style="color:#6b7280;">🗺️ Québec</div>
     <a href="quebec-tal-locataire.html" style="color:#d1d5db;display:block;padding:7px 16px;text-decoration:none;font-size:14px;">TAL – Droits du locataire</a>
     <a href="quebec-droits-langue-francaise.html" style="color:#d1d5db;display:block;padding:7px 16px;text-decoration:none;font-size:14px;">Droits linguistiques (Loi 101)</a>
     <a href="quebec-ramq.html" style="color:#d1d5db;display:block;padding:7px 16px;text-decoration:none;font-size:14px;">RAMQ – Assurance maladie</a>
     <a href="quebec-appel-cegep.html" style="color:#d1d5db;display:block;padding:7px 16px;text-decoration:none;font-size:14px;">Appel au CÉGEP</a>
-    <div class="nav-category" style="color:#6b7280;margin-top:8px;">📋 Autres lettres</div>
+    <div class="nav-category" style="color:#6b7280; margin-top:8px;">📋 Autres lettres</div>
     <a href="index.html" style="color:#d1d5db;display:block;padding:7px 16px;text-decoration:none;font-size:14px;">← Toutes les lettres</a>
   </div>
 </div>
 
 <div class="site-wrapper">
+
   <aside class="sidebar">
     <div class="sidebar-logo">
       <a href="index.html">
         <span style="font-size:22px;">🍁</span>
-        <div><div class="logo-text">LetterHelper.ca</div><div class="logo-sub">Lettres canadiennes gratuites</div></div>
+        <div>
+          <div class="logo-text">LetterHelper.ca</div>
+          <div class="logo-sub">Lettres canadiennes gratuites</div>
+        </div>
       </a>
     </div>
+
     <div class="sidebar-support">
       Cet outil est gratuit et le restera.<br>
       S'il vous a été utile, <a href="#" onclick="openContact();return false;">une contribution</a> aide à le maintenir.
     </div>
+
     <nav class="sidebar-nav">
       <div class="nav-category">🗺️ Québec — En français</div>
       <a href="quebec-tal-locataire.html" class="active"><span class="nav-icon">🏛️</span> TAL – Droits du locataire</a>
       <a href="quebec-droits-langue-francaise.html"><span class="nav-icon">🗣️</span> Droits linguistiques</a>
       <a href="quebec-ramq.html"><span class="nav-icon">🏥</span> RAMQ</a>
       <a href="quebec-appel-cegep.html"><span class="nav-icon">🎓</span> Appel au CÉGEP</a>
+
       <div class="nav-category">📋 Lettres en anglais</div>
       <a href="employment-letter-canada.html"><span class="nav-icon">💼</span> Lettre d'emploi</a>
       <a href="landlord-letter-canada.html"><span class="nav-icon">🏠</span> Lettre au propriétaire</a>
@@ -84,6 +98,7 @@
   </aside>
 
   <div class="main-content">
+
     <div class="hero">
       <h1>Lettre au TAL – Droits du locataire</h1>
       <p>Rédigez une lettre formelle au Tribunal administratif du logement du Québec en moins d'une minute.</p>
@@ -178,6 +193,10 @@
           <div class="faq-q">La lettre doit-elle être en français?</div>
           <div class="faq-a">Au Québec, vous avez le droit de communiquer en français avec votre propriétaire et les organismes publics. Une lettre en français est recommandée et pleinement valide devant le TAL.</div>
         </div>
+        <div class="faq-item">
+          <div class="faq-q">Puis-je utiliser cette lettre pour une mise en demeure?</div>
+          <div class="faq-a">Oui. Sélectionnez le bouton "Mise en demeure" dans les suggestions rapides. La lettre générée constituera un avis formel à votre propriétaire. Conservez toujours une copie signée et gardez une preuve d'envoi (courriel, recommandé, etc.).</div>
+        </div>
       </div>
     </div>
 
@@ -185,8 +204,14 @@
 
     <footer class="footer">
       <p>© 2026 LetterHelper.ca — Générateur de lettres canadiennes gratuit</p>
-      <p><a href="index.html">Accueil</a><a href="privacy-policy.html">Politique de confidentialité</a><a href="disclaimer.html">Avis de non-responsabilité</a><a href="#" onclick="openContact();return false;">Contact</a></p>
+      <p>
+        <a href="index.html">Accueil</a>
+        <a href="privacy-policy.html">Politique de confidentialité</a>
+        <a href="disclaimer.html">Avis de non-responsabilité</a>
+        <a href="#" onclick="openContact();return false;">Contact</a>
+      </p>
     </footer>
+
   </div>
 </div>
 
@@ -196,69 +221,138 @@
     <button onclick="closeContact()" style="position:absolute;top:15px;right:15px;background:none;border:none;font-size:24px;cursor:pointer;color:#6b7280;">×</button>
     <h2 style="margin:0 0 8px;font-family:'Playfair Display',Georgia,serif;font-size:24px;">Contactez-nous</h2>
     <p style="margin:0 0 20px;color:#6b7280;font-size:14px;">Envoyez-nous un message et nous vous répondrons.</p>
-    <div id="contactSuccess" style="display:none;background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:16px;margin-bottom:16px;color:#166534;font-size:14px;">✅ Merci! Votre message a été envoyé.</div>
+    <div id="contactSuccess" style="display:none;background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:16px;margin-bottom:16px;color:#166534;font-size:14px;">
+      ✅ Merci! Votre message a été envoyé.
+    </div>
     <form id="contactForm" action="https://formspree.io/f/mkoaoape" method="POST" onsubmit="submitContact(event)">
-      <div style="margin-bottom:14px;"><label style="display:block;font-weight:600;font-size:13px;color:#374151;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:5px;">Votre nom</label><input type="text" name="name" required placeholder="ex. Marie Tremblay" style="width:100%;padding:11px 14px;border-radius:8px;border:1.5px solid #e5e7eb;font-size:15px;box-sizing:border-box;font-family:inherit;"></div>
-      <div style="margin-bottom:14px;"><label style="display:block;font-weight:600;font-size:13px;color:#374151;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:5px;">Votre courriel</label><input type="email" name="email" required placeholder="ex. marie@courriel.com" style="width:100%;padding:11px 14px;border-radius:8px;border:1.5px solid #e5e7eb;font-size:15px;box-sizing:border-box;font-family:inherit;"></div>
-      <div style="margin-bottom:20px;"><label style="display:block;font-weight:600;font-size:13px;color:#374151;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:5px;">Message</label><textarea name="message" required placeholder="Comment pouvons-nous vous aider?" rows="4" style="width:100%;padding:11px 14px;border-radius:8px;border:1.5px solid #e5e7eb;font-size:15px;box-sizing:border-box;font-family:inherit;resize:vertical;"></textarea></div>
+      <div style="margin-bottom:14px;">
+        <label style="display:block;font-weight:600;font-size:13px;color:#374151;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:5px;">Votre nom</label>
+        <input type="text" name="name" required placeholder="ex. Marie Tremblay" style="width:100%;padding:11px 14px;border-radius:8px;border:1.5px solid #e5e7eb;font-size:15px;box-sizing:border-box;font-family:inherit;">
+      </div>
+      <div style="margin-bottom:14px;">
+        <label style="display:block;font-weight:600;font-size:13px;color:#374151;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:5px;">Votre courriel</label>
+        <input type="email" name="email" required placeholder="ex. marie@courriel.com" style="width:100%;padding:11px 14px;border-radius:8px;border:1.5px solid #e5e7eb;font-size:15px;box-sizing:border-box;font-family:inherit;">
+      </div>
+      <div style="margin-bottom:20px;">
+        <label style="display:block;font-weight:600;font-size:13px;color:#374151;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:5px;">Message</label>
+        <textarea name="message" required placeholder="Comment pouvons-nous vous aider?" rows="4" style="width:100%;padding:11px 14px;border-radius:8px;border:1.5px solid #e5e7eb;font-size:15px;box-sizing:border-box;font-family:inherit;resize:vertical;"></textarea>
+      </div>
       <button type="submit" id="contactSubmit" style="width:100%;padding:14px;background:#111827;color:white;border:none;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;">Envoyer</button>
     </form>
   </div>
 </div>
 
 <script>
-function toggleMobileMenu(){document.getElementById('mobileNav').classList.toggle('open');}
-function fillPurpose(t){document.getElementById('purpose').value=t;}
-function generateLetter(){
-  const name=document.getElementById('name').value.trim()||'[Votre nom]';
-  const address=document.getElementById('address').value.trim()||'[Votre adresse]';
-  const landlord=document.getElementById('landlord').value.trim()||'[Nom du propriétaire]';
-  const landlordAddress=document.getElementById('landlordAddress').value.trim();
-  const purpose=document.getElementById('purpose').value.trim()||'[Objet de la demande]';
-  const incidentDate=document.getElementById('incidentDate').value.trim()||'[Date de l\'incident]';
-  const phone=document.getElementById('phone').value.trim();
-  const today=new Date().toLocaleDateString('fr-CA',{year:'numeric',month:'long',day:'numeric'});
-  const landlordAddrLine=landlordAddress?'\n'+landlordAddress:'';
-  const phoneLine=phone?'\nTéléphone : '+phone:'';
-  const text=name+'\n'+address+phoneLine+'\n\n'+today+'\n\n'+landlord+landlordAddrLine+'\n\nObjet : Demande formelle — droits du locataire\n\nMonsieur, Madame,\n\nJe me permets de vous écrire au sujet du logement situé au '+address+'.\n\nLe '+incidentDate+', j\'ai constaté la situation suivante, pour laquelle je vous demande d\'intervenir dans les meilleurs délais :\n\n'+purpose+'\n\nEn vertu du Code civil du Québec et de la Loi sur la Régie du logement, vous êtes tenu(e) d\'assurer la jouissance paisible des lieux et d\'effectuer toutes les réparations nécessaires au maintien du logement en bon état.\n\nSi aucune action n\'est prise dans un délai de 10 jours ouvrables suivant la réception de la présente lettre, je me verrai dans l\'obligation de déposer une demande auprès du Tribunal administratif du logement (TAL).\n\nVeuillez agréer, Monsieur, Madame, l\'expression de mes salutations distinguées.\n\n\n'+name+'\n\n_________________________\nSignature';
-  const out=document.getElementById('output');
-  out.innerText=text.trim();
-  out.classList.add('has-content');
-  gtag('event','generate_letter',{letter_type:'quebec-tal'});
+function fillPurpose(t) {
+  document.getElementById('purpose').value = t;
 }
-function copyLetter(){
-  const t=document.getElementById('output').innerText;
-  if(!t||t.includes('apparaîtra')){alert('Veuillez d\'abord générer la lettre.');return;}
+
+function generateLetter() {
+  const name = document.getElementById('name').value.trim() || '[Votre nom]';
+  const address = document.getElementById('address').value.trim() || '[Votre adresse]';
+  const landlord = document.getElementById('landlord').value.trim() || '[Nom du propriétaire]';
+  const landlordAddress = document.getElementById('landlordAddress').value.trim();
+  const purpose = document.getElementById('purpose').value.trim() || '[Objet de la demande]';
+  const incidentDate = document.getElementById('incidentDate').value.trim() || '[Date de l\'incident]';
+  const phone = document.getElementById('phone').value.trim();
+  const today = new Date().toLocaleDateString('fr-CA', {year:'numeric', month:'long', day:'numeric'});
+  const landlordAddrLine = landlordAddress ? '\n' + landlordAddress : '';
+  const phoneLine = phone ? '\nTéléphone : ' + phone : '';
+
+  const text =
+    name + '\n' + address + phoneLine +
+    '\n\n' + today +
+    '\n\n' + landlord + landlordAddrLine +
+    '\n\nObjet : Demande formelle — droits du locataire' +
+    '\n\nMonsieur, Madame,' +
+    '\n\nJe me permets de vous écrire au sujet du logement situé au ' + address + '.' +
+    '\n\nLe ' + incidentDate + ', j\'ai constaté la situation suivante, pour laquelle je vous demande d\'intervenir dans les meilleurs délais :' +
+    '\n\n' + purpose +
+    '\n\nEn vertu du Code civil du Québec et de la Loi sur la Régie du logement, vous êtes tenu(e) d\'assurer la jouissance paisible des lieux et d\'effectuer toutes les réparations nécessaires au maintien du logement en bon état.' +
+    '\n\nSi aucune action n\'est prise dans un délai de 10 jours ouvrables suivant la réception de la présente lettre, je me verrai dans l\'obligation de déposer une demande auprès du Tribunal administratif du logement (TAL).' +
+    '\n\nVeuillez agréer, Monsieur, Madame, l\'expression de mes salutations distinguées.' +
+    '\n\n\n' + name +
+    '\n\n_________________________\nSignature';
+
+  const out = document.getElementById('output');
+  out.innerText = text.trim();
+  out.classList.add('has-content');
+  gtag('event', 'generate_letter', { letter_type: 'quebec-tal' });
+}
+
+function copyLetter() {
+  const t = document.getElementById('output').innerText;
+  if (!t || t.includes('apparaîtra')) { alert('Veuillez d\'abord générer la lettre.'); return; }
   navigator.clipboard.writeText(t);
-  gtag('event','copy_text',{letter_type:'quebec-tal'});
+  gtag('event', 'copy_text', { letter_type: 'quebec-tal' });
   alert('Lettre copiée dans le presse-papiers.');
 }
-function downloadPDF(){
-  const t=document.getElementById('output').innerText;
-  if(!t||t.includes('apparaîtra')){alert('Veuillez d\'abord générer la lettre.');return;}
-  const{jsPDF}=window.jspdf;
-  const doc=new jsPDF();
-  doc.setFont('times','normal');
+
+function downloadPDF() {
+  const t = document.getElementById('output').innerText;
+  if (!t || t.includes('apparaîtra')) { alert('Veuillez d\'abord générer la lettre.'); return; }
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  doc.setFont('times', 'normal');
   doc.setFontSize(12);
-  doc.text(doc.splitTextToSize(t,180),15,20);
+  doc.text(doc.splitTextToSize(t, 180), 15, 20);
   doc.save('lettre-tal-locataire-quebec.pdf');
-  gtag('event','download_pdf',{letter_type:'quebec-tal'});
+  gtag('event', 'download_pdf', { letter_type: 'quebec-tal' });
 }
-document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>q.parentElement.classList.toggle('open')));
-function openContact(){document.getElementById('contactModal').style.display='flex';document.body.style.overflow='hidden';}
-function closeContact(){document.getElementById('contactModal').style.display='none';document.body.style.overflow='';}
-window.addEventListener('click',function(e){if(e.target===document.getElementById('contactModal'))closeContact();});
-async function submitContact(e){
+
+document.querySelectorAll('.faq-q').forEach(q =>
+  q.addEventListener('click', () => q.parentElement.classList.toggle('open'))
+);
+
+function openContact() {
+  document.getElementById('contactModal').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeContact() {
+  document.getElementById('contactModal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+window.addEventListener('click', function(e) {
+  if (e.target === document.getElementById('contactModal')) closeContact();
+});
+
+async function submitContact(e) {
   e.preventDefault();
-  const btn=document.getElementById('contactSubmit');
-  btn.textContent='Envoi...';btn.disabled=true;
-  const form=document.getElementById('contactForm');
-  try{
-    const res=await fetch('https://formspree.io/f/mkoaoape',{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
-    if(res.ok){form.style.display='none';document.getElementById('contactSuccess').style.display='block';setTimeout(()=>{closeContact();form.style.display='block';document.getElementById('contactSuccess').style.display='none';form.reset();btn.textContent='Envoyer';btn.disabled=false;},3000);}
-    else{btn.textContent='Envoyer';btn.disabled=false;alert('Une erreur est survenue. Veuillez réessayer.');}
-  }catch(err){btn.textContent='Envoyer';btn.disabled=false;alert('Une erreur est survenue. Veuillez réessayer.');}
+  const btn = document.getElementById('contactSubmit');
+  btn.textContent = 'Envoi en cours...';
+  btn.disabled = true;
+  const form = document.getElementById('contactForm');
+  try {
+    const res = await fetch('https://formspree.io/f/mkoaoape', {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      form.style.display = 'none';
+      document.getElementById('contactSuccess').style.display = 'block';
+      setTimeout(() => {
+        closeContact();
+        form.style.display = 'block';
+        document.getElementById('contactSuccess').style.display = 'none';
+        form.reset();
+        btn.textContent = 'Envoyer';
+        btn.disabled = false;
+      }, 3000);
+    } else {
+      btn.textContent = 'Envoyer';
+      btn.disabled = false;
+      alert('Une erreur est survenue. Veuillez réessayer.');
+    }
+  } catch(err) {
+    btn.textContent = 'Envoyer';
+    btn.disabled = false;
+    alert('Une erreur est survenue. Veuillez réessayer.');
+  }
 }
 </script>
+
 </body>
 </html>
