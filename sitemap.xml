@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <!-- HOME -->
   <url>
-    <loc>https://letterhelper.ca/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://letterhelper.ca/index.html"/>
+    <loc>https://letterhelper.ca/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -13,127 +11,109 @@
   <!-- ENGLISH PAGES -->
   <url>
     <loc>https://letterhelper.ca/employment-letter-canada.html</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://letterhelper.ca/employment-letter-canada.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://letterhelper.ca/resignation-letter-canada.html</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://letterhelper.ca/resignation-letter-canada.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://letterhelper.ca/reference-letter-canada.html</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://letterhelper.ca/reference-letter-canada.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://letterhelper.ca/character-reference-letter-canada.html</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://letterhelper.ca/character-reference-letter-canada.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://letterhelper.ca/landlord-letter-canada.html</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://letterhelper.ca/landlord-letter-canada.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://letterhelper.ca/tenant-notice-letter-canada.html</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://letterhelper.ca/tenant-notice-letter-canada.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://letterhelper.ca/proof-of-address-canada.html</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://letterhelper.ca/proof-of-address-canada.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://letterhelper.ca/temporary-accommodation-letter-canada.html</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://letterhelper.ca/temporary-accommodation-letter-canada.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://letterhelper.ca/immigration-support-letter-canada.html</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://letterhelper.ca/immigration-support-letter-canada.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://letterhelper.ca/invitation-letter-canada.html</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://letterhelper.ca/invitation-letter-canada.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://letterhelper.ca/authorization-letter-canada.html</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://letterhelper.ca/authorization-letter-canada.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://letterhelper.ca/consent-letter-canada.html</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://letterhelper.ca/consent-letter-canada.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://letterhelper.ca/cosigner-letter-canada.html</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://letterhelper.ca/cosigner-letter-canada.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://letterhelper.ca/pdf-tools.html</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://letterhelper.ca/pdf-tools.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
-  <!-- QUEBEC PAGES — FRENCH -->
+  <!-- QUEBEC / FRENCH PAGES -->
   <url>
     <loc>https://letterhelper.ca/quebec-tal-locataire.html</loc>
-    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://letterhelper.ca/quebec-tal-locataire.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://letterhelper.ca/quebec-droits-langue-francaise.html</loc>
-    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://letterhelper.ca/quebec-droits-langue-francaise.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://letterhelper.ca/quebec-ramq.html</loc>
-    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://letterhelper.ca/quebec-ramq.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://letterhelper.ca/quebec-appel-cegep.html</loc>
-    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://letterhelper.ca/quebec-appel-cegep.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
