@@ -71,7 +71,7 @@
       "name": "Does a travel consent letter need to be notarized?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Notarization may not always be required, but some families choose to have the letter witnessed or notarized to reduce questions during travel. Check the destination country, airline, and your legal situation."
+        "text": "The Canada Border Services Agency advises having the consent letter notarized to support its authenticity. Check the destination country, airline, and your legal situation because requirements can vary."
       }
     }
   ]
@@ -116,7 +116,7 @@
   <div class="info-card">
     <h2>Create a Travel Consent Letter in 3 Steps</h2>
     <ol>
-      <li>Enter the parent or guardian, child, companion, destination, and travel dates.</li>
+      <li>Enter the parent or guardian, child, companion, destination, travel dates, and contact details.</li>
       <li>Click <strong>Generate Letter</strong> to create the consent letter text.</li>
       <li>Copy, print, or download the completed travel consent letter as a PDF.</li>
     </ol>
@@ -142,6 +142,10 @@
     <div>
       <label>Second Parent Name (if applicable)</label>
       <input id="parent2" placeholder="e.g. Jordan Taylor (leave blank if sole guardian)">
+    </div>
+    <div class="form-full">
+      <label>Consenting Parent / Guardian Address</label>
+      <input id="parentAddress" placeholder="e.g. 123 Main Street, Toronto, Ontario, M1A 2B3">
     </div>
     <div>
       <label>Child's Full Name</label>
@@ -217,6 +221,7 @@
     <h2>What Should Be Included?</h2>
     <ul>
       <li>Consenting parent or guardian full name</li>
+      <li>Consenting parent or guardian address and telephone number</li>
       <li>Second parent or guardian name, if applicable</li>
       <li>Child's full name and date of birth</li>
       <li>Accompanying person's name and relationship to the child</li>
@@ -246,7 +251,7 @@
     </div>
     <div class="faq-item">
       <div class="faq-q">Does the letter need to be notarized?</div>
-      <div class="faq-a">Notarization is not always required, but some parents choose to have the letter witnessed or notarized for extra confidence during international travel. Check the airline, destination country, and your custody or guardianship situation.</div>
+      <div class="faq-a">The Canada Border Services Agency advises having the consent letter notarized to support its authenticity. Also check the airline, destination country, and your custody or guardianship situation because requirements can vary.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Should both parents sign the letter?</div>
@@ -277,7 +282,7 @@
     <p>Schools, sports teams, and group travel organizers may ask parents to provide signed permission before international travel. This template can help prepare a clear letter for those situations.</p>
 
     <h3>Before You Travel</h3>
-    <p>Check the airline, destination country, custody documents, and passport requirements before leaving Canada. For complicated custody or guardianship situations, speak with a legal professional before relying on any template.</p>
+    <p>Carry the child's passport or other required identification, and check the airline, destination country, custody documents, and entry requirements before leaving Canada. For complicated custody or guardianship situations, speak with a legal professional before relying on any template.</p>
   </div>
 </div>
 
@@ -293,9 +298,12 @@
     </ul>
   </div>
   <div class="info-card">
-    <h2>Official Travel Reminder</h2>
-    <p>This tool creates a simple letter for convenience. For official guidance, check the Government of Canada travel page about consent letters for children travelling outside Canada.</p>
-    <p><a href="https://travel.gc.ca/travelling/children/consent-letter" target="_blank" rel="noopener">Read the official Government of Canada consent letter guidance</a></p>
+    <h2>Official Sources and Review</h2>
+    <p><strong>Information reviewed July 17, 2026.</strong> This tool creates a simple letter for convenience. Always confirm current requirements with official sources before travelling.</p>
+    <ul>
+      <li><a href="https://travel.gc.ca/travelling/children/consent-letter" target="_blank" rel="noopener">Government of Canada: consent letters for children travelling abroad</a></li>
+      <li><a href="https://www.cbsa-asfc.gc.ca/travel-voyage/td-dv-eng.html" target="_blank" rel="noopener">Canada Border Services Agency: travel and identification documents</a></li>
+    </ul>
   </div>
 </div>
 
@@ -311,6 +319,7 @@ function fillPurpose(t){document.getElementById('purpose').value=t;}
 function generateLetter(){
   const parent=document.getElementById("parent").value.trim()||"[Parent Name]";
   const parent2=document.getElementById("parent2").value.trim();
+  const parentAddress=document.getElementById("parentAddress").value.trim()||"[Parent Address]";
   const child=document.getElementById("child").value.trim()||"[Child Name]";
   const dob=document.getElementById("dob").value.trim()||"[Date of Birth]";
   const accompany=document.getElementById("accompany").value.trim()||"[Accompanying Person]";
@@ -323,7 +332,7 @@ function generateLetter(){
   const today=new Date().toLocaleDateString('en-CA',{year:'numeric',month:'long',day:'numeric'});
   const emailLine=email?` | ${email}`:"";
   const parent2Block=parent2?`\n\nI, ${parent2}, also consent to this travel arrangement and confirm the above information is accurate.\n\n${parent2}\n_________________________\nSignature (Second Parent/Guardian)`:"";
-  const text=`${today}\n\nTo Whom It May Concern,\n\nRE: Travel Consent Letter for ${child}\n\nI, ${parent}, am the parent/legal guardian of ${child}, date of birth ${dob}.\n\nI hereby give my full consent for ${child} to travel with ${accompany} (${relation}) to ${destination}.\n\nTravel Dates: ${dates}\n\nPurpose of Travel: ${purpose}\n\nI authorize ${accompany} to accompany ${child} during this trip and to assist with travel-related care and welfare during the travel period. This travel consent letter may be shown to airline staff, border officers, immigration officials, or travel organizers if requested. In case of emergency, I can be reached at: ${phone}${emailLine}\n\nI confirm that this consent is given voluntarily and that all information provided is true and accurate.\n\nSincerely,\n\n${parent}\n_________________________\nSignature (Parent/Guardian)${parent2Block}`;
+  const text=`${today}\n\nTo Whom It May Concern,\n\nRE: Travel Consent Letter for ${child}\n\nI, ${parent}, residing at ${parentAddress}, am the parent/legal guardian of ${child}, date of birth ${dob}.\n\nI hereby give my full consent for ${child} to travel with ${accompany} (${relation}) to ${destination}.\n\nTravel Dates: ${dates}\n\nPurpose of Travel: ${purpose}\n\nI authorize ${accompany} to accompany ${child} during this trip and to assist with travel-related care and welfare during the travel period. This travel consent letter may be shown to airline staff, border officers, immigration officials, or travel organizers if requested. In case of emergency, I can be reached at: ${phone}${emailLine}\n\nI confirm that this consent is given voluntarily and that all information provided is true and accurate.\n\nSincerely,\n\n${parent}\nAddress: ${parentAddress}\nTelephone: ${phone}${emailLine}\n\n_________________________\nSignature (Parent/Guardian)${parent2Block}`;
   const out=document.getElementById("output");
   out.innerText=text.trim();out.classList.add("has-content");
   gtag('event', 'generate_letter', {
